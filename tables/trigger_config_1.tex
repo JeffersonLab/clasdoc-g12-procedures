@@ -1,0 +1,38 @@
+\begin{table}
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{singlespacing}
+
+\caption[Trigger Configuration 1]{\label{tab:data.trig.conf.1}Trigger configuration for \g12 runs from 56363 to 56594 and 56608 to 56647. (\abbr{ST}$\times$\abbr{TOF})$_{i}$ indicates a single \emph{prong} which is a trigger-level track defined as a coincidence between a start counter and time-of-flight hit in the \ith\ sector or any sector if the subscript index, $i$, is not specified. An added $\times$2 or $\times$3 indicates the coincidence of multiple \emph{prongs} which are not in the same sector. \abbr{MORA} and \abbr{MORB} represent coincidences with tagger hits within a certain energy range as specified in Table~\ref{tab:data.trig.mor}.}
+
+\begin{tabular}{cccc}
+
+\hline \hline
+
+\multicolumn{4}{c}{\g12 runs 56363--56594, 56608--56647} \\
+
+\hline
+
+bit & definition & L2 multiplicity & prescale \\
+
+\hline
+
+1 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{1}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+2 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{2}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+3 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{3}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+4 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{4}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+5 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{5}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+6 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$_{6}\cdot$(\abbr{ST}$\times$\abbr{TOF}) & -- & 1 \\
+7 & \abbr{ST}$\times$\abbr{TOF} & -- & 1 \\
+8 & \abbr{MORA}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$\times$2 & -- & 1 \\
+11\footnote{bit 11 and \abbr{MORB} were included in the trigger starting with run 56519.} & \abbr{MORB}$\cdot$(\abbr{ST}$\times$\abbr{TOF})$\times$2 & -- & 1 \\
+12 & (\abbr{ST}$\times$\abbr{TOF})$\times$3 & -- & 1 \\
+
+\hline \hline
+
+\end{tabular}
+
+\end{singlespacing}
+\end{center}
+\end{minipage}
+\end{table}

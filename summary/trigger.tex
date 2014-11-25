@@ -1,0 +1,36 @@
+\subsection{\label{sec:summary.trigger}Trigger Configurations}
+
+\begin{center} \color{OliveGreen}
+This section is an excerpt from the disseration by J.T.\ Goetz\cite{clas.thesis.goetz}.
+\end{center}
+
+The \desg{g12} experiment was the first Hall \desg{B} run-period to implement field programmable gate array (\abbr{FPGA}) processors to handle the trigger logic of the \abbr{abbr{CLAS}} detector (see Sec.~\ref{sec:clas.daq}). With this new \abbr{FPGA}-powered triggering system, came the ability to modify the trigger quickly during the experiment. While potentially dangerous --- these changes must be accounted for in total-cross-sectional analyses for example --- this allowed the group to tune the trigger to get the highest possible rate of physical events.
+
+The trigger bits used during the \desg{g12} running period are defined in Tables~\ref{tab:data.trig.conf.1}, \ref{tab:data.trig.conf.2} and \ref{tab:data.trig.conf.3}. They generally consisted of a number of tracks which were the coincidence of any one of the four start counter paddles and any of the 57 time-of-flight paddles in a given sector as discussed in Sec.~\ref{sec:clas.daq}. The hardware and configuration did not allow triggering on two tracks in the same sector because there were only six signals coming from the \abbr{TOF} --- one for each sector. The coincidence of these tracks with the photon tagger, called the ``Master-\abbr{OR},'' is defined in Table~\ref{tab:data.trig.mor}.
+
+\input{tables/trigger_config_1} % label: tab:data.trig.conf.1
+
+\input{tables/trigger_config_2} % label: tab:data.trig.conf.2
+
+\input{tables/trigger_config_3} % label: tab:data.trig.conf.3
+
+\input{tables/trigger_mor.tex} % label:  tab:data.trig.mor
+
+There were two sets of thresholds for the \abbr{EC} labeled \emph{photon} and \emph{electron}. These labels did not mean photon or electron specifically, but were considered a first-order approximation. The actual particle identification was done much later in the analysis of the reconstructed data. The thresholds for the \abbr{CC} and \abbr{EC} during the \desg{g12} running period are shown in Table~\ref{tab:data.ecccthresh}.
+
+\input{tables/trigger_ec_cc} % label: tab:data.ecccthresh
+
+\subsection{\label{sec:data.trig.eff}Trigger Efficiency Study}
+
+\begin{center} \color{OliveGreen}
+This section is an excerpt from the disseration by J.T.\ Goetz\cite{clas.thesis.goetz}.
+\end{center}
+
+In the first few weeks of \desg{g12}, during ``commissioning,'' an attempt to determine the efficiency of the two-track trigger (bit 8 in Tables.~\ref{tab:data.trig.conf.1} and \ref{tab:data.trig.conf.2}) was made. The rate of this main production trigger rose quadratically with the beam current while the physical event rate increased linearly. The number of accidentals, which must be cut from any analysis, increased with increasing current and at a certain point, the majority of the events taken were accidentals. The trigger rate as a function of the beam current is shown in Fig.~\ref{fig:data.trig.eff}. An estimate of the linear part of the trigger rate shows that approximately 60\% of the events recorded during the \desg{g12} experiment (which ran at 60--65~nA beam current) were accidentals.
+
+\begin{figure}\begin{center}
+\includegraphics[width=0.7\columnwidth]{figures/calibration/trigger/trigger_study.eps}
+\caption[Trigger Rate vs. Beam Current]{\label{fig:data.trig.eff}The production trigger rate (bit 8 in Tables~\ref{tab:data.trig.conf.1} and \ref{tab:data.trig.conf.2}) was measured for various beam currents shown by the blue dots. The rates below 10~nA are roughly linear and are extrapolated via the red solid line to show an estimate of the physical event rate. The actual trigger rate is fitted with a quadratic shown by the green dashed line. By this estimate, the accidental rate is shown to equal the physical event rate at approximately 40~nA. The \desg{g12} experiment was done at 60--65~nA.}
+\end{center}\end{figure}
+
+\clearpage

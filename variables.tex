@@ -1,0 +1,112 @@
+\newlength{\figwidth}
+\setlength{\figwidth}{0.9\columnwidth}
+
+\newlength{\qfigheight}
+\setlength{\qfigheight}{0.25\textheight}
+
+\newlength{\hfigheight}
+\setlength{\hfigheight}{0.5\textheight}
+
+\newcommand{\abbr}[1]{\textsc{\texttt{#1}}}
+\newcommand{\desg}[1]{\texttt{#1}}
+
+\newcommand{\todo}[1]{\textbf{\textcolor{Orange}{#1}}}
+
+\def\CLAS{\texttt{CLAS}}
+\def\g11{\textit{g11}}
+\def\g12{\textit{g12}}
+
+\def\Lqcd{\mathcal{L}_{\mathtt{QCD}}}
+\def\qfield{\psi}
+\def\qbarfield{\overline{\psi}}
+
+\newcommand{\bank}[4]{$\mathtt{#1}^{#2}_{#3}\lbrack\mathtt{#4}\rbrack$}
+
+\def\th{\textsuperscript{th}}
+\def\ith{i\th}
+
+\def\um{{\textmu}m}
+\def\d{\mathrm{d}}
+
+%\def\coloronline{(Color online.)\ }
+\def\coloronline{}
+
+%%% quarks
+\def\uquark{\mathbf{u}}
+\def\dquark{\mathbf{d}}
+\def\squark{\mathbf{s}}
+
+%%% particles
+\def\photon{\gammaup}
+\def\electron{\mathrm{e}^-}
+\def\positron{\mathrm{e}^+}
+\def\nucleon{\mathrm{N}}
+\def\proton{\mathrm{p}}
+\def\neutron{\mathrm{n}}
+\def\pion{\piup}
+\def\kaon{\mathrm{K}}
+\def\hyperon{\mathrm{Y}}
+\def\etameson{\etaup}
+\def\omegameson{\omegaup}
+\def\phimeson{\varphiup}
+\def\rhomeson{\rhoup}
+
+%%% TAGGER and RF related times
+\def\trf{t_{\mathtt{RF}}}
+\def\ttag{t_{\mathtt{TAG}}}
+\def\ttagrf{t_{\mathtt{TAG,RF}}}
+\def\tpho{t_\mathrm{photon}}
+\def\tprop{t_\mathrm{prop}}
+\def\ttrigoffset{t_{\mathrm{trigger-offset}}}
+
+\def\dtpho{\Delta\tpho}
+
+%%% BEAM energy
+\def\ebeam{E_{\mathrm{beam}}}
+
+%%% TOF Energy deposit
+\def\etof{\frac{\mathrm{d}E}{\mathrm{d}x}(\mathtt{TOF})}
+\def\varetof{\mathrm{d}E/\mathrm{d}x(\mathtt{TOF})}
+
+%%% Beta
+\def\betasttof{\beta_\mathtt{ST-TOF}}
+\def\betatof{\beta_\mathtt{TOF}}
+\def\betapid{\beta_\mathtt{PID}}
+
+%%% path lengths
+\def\lst{\ell_{\mathtt{ST}}}
+\def\ltof{\ell_{\mathtt{TOF}}}
+\def\lsttof{\ell_{\mathtt{ST-TOF}}}
+
+%%% raw subsystem times
+\def\tst{t_{\mathtt{ST}}}
+\def\ttof{t_{\mathtt{TOF}}}
+\def\dtsttof{\Delta t_{\mathrm{ST-TOF}}}
+
+%%% vertex times
+\def\tv{t_{\mathrm{vtx}}}
+\def\tvtagrf{t_{\mathrm{vtx}}(\mathtt{TAG_{RF}})}
+\def\tvtof{t_{\mathrm{vtx}}(\mathtt{TOF})}
+\def\tvst{t_{\mathrm{vtx}}(\mathtt{ST})}
+\def\tvpid{t_{\mathrm{vtx}}(\mathtt{PID})}
+
+%%% delta vertex times
+\def\dtvst{\Delta t_\mathrm{vtx}(\mathtt{TOF-ST})}
+\def\dtvpid{\Delta t_\mathrm{vtx}(\mathtt{TOF-PID})}
+
+\def\adcst{\mathtt{ADC}_{\mathtt{ST}}}
+
+\def\M{\mathrm{M}}
+\def\MM{\mathrm{MM}}
+
+%%% units
+\def\GeV{\mathrm{GeV}}
+\def\ns{\mathrm{ns}}
+
+\newcommand{\bra}[1]{\left<#1\right|}
+\newcommand{\ket}[1]{\left|#1\right>}
+\newcommand{\braket}[2]{\left<#1\middle|#2\right>}
+
+\newcommand*\midhrulefill{%
+    \leavevmode\leaders\hrule depth-2pt height 2.4pt\hfill\kern0pt
+}
