@@ -2,12 +2,25 @@
 
 % ADD OPTIONS FOR FINAL DRAFT:     12pt, final
 
-%%% some fancy font stuff
-\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
+
 \setmainfont{Times New Roman}
+
+%%% XITS Math Font
+\setmathfont
+[    Extension = .otf,
+      BoldFont = *bold,
+]{xits-math}
+
+%%% STIX Math Font
+%\setmathfont{STIX Math}
+
 
 %%% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{calc,bm,textcomp,latexsym,footmisc}
@@ -17,7 +30,6 @@
 \usepackage[hang,small,bf]{caption}
 \usepackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
-%\usepackage{amsmath} % for the align environment
 \usepackage[margin=0.7in,top=1in,bottom=1in]{geometry}
 
 \usepackage[backend=biber,texencoding=utf8,bibencoding=utf8,style=numeric-comp,sorting=none]{biblatex}
@@ -141,6 +153,7 @@
 \input{abstract}
 \input{summary}
 \input{calib}
+\input{cooking}
 
 \begin{singlespacing}
 

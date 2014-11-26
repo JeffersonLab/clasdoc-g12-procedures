@@ -8,7 +8,7 @@
 \setlength{\hfigheight}{0.5\textheight}
 
 \newcommand{\abbr}[1]{\textsc{\texttt{#1}}}
-\newcommand{\desg}[1]{\texttt{#1}}
+\newcommand{\desg}[1]{\textit{#1}}
 \newcommand{\prog}[1]{\texttt{#1}}
 
 \newcommand{\todo}[1]{\textbf{\textcolor{Orange}{#1}}}
@@ -33,20 +33,26 @@
 \def\dquark{\mathbf{d}}
 \def\squark{\mathbf{s}}
 
+
 %%% particles
-\def\photon{\gammaup}
+\def\photon{\text{γ}}
 \def\electron{\mathrm{e}^-}
 \def\positron{\mathrm{e}^+}
 \def\nucleon{\mathrm{N}}
 \def\proton{\mathrm{p}}
 \def\neutron{\mathrm{n}}
-\def\pion{\piup}
+\def\pion{\text{π}}
 \def\kaon{\mathrm{K}}
-\def\hyperon{\mathrm{Y}}
-\def\etameson{\etaup}
-\def\omegameson{\omegaup}
-\def\phimeson{\varphiup}
-\def\rhomeson{\rhoup}
+\def\hyperon{\text{Y}}
+\def\etameson{\text{η}}
+\def\omegameson{\text{ω}}
+\def\phimeson{\text{φ}}
+\def\rhomeson{\text{ρ}}
+
+\def\piplus{\pion^+}
+\def\piminus{\pion^-}
+\def\Kplus{\kaon^+}
+\def\Kminus{\kaon^-}
 
 %%% TAGGER and RF related times
 \def\trf{t_{\mathtt{RF}}}

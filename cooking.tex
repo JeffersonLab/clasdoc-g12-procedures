@@ -1,0 +1,145 @@
+\section{Analysis Procedure}
+
+The broad steps for analysis of a specific reaction in the \desg{g12} data are:
+\begin{enumerate}
+    \item determine event selection cuts to be used on a small subset of the data,
+    \item skim the ``cooked'' data and produce an ntuple which will include the four-momenta and a few other parameters needed for the final analysis,
+    \item tune the analysis on the data to get the final yields,
+    \item run simulations through the tracker/digitizer (\prog{gsim}), smearing (\prog{gpp}), track reconstruction (\prog{a1c}), and the final analysis programs to obtain efficiencies and acceptances,
+    \item calculate the beam flux corresponding to the data analyzed,
+    \item tie the yields, acceptances and flux together to come up with a final answer and an absolute scaling.
+\end{enumerate}
+One or more of these steps, or parts of these steps, may not be necessary for a given analysis and they do not have to be done this order. This section discusses where to find the various programs and files needed for each of these steps.
+
+\subsection{\label{sec:ana.data}Obtaining Final-State Particle Data}
+
+All reconstructed data resides in BOS files on the tape-silo at JLab under the directory:
+\begin{align}
+\texttt{/mss/clas/g12/production/pass1/bos} \nonumber
+\end{align}
+which contains the following subdirectories or ``categories'' used for event-sorting:
+\begin{description}
+    \item[1-1ckaon1ctrk] Events which have at least 2 charged tracks, one of which is a ``possible kaon.'' A possible kaon is either a track that the \abbr{PART} bank says is a kaon, or a high-momentum charged pion ($> 2.0$~GeV), or a really high momentum proton ($> 3.0$~GeV). The idea of this selection is to leave no kaon behind.
+    \item[2-2pos1neg\_not\_1ckaon1ctrk] Two-positive and one-negative ($++-$) inclusive events which are \emph{not} included in \emph{1-1ckaon1ctrk}. So, for example, if you wanted all ($++-$) events you would have to use both this category and \emph{1-1ckaon1ctrk}.
+    \item[3-2ctrk\_not\_2pos1neg\_1ckaon1ctrk] Events with 2 or more charged tracks which do not qualify for either \emph{1-1ckaon1ctrk} or \emph{2-2pos1neg\_not\_1ckaon1ctrk}.
+    \item[4-not\_2ctrk\_2pos1neg\_1ckaon1ctrk] Physics events that do not fit into categories 1, 2, or 3.
+    \item[5-other] Non-physics events which may include scalers and such.
+    \item[6-1lepton] Redundant set of all events with a single ``possible lepton'' according to the
+    \begin{align}
+        \texttt{ClasParticle::isMaybeLepton()} \nonumber
+    \end{align}
+    method in the ClasEvent analysis suite.
+    \item[7-4ctrk] Redundant set of all four-charged track events.
+    \item[8-ppbar] Redundant set of all proton, anti-proton events according to the PART bank.
+\end{description}
+Note that the first five of these categories are \emph{mutually exclusive and complete} while the last three are completely redundant and are provided for convenience.
+
+\paragraph{This bears repeating since it is a non-standard sorting of the cooked data:} The five categories numbered 1 through 5 listed above consist of one and only one of \emph{every} event recorded by the data aquisition during the g12 run period for the set of run which were deemed ``good.'' A specific single event will only be found in one of the first five categories. If you want to run on events that are described by category number 4 for example, you will have to include the data in categories 1 through 3 since these will also satisfy category 4 by design and by definition.
+
+Typical analyses with \desg{g12} will start with the particles as identified in the \abbr{PART} bank as default in the \prog{ClasEvent} analysis suite. This provides the basic four-momenta of the tracks and their identification which is based on mass calculated from the time-of-flight. The photon associated with the event is then taken from the \abbr{TAGR} bank and the one closest in-time with the tracks is usually taken.
+
+For a deeper analysis, one can get information for specific hits in a given subsystem by following the pointers in the \abbr{PART} and \abbr{TBID} bank to the \abbr{TBTR}, \abbr{SCRC}, \abbr{ECHB} or other similar banks. Most of the relavent banks needed for this type of investigation are included in the cooked data though several raw banks were dropped to save space. To recover the missing banks one would have to go back to the raw data and recook using the \prog{a1c} program though we anticipate this will be a rare event.
+
+\subsection{\desg{g12} Runlist}
+
+A script named ``g12runs'' was created to provide a list of the runs which were fully reconstructed without errors. It can also provide a lot of information about each run including the beam current, the number of good scalar intervals, and the run type such as production, calibration, or single-sector. The script resides in the \emph{clasg12} user's home directory here:
+\begin{align}
+    \texttt{/home/clasg12/local/scripts/g12runs} \nonumber
+\end{align}
+and has an extensive help message with the ``-h'' option:
+
+\begin{verbatim}
+>/home/clasg12/local/scripts/g12runs -h
+Usage:     usage: g12runs [options]
+
+    example to get all good data runs:
+        g12runs -t prod -t single -x calib
+
+    to get all data runs (prod and single) that have
+    been completely cooked, sorted and have complete
+    flux information:
+        g12runs -t pass1 -t flux -i
+
+Options:
+  -h, --help            show this help message and exit
+  -r RANGE, --range=RANGE
+                        range of runs to print out (inclusive from:to) To get
+                        the six-digit run numbers, use this range:
+                        557313:557316. Can also be a single run number.
+                        default: 56363:557316
+  -c CURRENT, --current=CURRENT
+                        range of currents to print out (inclusive from:to).
+                        examples: 40:80, 20:35 default: 0:90
+  -t RUNTYPE, --run-type=RUNTYPE
+                        Type of runs to print out. can be any of the
+                        following, and may be specified more than once: prod
+                        single calib cc dc norm pass1 flux Note: calib
+                        includes all norm runs. Use prod, single and calib to
+                        get all runs. default: prod, single
+  -x EXCLUDE, --exclude-type=EXCLUDE
+                        excludes types from being printed out. may be
+                        specified more than once.
+  -i, --intersect       require all run types specified with the -t option to
+                        be valid. Note: "g12runs -tprod -tsingle -i" will
+                        result in no output since prod and single run types
+                        are mutualy exclusive. Typical usage is to get runs
+                        that have complete pass1 and flux data: "g12runs
+                        -tpass1 -tflux -i".
+  -e, --extra-info      print extra information for each run.
+  -m, --max-ind         print maximum index for each run printed.
+  -n, --nfiles          print number of files for each run printed.
+  -s SET, --set=SET     print runs which correspond to one (or all by default)
+                        of ten groups: 1 - 10. These groups represent
+                        approximately 10% of the whole run period.
+  -a, --scalar          Print out the number of scalar intervals in the form:
+                        good/total.
+  -d, --dump            Dump all info about all runs.
+\end{verbatim}
+
+\subsection{Flux Determination}
+
+The photon flux is based on the flux procedure outline in Ref. \cite{clas.flux.note}. The script to generate the photon flux for g12 is here:
+\begin{align}
+    \texttt{/home/clasg12/local/scripts/g12-gflux} \nonumber
+\end{align} and there is also a script (/home/clasg12/local/scripts/g12-gflux-all) that doesn't rebin the energies and outputs two columns: energy and flux for each logical paddle in the tagger.
+
+The help output from the script:
+\begin{verbatim}
+> /home/clasg12/local/scripts/g12-gflux -h
+usage: g12-gflux emin emax ebinwidth runlist.txt (good|all)
+    (good|all) specifies either all scalar intervals
+    or only "good" scalar intervals.
+example:
+     g12-gflux 1.5 5.5 0.2 runlist.txt good
+where runlist.txt is an ascii file of one column: run
+56363
+56365
+...
+\end{verbatim}
+
+To use the script, you will need to create a file that consists of the run numbers you used in your analysis. Using this filename when you call g12-gflux, will give you the total flux as a function of beam energy in the range and binning requested. The command:
+\begin{verbatim}
+/home/clasg12/local/scripts/g12-gflux 1.5 5.5 0.2 filelist.txt good
+\end{verbatim}
+
+will return to stdout the flux in the energy bins using three columns: emin, emax, flux. Something like this:
+\begin{verbatim}
+1.5 1.7 7.75466725993e+12
+1.7 1.9 7.23861294572e+12
+1.9 2.1 6.85242336788e+12
+... [snip] ...
+4.9 5.1 2.69244768955e+12
+5.1 5.3 2.49808049501e+12
+5.3 5.5 1.99322166816e+12
+\end{verbatim}
+
+The option good or all can be used to specify if you only want to consider good regions, throwing out beam trips, or if you want all events from good scalar intervals as well as the beam trip regions.
+
+An alternative script which doesn't rebin the data but returns the flux for each logical energy paddle can be run like this:
+\begin{verbatim}
+/home/clasg12/local/scripts/g12-gflux-all filelist.txt good
+\end{verbatim}
+The script has been extensively tested on the 64-bit machines. The precision of all variables are adequate to provide at least 4 significant figures for the final flux numbers.
+
+The major caveat to using this script, which relies on \prog{gflux}, is that you must included \emph{whole runs} in your analysis for this to be accurate. This is because the \prog{gflux} program was not designed to work with partial runs. So, you must verify that you have processed every file in the runs which were analyzed -- one can use the \prog{g12runs} program to aid in this.
+
