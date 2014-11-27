@@ -13,5 +13,6 @@ To create a PDF file from the source, run these commands:
     xelatex report
     ./biber report
     xelatex report
+    xelatex report
 
-This should be sufficient for all references to be caught.
+This should be sufficient for all references to be caught and long tables to be properly sized.

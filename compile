@@ -10,3 +10,4 @@ rm $1.{aux,bbl,bcf,blg,dvi,log,out,run.xml,toc}
 sh -c "xelatex  $1" || exit 101
 sh -c "./biber  $1" || exit 102
 sh -c "xelatex  $1" || exit 103
+sh -c "xelatex  $1" || exit 104
