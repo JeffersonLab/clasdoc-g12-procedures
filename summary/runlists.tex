@@ -9,3 +9,57 @@ The runs for this experiment range from 56855 to 57317 inclusive. The runs that 
 \input{tables/g12_calib_runs} % tab:data.cook.org.runs
 
 \input{tables/g12_special_runs} % tab:data.calibruns
+
+A script named ``g12runs'' was created to provide a list of the runs which were fully reconstructed without errors. It can also provide a lot of information about each run including the beam current, the number of good scalar intervals, and the run type such as production, calibration, or single-sector. The script resides in the \emph{clasg12} user's home directory here:
+\begin{align}
+    \texttt{/home/clasg12/local/scripts/g12runs} \nonumber
+\end{align}
+and has an extensive help message with the ``-h'' as shown here:
+
+\begin{verbatim}
+>/home/clasg12/local/scripts/g12runs -h
+Usage:     usage: g12runs [options]
+
+    example to get all good data runs:
+        g12runs -t prod -t single -x calib
+
+    to get all data runs (prod and single) that have
+    been completely cooked, sorted and have complete
+    flux information:
+        g12runs -t pass1 -t flux -i
+
+Options:
+  -h, --help            show this help message and exit
+  -r RANGE, --range=RANGE
+                        range of runs to print out (inclusive from:to) To get
+                        the six-digit run numbers, use this range:
+                        557313:557316. Can also be a single run number.
+                        default: 56363:557316
+  -c CURRENT, --current=CURRENT
+                        range of currents to print out (inclusive from:to).
+                        examples: 40:80, 20:35 default: 0:90
+  -t RUNTYPE, --run-type=RUNTYPE
+                        Type of runs to print out. can be any of the
+                        following, and may be specified more than once: prod
+                        single calib cc dc norm pass1 flux Note: calib
+                        includes all norm runs. Use prod, single and calib to
+                        get all runs. default: prod, single
+  -x EXCLUDE, --exclude-type=EXCLUDE
+                        excludes types from being printed out. may be
+                        specified more than once.
+  -i, --intersect       require all run types specified with the -t option to
+                        be valid. Note: "g12runs -tprod -tsingle -i" will
+                        result in no output since prod and single run types
+                        are mutualy exclusive. Typical usage is to get runs
+                        that have complete pass1 and flux data: "g12runs
+                        -tpass1 -tflux -i".
+  -e, --extra-info      print extra information for each run.
+  -m, --max-ind         print maximum index for each run printed.
+  -n, --nfiles          print number of files for each run printed.
+  -s SET, --set=SET     print runs which correspond to one (or all by default)
+                        of ten groups: 1 - 10. These groups represent
+                        approximately 10% of the whole run period.
+  -a, --scalar          Print out the number of scalar intervals in the form:
+                        good/total.
+  -d, --dump            Dump all info about all runs.
+\end{verbatim}
