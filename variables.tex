@@ -11,13 +11,14 @@
 \newcommand{\desg}[1]{\textit{#1}}
 \newcommand{\prog}[1]{\texttt{#1}}
 
+\newcommand{\system}[1]{\abbr{#1}}
+\newcommand{\bank}[1]{\abbr{#1}}
+
 \newcommand{\todo}[1]{\textbf{\textcolor{Orange}{#1}}}
 
 \def\Lqcd{\mathcal{L}_{\mathtt{QCD}}}
 \def\qfield{\psi}
 \def\qbarfield{\overline{\psi}}
-
-\newcommand{\bank}[4]{$\mathtt{#1}^{#2}_{#3}\lbrack\mathtt{#4}\rbrack$}
 
 \def\th{\textsuperscript{th}}
 \def\ith{i\th}
@@ -64,57 +65,105 @@
 \def\Kplus{\kaon^+}
 \def\Kminus{\kaon^-}
 
-%%% TAGGER and RF related times
-\def\trf{t_{\mathtt{RF}}}
-\def\ttag{t_{\mathtt{TAG}}}
-\def\ttagrf{t_{\mathtt{TAG,RF}}}
-\def\tpho{t_\mathrm{photon}}
-\def\tprop{t_\mathrm{prop}}
-\def\ttrigoffset{t_{\mathrm{trigger-offset}}}
+%%% systems
+\def\rf{\mathtt{RF}}
+\def\tg{\mathtt{TAG}}
+\def\tgrf{\tg_{\rf}}
+\def\tof{\mathtt{TOF}}
+\def\st{\mathtt{ST}}
+\def\beam{\mathrm{beam}}
+\def\adc{\mathtt{ADC}}
+\def\tdc{\mathtt{TDC}}
 
-\def\dtpho{\Delta\tpho}
+%%% descriptives
+\def\prop{\mathrm{prop}}
+\def\trigoffset{\mathrm{trigger-offset}}
+\def\pid{\mathtt{PID}}
+\def\vtx{\mathrm{vtx}}
 
-%%% BEAM energy
-\def\ebeam{E_{\mathrm{beam}}}
-
-%%% TOF Energy deposit
-\def\etof{\frac{\mathrm{d}E}{\mathrm{d}x}(\mathtt{TOF})}
-\def\varetof{\mathrm{d}E/\mathrm{d}x(\mathtt{TOF})}
+%%% dE/dx
+\def\dEdx{\frac{\mathrm{d}E}{\mathrm{d}x}}
+\def\dEdxvar{\mathrm{d}E/\mathrm{d}x}
 
 %%% Beta
-\def\betasttof{\beta_\mathtt{ST-TOF}}
-\def\betatof{\beta_\mathtt{TOF}}
-\def\betapid{\beta_\mathtt{PID}}
+\def\betasttof{\beta_{\st - \tof}}
+\def\betatof{\beta_\tof}
+\def\betapid{\beta_\pid}
+\def\gammatof{\gamma_\tof}
+\def\gammapid{\gamma_\pid}
+
+%%% TAGGER and RF related times
+\def\trf{t_\rf}
+\def\ttg{t_\tg}
+\def\ttgrf{t_{\tg,\rf}}
+\def\tpho{t_\mathrm{photon}}
+\def\tprop{t_\prop}
+\def\ttrigoffset{t_\trigoffset}
+
+\def\tphotgrf{\tpho^{\tg,\rf}}
+\def\tphotofpid{\tpho\left(\tof\right)}
+\def\tphostpid{\tpho\left(\st\right)}
+
+%%% delta tpho
+\def\dtpho{\Delta\tpho}
+\def\dtphotofpid{\dtpho\left(\tof-\tg\right)}
+\def\dtphosttof{\dtpho\left(\tof-\st\right)}
+\def\dtphostpid{\dtpho\left(\st-\tg\right)}
+
+%% particle specific tpho (TOF)
+\def\tphotofpidkpf{\tpho\left(\tof,\KplusFast\right)}
+\def\tphotofpidkps{\tpho\left(\tof,\KplusSlow\right)}
+\def\dtphotofpidkpf{\dtpho\left(\tof-\tg,\KplusFast\right)}
+\def\dtphotofpidkps{\dtpho\left(\tof-\tg,\KplusSlow\right)}
+\def\dtphotofpidkpkp{\dtpho\left(\tof,\KplusFast-\KplusSlow\right)}
+
+%% particle specific tpho (ST)
+\def\dtphostpidkpf{\dtpho\left(\tof-\tg,\KplusFast\right)}
+\def\dtphostpidkps{\dtpho\left(\tof-\tg,\KplusSlow\right)}
+
+%%% BEAM energy
+\def\Epid{E_\pid}
+\def\Ebeam{E_\beam}
+
+%%% TOF Energy deposit
+\def\Edeptof{\dEdx\left(\tof\right)}
+\def\Edeptofvar{\dEdxvar\left(\tof\right)}
+
 
 %%% path lengths
-\def\lst{\ell_{\mathtt{ST}}}
-\def\ltof{\ell_{\mathtt{TOF}}}
-\def\lsttof{\ell_{\mathtt{ST-TOF}}}
+\def\lst{\ell_\st}
+\def\ltof{\ell_\tof}
+\def\lsttof{\ell_{\st-\tof}}
 
 %%% raw subsystem times
-\def\tst{t_{\mathtt{ST}}}
-\def\ttof{t_{\mathtt{TOF}}}
-\def\dtsttof{\Delta t_{\mathrm{ST-TOF}}}
+\def\tst{t_\st}
+\def\ttof{t_\tof}
+\def\tsttof{\tsttof}
 
 %%% vertex times
-\def\tv{t_{\mathrm{vtx}}}
-\def\tvtagrf{t_{\mathrm{vtx}}(\mathtt{TAG_{RF}})}
-\def\tvtof{t_{\mathrm{vtx}}(\mathtt{TOF})}
-\def\tvst{t_{\mathrm{vtx}}(\mathtt{ST})}
-\def\tvpid{t_{\mathrm{vtx}}(\mathtt{PID})}
+\def\tv{t_\vtx}
+\def\tvtgrf{\tv^{\tg,\rf}}
+\def\tvtofpid{\tv^\tof}
+\def\tvstpid{\tv^\st}
 
 %%% delta vertex times
 \def\dtvst{\Delta t_\mathrm{vtx}(\mathtt{TOF-ST})}
 \def\dtvpid{\Delta t_\mathrm{vtx}(\mathtt{TOF-PID})}
+
+%%% z position
+\def\zv{z_\mathrm{vtx}}
+\def\ztgt{z_\mathrm{tgt}}
+
+%%% mass
+\def\mtof{m_\tof}
+\def\mbook{m_\mathrm{book}}
 
 \def\adcst{\mathtt{ADC}_{\mathtt{ST}}}
 
 \def\M{\mathrm{M}}
 \def\MM{\mathrm{MM}}
 
-%%% units
-\def\GeV{\mathrm{GeV}}
-\def\ns{\mathrm{ns}}
+\def\mmkk{\MM\left(\Kplus\Kplus\right)}
 
 \newcommand{\bra}[1]{\left<#1\right|}
 \newcommand{\ket}[1]{\left|#1\right>}

@@ -1,72 +1,4 @@
-\documentclass[12pt,onecolumn,oneside,letterpaper]{article}
-
-% ADD OPTIONS FOR FINAL DRAFT:     12pt, final
-
-\usepackage{amsmath}
-
-\usepackage{unicode-math}
-
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{xltxtra}
-
-\setmainfont{Times New Roman}
-
-%%% XITS Math Font
-\setmathfont
-[    Extension = .otf,
-      BoldFont = *bold,
-]{xits-math}
-
-%%% STIX Math Font
-%\setmathfont{STIX Math}
-
-
-%%% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{calc,bm,textcomp,latexsym,footmisc}
-\usepackage{framed,url,verbatim}
-\usepackage{longtable,multirow}
-\usepackage{subfigure}
-\usepackage[hang,small,bf]{caption}
-\usepackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[margin=0.7in,top=1in,bottom=1in]{geometry}
-
-\usepackage[backend=biber,texencoding=utf8,bibencoding=utf8,style=numeric-comp,sorting=none]{biblatex}
-\addbibresource[datatype=bibtex]{bibliography/clas_general.bib}
-\addbibresource[datatype=bibtex]{bibliography/clas_proposals.bib}
-\addbibresource[datatype=bibtex]{bibliography/clas_theses.bib}
-\addbibresource[datatype=bibtex]{bibliography/pdg.bib}
-
-% placeins package adds \FloatBarrier command to flush figures
-% section option puts \FloatBarrier before every section
-\usepackage[section]{placeins}
-
-\usepackage[colorlinks]{hyperref}
-\definecolor{DarkBlue}{rgb}{0,0.1,0.4}
-\hypersetup{
-    bookmarksnumbered,
-    bookmarksopen=false,
-    bookmarksopenlevel=\maxdepth,
-    linkcolor=blue,
-    urlcolor=DarkBlue,
-    citecolor=green
-}
-
-%%% allows the use of \index{word!subword!subsubword}
-%%%   or \glossary{word} commands in text
-%%%   \index{cheese|see{crackers}} for crossreference
-%%%   \index{Kraft@\textit{Kraft}} for changing font in index
-%\usepackage{makeidx}
-    %\makeindex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% new commands and macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{variables}
-
 \def\thedraft{0.9}
-%\def\excerpt{EXCERPT}
-\def\excerpt{}
 
 \author{R.A. Badui \and C. Bookwalter \and S. Chandavar \and P. Eugenio \and J.T. Goetz \and L. Guo \and K. Hicks \and V. Kubarovsky \and M.C. Kunkel \and M. Paolone \and W. Phelps \and J.W. Price \and M. Saini \and C. Salgado \and D. Schott \and D.P. Weygand}
 
@@ -75,55 +7,8 @@
 \date{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% headers. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{fancyhdr}
-
-\fancypagestyle{headings}{
-    \renewcommand{\headheight}{30pt}
-    \renewcommand{\headrulewidth}{0pt}
-    %%% draft headers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft} \excerpt}
-    \fancyhead[R]{Typeset on \today}
-    %%% final headers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %\fancyhead[L]{\brieftitle}
-    %\fancyhead[R]{\nouppercase{\leftmark}}
-}
-%%% draft header for plain and empty pages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fancypagestyle{plain}{
-    \renewcommand{\headheight}{30pt}
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft} \excerpt}
-    \fancyhead[R]{Typeset on \today}
-    \renewcommand{\headrulewidth}{0pt}
-}
-\fancypagestyle{empty}{
-    \renewcommand{\headheight}{30pt}
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft} \excerpt}
-    \fancyhead[R]{Typeset on \today}
-    \renewcommand{\headrulewidth}{0pt}
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% make titles ragged right and leave the text justified.
-\usepackage{sectsty}
-    \chapterfont{\raggedright}
-    \sectionfont{\raggedright}
-    \subsectionfont{\raggedright}
-    \subsubsectionfont{\raggedright}
-
-\usepackage{setspace} % allows \<double,onehalf,single>spacing
-   \singlespacing
-%   \onehalfspacing
-%   \doublespacing
-
-%%% line spacing adjustment for the align environment
-%%% use this when doublespacing:
-%\setlength{\jot}{-0.3em}
-
-\def\figures{figures}
-
-\setlength{\footskip}{0.3in}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{preamble}
+\input{variables}
 
 \begin{document}
 
@@ -135,7 +20,6 @@
     %\alph       a, b ...
     %\Alph       A, B ...
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{headings}
 %\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -160,17 +44,8 @@
 \input{corrections}
 \input{systematics}
 
-\begin{singlespacing}
+\input{bibliography}
 
-\clearpage
-\phantomsection \addcontentsline{toc}{section}{References}
-
-\printbibliography
-
-%\clearpage
-%\phantomsection \addcontentsline{toc}{chapter}{Index}
-%\printindex
-
-\end{singlespacing}
+%\input{index}
 
 \end{document}

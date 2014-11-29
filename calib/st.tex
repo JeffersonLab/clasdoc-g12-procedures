@@ -1,4 +1,38 @@
-\subsection{\label{sec:calib.st}Start Counter}
+\subsection{\label{sec:calib.st}Start Counter Performance}
+
+The start counter was calibrated 
+
+At this stage, the momenta ($p$) of the tracks are taken as given by the drift chamber and tracking algorithm as found in the \bank{TBTR} bank, and the energy ($\Epid$) of the particle is set when the mass is assigned. This allows us to calculate the speed of the particle:
+\begin{equation}
+    \betapid = \frac{p}{\Epid}.
+    \label{eqn:betapid}
+\end{equation}
+This is used to calculate the vertex time of the particle:
+\begin{equation}
+    \tvtofpid = \ttof - \frac{\ltof}{c\betapid},
+    \label{eqn:tvtofpid}
+\end{equation}
+where $\ttof$ and $\ltof$ are the time and path length of the track at the \system{TOF} plane as obtained from the \bank{TDPL} bank, both adjusted to the intersection point of the two kaons. This time is converted a ``photon time'' ($\tpho$) by subtracting the photon propagation time ($\tprop$) from the center of the target:
+\begin{equation}
+    \tphotofpid = \tvtofpid - \tprop,
+    \label{eqn:tphotofpid}
+\end{equation}
+where
+\begin{equation}
+    \tprop = \frac{1}{c} \left( \ztgt - \zv \right),
+\end{equation}
+where $\ztgt$ is the center of the target's z-position ($-90$~cm in the \system{CLAS} coordinate system), and $\zv$ is the z-coordinate of the track's vertex position -- in this case, the intersection of the two kaons where the covariance matrixes of the estimated momenta are taken into account through the standard \prog{MVRT} vertexing algorithm. This photon time, $\tphotofpid$, is compared to the \system{RF}-corrected tagger times ($\ttgrf$) of each hit in the photon tagger as obtained from the \bank{TAGR} bank.
+
+\begin{figure}\begin{center}
+\includegraphics[width=0.5\columnwidth]{figures/calib/st/dvertex_time_pid_st.eps}
+\caption[vertex timing, \abbr{TOF-ST} vs.\ \abbr{TOF-PID}]{\label{fig:dvertex_time_pid_st}Difference in vertex times for each track for the two calculations made above. Represents 1.5\% of the total statistics.}
+\end{center}\end{figure}
+
+\begin{figure}\begin{center}
+\includegraphics[width=0.9\columnwidth]{figures/calib/st/dvertex_time_st.eps}
+\caption[vertex timing, \abbr{TOF-ST}]{\label{fig:dvertex_time_st}Difference in vertex time between that of the photon and of the tracks based on start counter and time-of-flight times. Represents 1.5\% of the total statistics.}
+\end{center}\end{figure}
+
 
 \subsubsection{\label{sec:calib.st.eff}Start Counter Efficiency}
 
