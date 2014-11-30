@@ -1,0 +1,66 @@
+\section{Flux Determination}
+
+The photon flux is based on the flux procedure outline in Ref. \cite{clas.flux.note}. The script to generate the photon flux for g12 is here:
+\begin{align}
+    \texttt{/home/clasg12/local/scripts/g12-gflux} \nonumber
+\end{align} and there is also a script (/home/clasg12/local/scripts/g12-gflux-all) that doesn't rebin the energies and outputs two columns: energy and flux for each logical paddle in the tagger.
+
+The help output from the script:
+\begin{verbatim}
+> /home/clasg12/local/scripts/g12-gflux -h
+usage: g12-gflux emin emax ebinwidth runlist.txt (good|all)
+    (good|all) specifies either all scalar intervals
+    or only "good" scalar intervals.
+example:
+     g12-gflux 1.5 5.5 0.2 runlist.txt good
+where runlist.txt is an ascii file of one column: run
+56363
+56365
+...
+\end{verbatim}
+
+To use the script, you will need to create a file that consists of the run numbers you used in your analysis. Using this filename when you call g12-gflux, will give you the total flux as a function of beam energy in the range and binning requested. The command:
+\begin{verbatim}
+/home/clasg12/local/scripts/g12-gflux 1.5 5.5 0.2 filelist.txt good
+\end{verbatim}
+
+will return to stdout the flux in the energy bins using three columns: emin, emax, flux. Something like this:
+\begin{verbatim}
+1.5 1.7 7.75466725993e+12
+1.7 1.9 7.23861294572e+12
+1.9 2.1 6.85242336788e+12
+... [snip] ...
+4.9 5.1 2.69244768955e+12
+5.1 5.3 2.49808049501e+12
+5.3 5.5 1.99322166816e+12
+\end{verbatim}
+
+The option good or all can be used to specify if you only want to consider good regions, throwing out beam trips, or if you want all events from good scalar intervals as well as the beam trip regions.
+
+An alternative script which doesn't rebin the data but returns the flux for each logical energy paddle can be run like this:
+\begin{verbatim}
+/home/clasg12/local/scripts/g12-gflux-all filelist.txt good
+\end{verbatim}
+The script has been extensively tested on the 64-bit machines. The precision of all variables are adequate to provide at least 4 significant figures for the final flux numbers.
+
+The major caveat to using this script, which relies on \prog{gflux}, is that you must included \emph{whole runs} in your analysis for this to be accurate. This is because the \prog{gflux} program was not designed to work with partial runs. So, you must verify that you have processed every file in the runs which were analyzed -- one can use the \prog{g12runs} program to aid in this.
+
+
+\FloatBarrier
+
+
+
+\subsection{\label{sec:flux.trips}Beam Trips}
+
+\FloatBarrier
+
+
+\subsection{\label{sec:flux.normyields}Normalized Yields for Different Beam Conditions}
+
+\FloatBarrier
+
+
+
+\subsection{\label{sec:flux.runbyrun}Run-by-run Stability and Systematic Uncertainty of Flux}
+
+\FloatBarrier

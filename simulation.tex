@@ -1,6 +1,6 @@
-\subsection{Simulation}
+\section{\label{sec:sim}Simulations}
 
-\subsubsection{Generating Events}
+\subsection{\label{sec:sim.gen}Generating Events for Digitization}
 
 One may use the program \texttt{genr8} for generating t-channel phase space events. It is driven by an input key file which describes the exclusive reaction. Typical usage to generate 10k events from 4.4 to 5.45~GeV in beam energy using the input file ``\verb+n_pi-pi+pi+.input+'' looks like this:
 \begin{verbatim}
@@ -60,7 +60,7 @@ ppgen -M<reaction code> -P<photon energy> -E5.714 -j1 -G -A \
 \end{verbatim}
 The output can be txt or gamp file depending on user's needs. Follow the previous instructions to convert to part banks as needed.
 
-\subsubsection{Simulating Tracks and Digitization}
+\subsection{\label{sec:sim.digit}Digitization and Smearing}
 
 The program to track the particles through the simulation and ultimately digitize the information to simulated ``raw'' banks is the geant3-based program: \texttt{gsim}. Running this on the BOS file created above looks like this:
 \begin{verbatim}
@@ -99,8 +99,6 @@ STOP
 ===END=====FFREAD.G12=======================
 \end{verbatim}
 
-\subsubsection{Smearing of Simulated Data}
-
 The tracking and digitization done by \texttt{gsim} is ideal and there is no smearing done. To get the simulated data to mimic the detector resolution the ``gsim post-processor'' (\texttt{gpp}) is used. For \desg{g12}, and following the above example, one should use this command:
 \begin{verbatim}
 gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R56855 -P0x7f -ogenr8.gpp genr8.gsim
@@ -114,3 +112,18 @@ The program \texttt{filter\_tagr} scans through real data files and outputs a bo
 \begin{align}
     \texttt{/home/clasg12/local/etc/clas6/gpp\_tagger\_profile.bos} \nonumber
 \end{align}
+
+\FloatBarrier
+
+
+
+
+\subsection{\label{sec:sim.recon}Reconstruction of Simulated Data}
+
+\FloatBarrier
+
+
+
+
+
+\input{simulation/fiducial}
