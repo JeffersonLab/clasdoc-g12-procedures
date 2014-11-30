@@ -1,7 +1,7 @@
 clasdoc-g12-procedures
 ======================
 
-[Here is a link to the current PDF file](https://github.com/JeffersonLab/clasdoc-g12-procedures/raw/master/report.pdf)
+[Here is a link to the current PDF file](https://clasweb.jlab.org/rungroups/g12/wiki/index.php/File:G12_procedures.pdf)
 
 Summary and analysis procedures documentation for the g12 experiment with CLAS at JLab.
 
