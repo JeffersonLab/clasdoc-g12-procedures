@@ -4,23 +4,7 @@
 
 As a standard procedure of the time-of-flight calibrations, the time-of-flight scintillators were initially studied during the calibration period, in which a list~\footnote{Can be obtained using the CLAS calibration database} of scintillators had a faulty ADC or TDC as shown in \ref{tab:craigtof}. Another study, as shown below, was conducted to determine the efficiency of each paddle and to reevaluate the status of their ADC and TDC. Due to the more stringent requirements of paddle efficiency in the study below, more paddles were considered to be faulty than in the initial study. \ref{tab:diff} shows the additional paddles which were considered to be inefficient.
 
-\begin{table}
-\begin{tabular}{l|l|p{.43\textwidth}} %l | l | >{\centering\arraybackslash}p{.45\textwidth} |}
-Sector & SCID & Notes \\
-\hline
-1 & 6 & No ADCR and TDCR \\
-2 & 8 & No ADCL and TDCL \\
-2 & 34 & No ADCL and TDCL \\
-3 & 11 & No ADCR and TDCR \\
-3 & 57 & No ADCL, ADCR, TDCL, and TDCR \\
-4 & 48 & No ADCL and TDCL \\
-5 & 57 & No ADCL, ADCR, TDCL, and TDCR \\
-6 & 5 & No ADCR and TDCR
-
-\end{tabular}
-    \caption{List of faulty paddles as compiled by \texttt{insert Craig and Weygand citations here} during calibration}
-    \label{tab:craigtof}
-\end{table}
+\input{tables/tof_badpaddles_calib} % label: tab:craigtof
 
 \begin{figure}
     %\vspace{16pt}
@@ -36,18 +20,8 @@ To determine efficiency of each scintillator paddle, the number of hits~\footnot
 
 \ref{plt:occp} shows the relative occupancy of all scintillators plotted on a single histogram. A paddle is defined as inefficient if it is greater than two standard deviations below the mean relative occupancy of all scintillators. \ref{tab:occp} shows the paddles which are below two (left) or three (right) standard deviations below the mean relative occupancy.
 
-\begin{table}
-\begin{tabular}{l | c | c |}
- &  $2 \sigma = 92.49\%$ &  $3 \sigma = 89.05\%$ \\ 
-\hline
-Sector 1 & 35 (91.20\%) & 40 (87.87\%), 41 (82.63\%), 56 (83.37\%) \\
-Sector 2 & 2 (92.38\%), 35 (90.11\%), 50 (91.99\%) &  41 (87.31\%), 56 (87.98\%)\\
-Sector 3 & 35 (90.59\%) & 40 (88.98\%), 41 (83.29\%)\\
-Sector 4 &  & 41 (83.61\%) \\
-\end{tabular}
-\caption{Paddles below two and three standard deviations from the mean relative occupancy}
-\label{tab:occp}
-\end{table}
+
+\input{tables/tof_padpaddles_stddev} % label: tab:occp
 
 \subsubsection{ADC and TDC Values}
 
