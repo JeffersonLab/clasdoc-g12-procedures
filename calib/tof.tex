@@ -6,12 +6,11 @@ As a standard procedure of the time-of-flight calibrations, the time-of-flight s
 
 \input{tables/tof_badpaddles_calib} % label: tab:craigtof
 
-\begin{figure}
-    %\vspace{16pt}
-    \includegraphics[trim=0 40 10 40,clip,width=.70\linewidth]{figures/calib/tof/tofko/occp.eps}
+\begin{figure}\begin{center}
+    \includegraphics[trim=0 40 10 40,clip,width=.40\linewidth]{figures/calib/tof/tofko/occp.eps}
     \caption{Relative occupancy of all scintillators}
     \label{plt:occp}
-\end{figure}
+\end{center}\end{figure}
 
 To determine efficiency of each scintillator paddle, the number of hits~\footnote{The data used were obtained from the \texttt{clas\underline{\hspace{5pt}}0$[$run\#$]$.A01} files located in \texttt{$/$mss$/$clas$/$g12$/$data$/$}} registered by every paddle was recorded~\footnote{This was done by using \texttt{bosdump -GSC} and parsing its output}. The relative occupancy of paddle $i$ in sector $j$ is defined the following way: list the number of hits recorded by all paddle $i$'s in sectors $\neq j$ and remove the ones with the most and least hits from the list. Take the average number of hits of the remaining three paddles. The relative occupancy is defined as 
 \[
@@ -20,22 +19,16 @@ To determine efficiency of each scintillator paddle, the number of hits~\footnot
 
 \ref{plt:occp} shows the relative occupancy of all scintillators plotted on a single histogram. A paddle is defined as inefficient if it is greater than two standard deviations below the mean relative occupancy of all scintillators. \ref{tab:occp} shows the paddles which are below two (left) or three (right) standard deviations below the mean relative occupancy.
 
-
-\input{tables/tof_padpaddles_stddev} % label: tab:occp
+\input{tables/tof_badpaddles_stddev} % label: tab:occp
 
 \subsubsection{ADC and TDC Values}
 
-
-\begin{figure}
-    %\vspace{-16pt}
+\begin{figure}\begin{center}
     \includegraphics[width=0.70\linewidth]{figures/calib/tof/tofko/adctdcval.eps}
-    \caption{Top: ADC values of all scintillators. Left ADC (ADCL) values are on the left and right ADC values are on the right (ADCR). Shaded in red are events recorded with an ADC value of zero or maximum. Bottom: Same as Top but for TDC values}
-    \label{plt:adctdcval}
-\end{figure}
-
+    \caption{\label{plt:adctdcval}Top: ADC values of all scintillators. Left ADC (ADCL) values are on the left and right ADC values are on the right (ADCR). Shaded in red are events recorded with an ADC value of zero or maximum. Bottom: Same as Top but for TDC values}
+\end{center}\end{figure}
 
 The occupancy alone is not enough to determine which scintillators are bad. The ADC and TDC values for all scintillators were also recorded and studied. \ref{plt:adctdcval} shows the ADC and TDC values for all scintillators. Some of the events registered had an ADC or TDC value of zero or a maximum ADC value (shaded in red). The percentage of events a scintillator recorded either a TDC or ADC value of zero or maximum ADC value was studied as shown in \ref{plt:adc0vSCID,plt:adcMvSCID,plt:tdc0vSCID}. \ref{plt:adc0vSCID,plt:tdc0vSCID,plt:proj} assisted in determining bad paddles. It (is to be) was decided that a paddle cannot have more than $50\%$ of its ADC (left or right) values be equal to zero or more than $45\%$ of its TDC (left or right) values equal to zero. \ref{tab:adctdc0} shows which paddles fall in these categories. \ref{tab:tofko} shows which scintillators should be knocked out due to low occupancy or too many null ADC or TDC values. Due to the small number of events in which a maximum ADC value is obtained, it is not recommended in knocking paddles out based on this measure. However, \ref{tab:adcM} shows the paddles which attain a maximum ADC value on more than $2.5\%$ of its registered events.
-
 
 \input{tables/tof_badpaddles_adc} % label: tab:adctdc0
 
@@ -45,34 +38,24 @@ The occupancy alone is not enough to determine which scintillators are bad. The 
 
 \input{tables/tof_badpaddles_adcpcnt} % label: tab:adcM
 
+\begin{figure}\begin{center}
+    \includegraphics[width=0.75\textwidth]{figures/calib/tof/tofko/adc.eps}
+    \caption{\label{plt:adc0vSCID}Percentage of hits registering an ADC value of 0 for all scintillators. Left ADC (ADCL) are on the left and right ADC (ADCR) values are on the right}
+\end{center}\end{figure}
 
+\begin{figure}\begin{center}
+    \includegraphics[width=0.75\textwidth]{figures/calib/tof/tofko/tdc.eps}
+    \caption{\label{plt:tdc0vSCID}Percentage of hits registering an TDC value of 0 for all scintillators. Left TDC (TDCL) are on the left and right TDC (TDCR) values are on the right}
+\end{center}\end{figure}
 
+\begin{figure}\begin{center}
+    \includegraphics[width=0.75\textwidth]{figures/calib/tof/tofko/adcMax.eps}
+    \caption{\label{plt:adcMvSCID}Percentage of hits registering a maximum ADC value for all scintillators. Left ADC (ADCL) are on the left and right ADC (ADCR) values are on the right}
+\end{center}\end{figure}
 
-\begin{figure}
-    %\vspace{-16pt}
-    \includegraphics[width=0.8\textwidth]{figures/calib/tof/tofko/adc.eps}
-    \caption{Percentage of hits registering an ADC value of 0 for all scintillators. Left ADC (ADCL) are on the left and right ADC (ADCR) values are on the right}
-    \label{plt:adc0vSCID}
-\end{figure}
-
-\begin{figure}
-    %\vspace{-16pt}
-    \includegraphics[width=0.8\textwidth]{figures/calib/tof/tofko/tdc.eps}
-    \caption{Percentage of hits registering an TDC value of 0 for all scintillators. Left TDC (TDCL) are on the left and right TDC (TDCR) values are on the right}
-    \label{plt:tdc0vSCID}
-\end{figure}
-
-\begin{figure}
-    %\vspace{-16pt}
-    \includegraphics[width=0.8\textwidth]{figures/calib/tof/tofko/adcMax.eps}
-    \caption{Percentage of hits registering a maximum ADC value for all scintillators. Left ADC (ADCL) are on the left and right ADC (ADCR) values are on the right}
-    \label{plt:adcMvSCID}
-\end{figure}
-
-\begin{figure}
+\begin{figure}\begin{center}
     \includegraphics[width=0.8\textwidth]{figures/calib/tof/tofko/adctdc0perc.eps}
-    \caption{Top: Y axis projections of \ref{plt:adc0vSCID}. Bottom: Y axis projections of \ref{plt:tdc0vSCID}}
-    \label{plt:proj}
-\end{figure}
+    \caption{\label{plt:proj}Top: Y axis projections of \ref{plt:adc0vSCID}. Bottom: Y axis projections of \ref{plt:tdc0vSCID}}
+\end{center}\end{figure}
 
 \FloatBarrier
