@@ -5,7 +5,7 @@ if [[ $# -ne 1 ]]; then
     exit -10
 fi
 
-rm $1.{aux,bbl,bcf,blg,dvi,log,out,run.xml,toc}
+rm $1.{aux,bbl,bcf,blg,log,out,run.xml,toc}
 
 sh -c "xelatex  $1" || exit 101
 sh -c "./biber  $1" || exit 102
