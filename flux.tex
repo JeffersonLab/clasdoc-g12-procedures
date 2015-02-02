@@ -48,10 +48,12 @@ The major caveat to using this script, which relies on \prog{gflux}, is that you
 
 \FloatBarrier
 
-
-
 \subsection{\label{sec:flux.trips}Beam Trips}
-
+Beam trips were classified as scalar intervals with a lifetime above a threshold of 0.90. Depending on the trigger and run conditions, the peak of the lifetime ranged from 0.85 to 0.80. The individual scalar trip lists are in:
+\begin{verbatim}
+/group/clas/parms/gflux/g12
+\end{verbatim}
+Additionally, due to the setup of the program in the flux procedure outline, Ref. \cite{clas.flux.note}, the beginning and the end of every file was labeled a bad scalar interval. With such a high number of files per run (100 to 200 files), roughly $12\%$ of good data would be lost. To remedy this, we were able to load and run the flux calculator on a whole run basis and recover most of the events except for the first and last scalar of the run. As a result the flux is valid for whole runs only and a proper run list can be obtained from the g12-flux script.
 \FloatBarrier
 
 
