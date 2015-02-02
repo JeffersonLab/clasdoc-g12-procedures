@@ -25,7 +25,7 @@ The command to cook the gsim bos file using the \texttt{a1c} program is:
 a1c -T4 -sa -ct1930 -cm0 -cp0 -X0 -d1 -F -P0x1bff -z0,0,-90 \
   -Aprlink_tg-90pm30.bos -o3pi.a1c 3pi.gpp
 \end{verbatim}
-which will produce BOS files similar to the ``cooked'' data mentioned above in Sec.~\ref{ana.data}. This is the same command to be used to \emph{recook} raw data files.
+which will produce BOS files similar to the ``cooked'' data mentioned above in Sec.~\ref{ana.data}. This is the same command to be used to \emph{recook} raw data files. The options shown here will be slightly different for simulated data since \desg{CLAS} does not treat simulation in exactly the same way as real data. This is a legacy issue that has been well documented in previous experiments and we will merely say that one will have to add the option ``\verb+-X0+'' when running the \prog{a1c} reconstruction program. This is mentioned again in Sec.~\ref{sec:sim.recon} where we discuss the reconstruction of simulated data.
 
 There was only one ``physics'' pass of the \desg{g12} data, labeled \texttt{pass1}, which represents 99\% of the reconstructable data taken. It was determined that tracking down that last 1\% was not worth the effort. On JLab's common user environment (\texttt{CUE}), the cooked data can be found here:
 \begin{center}

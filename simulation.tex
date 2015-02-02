@@ -18,7 +18,7 @@ Under this directory, you may find the following directories which hold the prog
 
 One may use the program \texttt{genr8} for generating t-channel phase space events. It is driven by an input key file which describes the exclusive reaction. Typical usage to generate 10k events from 4.4 to 5.45~GeV in beam energy using the input file ``\verb+n_pi-pi+pi+.input+'' looks like this:
 \begin{verbatim}
-genr8 -M10000 -B4.4,5.45 -o3pi.gamp < n_pi-pi+pi+.input
+genr8 -M10000 -B4.4,5.45 -oevents.gamp < n_pi-pi+pi+.input
 \end{verbatim}
 See the genr8 documentation for how to write the input file, or you can see this example here:
 \begin{align}
@@ -27,16 +27,16 @@ See the genr8 documentation for how to write the input file, or you can see this
 
 Gsim requires a bos file with a PART bank containing the MC event. Note PART bank 0 is reserved for MC events whereas PART banks 1 and 2 are used for containing the reconstructed event. The best way to convert GAMP to PART banks is by using gamp2part -- the command following the example above is:
 \begin{verbatim}
-gamp2part -r56855 -o3pi.part -T -S-0.321,0.378,-0.254,0.407 \
-  -z-110,-70 genr8.gamp
+gamp2part -r56855 -oevents.part -T -S-0.321,0.378,-0.254,0.407 \
+  -z-110,-70 events.gamp
 \end{verbatim}
 This writes a BOS file full of PART, sector 0 banks with the 4-vector information from the gamp file. Also, the -z option smears the target distribution in Z, while the -S smears it in X and Y. The parameters are means and sigmas of a 2D gaussian which were derived from a fit to the data. An alternative way to convert a gamp file to a BOS PART bank file is using gamp2txt and txt2part. These programs are piped together during run time.
 \begin{verbatim}
-gamp2txt -E5.714 -z-110,-70 < 3pi.gamp | txt2part -T -o3pi.part
+gamp2txt -E5.714 -z-110,-70 < events.gamp | txt2part -T -oevents.part
 \end{verbatim}
 The above command takes in gamp events, smears the z vertex in the target range, creates a tagger hit and writes out a bos file with HEAD, PART, and TAGR banks. Here is a bosdump of an event:
 \begin{verbatim}
-ifarml1> bosdump 3pi.part -M1
+ifarml1> bosdump events.part -M1
 Group:  HEAD    Sector: 0       Nhits:  1   Next ind:    0
 
 Version:        0
@@ -70,7 +70,7 @@ ERG:5.001 TTAG:0.000  TPHO:0.000 STAT:15 T_id:17  E_id:82
 One can use any alternative to \texttt{genr8} as long as the output is either gamp or an appropriate BOS file. For example, there is the phase-space generator \texttt{ppgen}:
 \begin{verbatim}
 ppgen -M<reaction code> -P<photon energy> -E5.714 -j1 -G -A \
-  -t<t-slope> -m50000 > file.gamp
+  -t<t-slope> -m50000 > events.gamp
 \end{verbatim}
 The output can be txt or gamp file depending on user's needs. Follow the previous instructions to convert to part banks as needed.
 
@@ -78,7 +78,7 @@ The output can be txt or gamp file depending on user's needs. Follow the previou
 
 The program to track the particles through the simulation and ultimately digitize the information to simulated ``raw'' banks is the geant3-based program: \texttt{gsim}. Running this on the BOS file created above looks like this:
 \begin{verbatim}
-gsim_bat -ffread ffread.g12 -kine 1 -mcin 3pi.part -bosout 3pi.gsim -trig 2000000
+gsim_bat -ffread ffread.g12 -kine 1 -mcin events.part -bosout events.gsim -trig 2000000
 \end{verbatim}
 Using the above command, should create a gsim bos outfile. Here is the FFREAD file should be used to run gsim\_bat for \desg{g12} analyses:
 \begin{verbatim}
@@ -115,12 +115,12 @@ STOP
 
 The tracking and digitization done by \texttt{gsim} is ideal and there is no smearing done. To get the simulated data to mimic the detector resolution the ``gsim post-processor'' (\texttt{gpp}) is used. For \desg{g12}, and following the above example, one should use this command:
 \begin{verbatim}
-gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R56855 -P0x7f -ogenr8.gpp genr8.gsim
+gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R56855 -P0x7f -oevents.gpp events.gsim
 \end{verbatim}
 The values passed to the gpp command line options, -a, -b, -c, helps match the tracking resolution of the simulated data to that of the real events in the regions 1,2 and 3 of the CLAS Drift Chambers. They accomplish this by smearing the DOCA values and hence gpp is able to match the DC residuals for the simulated CLAS tracks to that of the real CLAS tracks on a region-by-region basis. The gpp option -f smears the Time-of-Flight tdc values and during analysis the defaut gpp smearing for TOF was found to be adequate. The smearing should be run with a good g12 run number; run 56855 has all the necessary constants in the database to get the tagger timing smearing done correctly. Also, interested parties can add accidentals to the TAGR bank by using the -A option like so:
 \begin{verbatim}
-gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 -P0x7f -ogenr8.gpp \
-  -A/path/to/output/from/filter_tagr genr8.gsim
+gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 -P0x7f -oevents.gpp \
+  -A/path/to/output/from/filter_tagr events.gsim
 \end{verbatim}
 The program \texttt{filter\_tagr} scans through real data files and outputs a bos file containing only the TAGR banks. These files are then supplied to gpp with the -A option, and gpp puts the contents of these banks as accidentals in the MC TAGR bank. Output from \texttt{filter\_tagr} for run 56855 can be found at:
 \begin{align}
@@ -181,25 +181,18 @@ Generated  &  Accepted  & Acceptance & -a & -b & -c & -f \\
 \end{center}
 \end{table}
 
-
-
-
-
-\FloatBarrier
-
-
-
-
-
-
-
-
 \subsection{\label{sec:sim.recon}Reconstruction of Simulated Data}
 
+The reconstruction of simulated data requires a slightly different tracking function and is taken care of by adding the option \verb+-X0+ to the reconstruction program:
+\begin{verbatim}
+a1c -T4 -ct1930 -cm0 -cp0 -X0 -d1 -F -P0x1bff -z0,0,-90 \
+    -Aprlink_tg-90pm30.bos -oevents.a1c events.gpp
+\end{verbatim}
+The help output of \prog{a1c} says this about the \verb+-X#+ option:
+\begin{verbatim}
+    [-X#]    use a different x vs. t function in tracking (def = 2, MC = 0)
+\end{verbatim}
+
 \FloatBarrier
-
-
-
-
 
 \input{simulation/fiducial}
