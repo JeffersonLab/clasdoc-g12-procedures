@@ -1,5 +1,19 @@
 \section{\label{sec:sim}Simulations}
 
+All the programs in this section can be obtained from the standard \desg{SVN} repository for \desg{CLAS} here:
+\begin{center}
+    \url{https://jlabsvn.jlab.org/svnroot/clas/trunk}
+\end{center}
+Under this directory, you may find the following directories which hold the programs in the order which they appear below:
+\begin{itemize}
+    \item \prog{simulation/generators/genr8}
+    \item \prog{io/part2gamp}
+    \item \prog{io/bosdump}
+    \item \prog{simulation/generators/ppgen}
+    \item \prog{simulation/gsim}
+    \item \prog{simulation/gpp}
+\end{itemize}
+
 \subsection{\label{sec:sim.gen}Generating Events for Digitization}
 
 One may use the program \texttt{genr8} for generating t-channel phase space events. It is driven by an input key file which describes the exclusive reaction. Typical usage to generate 10k events from 4.4 to 5.45~GeV in beam energy using the input file ``\verb+n_pi-pi+pi+.input+'' looks like this:
