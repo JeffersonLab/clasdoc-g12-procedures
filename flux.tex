@@ -41,7 +41,46 @@ An alternative script which doesn't rebin the data but returns the flux for each
 \begin{verbatim}
 /home/clasg12/local/scripts/g12-gflux-all filelist.txt good
 \end{verbatim}
-The script has been extensively tested on the 64-bit machines. The precision of all variables are adequate to provide at least 4 significant figures for the final flux numbers.
+The script has been extensively tested on the 64-bit machines. The precision of all variables are adequate to provide at least 4 significant figures for the final flux numbers. The two scripts both poll the flux information from the output files of the program \prog{gflux} which was run with the options:
+\begin{verbatim}
+gflux -c -b -B -ooutput.hbook -ttripfile.txt -F100000 -f0 -l1000 <infiles>
+\end{verbatim}
+where \verb+<infiles>+ included all files, in order, for a specific run. The output files are kept on the \verb+/work+ directory on the CUE machines at JLab here:
+\begin{verbatim}
+/work/clas/clasg12/flux
+\end{verbatim}
+and the associated trip files can be found here:
+\begin{verbatim}
+/work/clas/clasg12/clasg12/tripfiles
+\end{verbatim}
+For reference, the output of \verb+gflux -h+ is here:
+\begin{verbatim}
+Usage: gflux [-Options] file1 [file2] etc...
+
+  Options:
+    -B          Bloated mode(All histograms) equivalent to -P -T -e
+    -F[#]       Run gated clock frequency in KHz, default 10 KHz
+    -M[#]       Process only # number of events
+    -N[#]       Normalize to this run, instead of using map
+    -P          Rebuild PID with particle histograms
+    -R          Do NOT rebuild TAGR bank, by default it does
+    -T          Raw tagger histograms from TAGE, TAGT, and TAGI
+
+    -E          apply tagger energy correction (default: no correction)
+
+    -b          Batch mode(no printout on screen)
+    -c          Clock based DAQ livetime, default event based
+    -e          Make exclusive reaction histograms
+    -f          File number, necessary if you want to keep txt files
+    -l[#]       Scaler intervals in timeline histograms, default 50
+    -n          Process a normalization run
+    -o<outfile> Output hbook file name
+    -p          Particle histograms without rebuilding PID
+    -p          Particle histograms without rebuilding PID
+    -s          Start counter histograms from ST1 and STR
+    -t<file>    Trip file
+    -y<file>    Synch event mode (skip events)
+\end{verbatim}
 
 The major caveat to using this script, which relies on \prog{gflux}, is that you must included \emph{whole runs} in your analysis for this to be accurate. This is because the \prog{gflux} program was not designed to work with partial runs. So, you must verify that you have processed every file in the runs which were analyzed -- one can use the \prog{g12runs} program to aid in this.
 
