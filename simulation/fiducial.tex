@@ -35,5 +35,22 @@ In order to determine the fiducial limits for charged hadrons, a sample of exclu
 \onefig{0.6}{figures/fiducial/fid3}{The angular distribution of the positive pion from exclusive \mbox{p \π[+] \π[-]} events is shown.  In the top, $\phi$ vs $\theta$ is plotted, the bottom plots conveys similar information mapped to reflect the geometry of CLAS. Left: no fiducial cuts. Right: nominal fiducial cuts on the positive pion.}
 \onefig{0.6}{figures/fiducial/fid4}{The angular distribution of the negative pion from exclusive \mbox{p \π[+] \π[-]} events is shown.  In the top, $\phi$ vs $\theta$ is plotted, the bottom plots conveys similar information mapped to reflect the geometry of CLAS. Left: no fiducial cuts. Right: nominal fiducial cuts on the negative pion.}
 \onefig{0.7}{figures/fiducial/fid5}{From left to right: $\phi$ vs momentum for the proton, negative pion and positive pion for \mbox{p \π[+] \π[-]} events. Top: no fiducial cuts. Bottom: nominal fiducial cuts.}
-
-
+\newpage
+To perform fiducial cuts for the G12 data use the header files:
+\begin{verbatim}
+https://jlabsvn.jlab.org/svnroot/clas/users/mkunkel/clas \ 
+/g12_corrections/g12_NegParticle_fiducial_cuts.hpp
+\end{verbatim} 
+and
+\begin{verbatim}
+https://jlabsvn.jlab.org/svnroot/clas/users/mkunkel/clas \ 
+/g12_corrections/g12_PosParticle_fiducial_cuts.hpp
+\end{verbatim}
+The user needs the particle momentum, polar angle $\theta$, and azimuthal angle $\phi$. To use: 
+\begin{verbatim}
+clas::g12:: \ 
+g12_PosParticle_fiducial_cuts(particle_P, particle_Theta, particle_Phi,"nominal")
+clas::g12::\ 
+g12_NegParticle_fiducial_cuts(particle_P, particle_Theta, particle_Phi,"nominal")
+\end{verbatim}
+There are 3 types of options for the keyword depending on the desired cut, "nominal", "tight", and "loose". The header will return false if particle was not within fiducial region, true if particle was within fiducial region.

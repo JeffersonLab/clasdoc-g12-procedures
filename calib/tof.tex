@@ -2,47 +2,31 @@
 
 \subsubsection{\label{sec:calib.tof.calib}Time-of-Flight Counter Calibration}
 
-%\begin{itemize}
-%    \item The plots shown are for g12's run number 56855, pass0 v7. Did not change to pass1.
-%    \item Several steps were taken to calibrate the TOF for g12. Listed in Craig's dissertation:
-%    \begin{itemize}
-%        \item Counter status
-%        \item ADC pedestals
-%        \item TDC linearization constants
-%        \item Time-walk corrections
-%        \item Left-right delay constants
-%        \item Attenuation length
-%        \item Minimum-ionizing particle pulse heights
-%        \item Effective velocity
-%        \item Paddle-to-paddle offsets
-%    \end{itemize}
-%    \item The final time-walk corrections is a mix between constants from g6c and constants derived from g9a laser data using Gamecock.
-%    \item The plots included are:
-%    \begin{itemize}
-%        \item The TOF run-by-run performance.
-%        \item The RF TOF by paddle ID by sector.
-%        \item The TOF resolution integrated over all paddles.
-%        \item The TOF mass.
-%        \item The energy deposited versus momentum by positive and negative tracks.
-%        \item The TOF velocity ($\beta$) versus momentum by positive and negative tracks.
-%    \end{itemize}
-%\end{itemize}
-
-Calibrating the TOF system provides timing for charged tracks, which is then used for particle identification. The TOF was calibrated in accordance to CLAS's standard procedure. For g12, the procedure was as follows~\cite{clas.thesis.bookwalter}: 
-\begin{enumerate}
-	\item Counter status: %identify and eliminate dead channels.
-	\item ADC pedestals: %record values of each ADC channel when no tracks are passing through the TOF.
-	\item TDC linearization constants: %using fits to pulser data, determine the conversion function from TDC channels to nanoseconds.
-	\item Time-walk corrections: %correct for the instrumental shift in times created by pulses of varying height passing through a leading-edge discriminator. This is typically done by fits to data taken with a laser illuminating each phototube in sync with a pulser so that the timing response over a wide range of ADC values can be probed. However, by the time the g12 run was commissioned, the CLAS TOF laser system had largely fallen into disrepair. Many alternatives were tested, and the system that gave the best timing resolution for g12 was to perform the time-walk calibration on channels with the appropriate laser data, and to use constants from prior runs for channels where no such data existed.
-	The final time-walk corrections is a mix between constants from g6c and constants derived from g9a laser data using Gamecock.
-	\item Left-right delay constants: %determine corrections required for the differences in timing between photomultipliers at each end of the same paddle.
-	\item Attenuation length: %determine and record for each paddle the average length over which the scintillation light is attenuated by half.
-	\item Minimum-ionizing particle pulse heights: %for each paddle, determine and record the ADC channel number for minimum-ionizing particles.
-	\item Effective velocity: %for each paddle, determine the effective velocity of light, which can vary as the plastic ages and becomes less transparent.
-	\item Paddle-to-paddle offsets: %correct for shifts in the relative timing between paddles due to cable lengths or other factors.
-\end{enumerate}
-
-The following plots are for g12's run number 56855, pass0 v7. They did not change in pass1. 
+\begin{itemize}
+    \item The plots shown are for g12's run number 56855, pass0 v7. Did not change to pass1.
+    \item Several steps were taken to calibrate the TOF for g12. Listed in Craig's dissertation:
+    \begin{itemize}
+        \item Counter status
+        \item ADC pedestals
+        \item TDC linearization constants
+        \item Time-walk corrections
+        \item Left-right delay constants
+        \item Attenuation length
+        \item Minimum-ionizing particle pulse heights
+        \item Effective velocity
+        \item Paddle-to-paddle offsets
+    \end{itemize}
+    \item The final time-walk corrections is a mix between constants from g6c and constants derived from g9a laser data using Gamecock.
+    \item The plots included are:
+    \begin{itemize}
+        \item The TOF run-by-run performance.
+        \item The RF TOF by paddle ID by sector.
+        \item The TOF resolution integrated over all paddles.
+        \item The TOF mass.
+        \item The energy deposited versus momentum by positive and negative tracks.
+        \item The TOF velocity ($\beta$) versus momentum by positive and negative tracks.
+    \end{itemize}
+\end{itemize}
 
 \begin{figure}\begin{center}
     \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_betavpm.pdf}
@@ -124,7 +108,7 @@ The following plots are for g12's run number 56855, pass0 v7. They did not chang
 
 \subsubsection{\label{sec:calib.tof.eff}Time-of-Flight Counter Efficiency and Bad Paddles}
 
-As a standard procedure of the time-of-flight calibrations, the time-of-flight scintillators were initially studied during the calibration period, as shown in \ref{sec:calib.tof.calib}, in which a list~\footnote{Can be obtained using the CLAS calibration database} of scintillators had a faulty ADC or TDC as shown in \ref{tab:craigtof}. Another study, as shown below, was conducted to determine the efficiency of each paddle and to reevaluate the status of their ADC and TDC. Due to the more stringent requirements of paddle efficiency in the study below, more paddles were considered to be faulty than in the initial study. \ref{tab:diff} shows the additional paddles which were considered to be inefficient.
+As a standard procedure of the time-of-flight calibrations, the time-of-flight scintillators were initially studied during the calibration period, in which a list~\footnote{Can be obtained using the CLAS calibration database} of scintillators had a faulty ADC or TDC as shown in \ref{tab:craigtof}. Another study, as shown below, was conducted to determine the efficiency of each paddle and to reevaluate the status of their ADC and TDC. Due to the more stringent requirements of paddle efficiency in the study below, more paddles were considered to be faulty than in the initial study. \ref{tab:diff} shows the additional paddles which were considered to be inefficient.
 
 \input{tables/tof_badpaddles_calib} % label: tab:craigtof
 
@@ -150,7 +134,7 @@ To determine efficiency of each scintillator paddle, the number of hits~\footnot
     \caption{\label{plt:adctdcval}Top: ADC values of all scintillators. Left ADC (ADCL) values are on the left and right ADC values are on the right (ADCR). Shaded in red are events recorded with an ADC value of zero or maximum. Bottom: Same as Top but for TDC values}
 \end{center}\end{figure}
 
-The occupancy alone is not enough to determine which scintillators are bad. The ADC and TDC values for all scintillators were also recorded and studied. \ref{plt:adctdcval} shows the ADC and TDC values for all scintillators. Some of the events registered had an ADC or TDC value of zero or a maximum ADC value (shaded in red). The percentage of events a scintillator recorded either a TDC or ADC value of zero or maximum ADC value was studied as shown in \ref{plt:adc0vSCID,plt:adcMvSCID,plt:tdc0vSCID}. \ref{plt:adc0vSCID,plt:tdc0vSCID,plt:proj} assisted in determining bad paddles. It was decided that a paddle cannot have more than $50\%$ of its ADC (left or right) values be equal to zero or more than $45\%$ of its TDC (left or right) values equal to zero. \ref{tab:adctdc0} shows which paddles fall in these categories. \ref{tab:tofko} shows which scintillators should be knocked out due to low occupancy or too many null ADC or TDC values. Due to the small number of events in which a maximum ADC value is obtained, it is not recommended in knocking paddles out based on this measure. However, \ref{tab:adcM} shows the paddles which attain a maximum ADC value on more than $2.5\%$ of its registered events.
+The occupancy alone is not enough to determine which scintillators are bad. The ADC and TDC values for all scintillators were also recorded and studied. \ref{plt:adctdcval} shows the ADC and TDC values for all scintillators. Some of the events registered had an ADC or TDC value of zero or a maximum ADC value (shaded in red). The percentage of events a scintillator recorded either a TDC or ADC value of zero or maximum ADC value was studied as shown in \ref{plt:adc0vSCID,plt:adcMvSCID,plt:tdc0vSCID}. \ref{plt:adc0vSCID,plt:tdc0vSCID,plt:proj} assisted in determining bad paddles. It (is to be) was decided that a paddle cannot have more than $50\%$ of its ADC (left or right) values be equal to zero or more than $45\%$ of its TDC (left or right) values equal to zero. \ref{tab:adctdc0} shows which paddles fall in these categories. \ref{tab:tofko} shows which scintillators should be knocked out due to low occupancy or too many null ADC or TDC values. Due to the small number of events in which a maximum ADC value is obtained, it is not recommended in knocking paddles out based on this measure. However, \ref{tab:adcM} shows the paddles which attain a maximum ADC value on more than $2.5\%$ of its registered events.
 
 \input{tables/tof_badpaddles_adc} % label: tab:adctdc0
 
