@@ -4,7 +4,7 @@
 
 The event reconstruction of a particle track in CLAS starts in region 1 of the DC after the track has gone through the target and start counter. To reconstruct the track back to the event vertex, additional energy loss from the target and start counter are included. The standard CLAS ELOSS package provides the required functionality as detailed in Ref. \cite{eloss}. ELOSS corrects for the energy lost as charged tracks go from the event vertex through the beam pipe, target, and start counter using the Bethe-Bloch equation \cite{pdg} to relate the material characteristics and path length to energy loss.
 
-The momenta of the tracks as measured by the Drift-Chamber (\texttt{DC}) have a systematic shift within each sector as a function of azimuthal-angle $\phi$ of one of the tracks. This can be seen in the ``tranverse momentum balance'' plots shown in Fig.~\ref{fig:pbal.before}. The transverse momentum balance for a given particle is defined as the sum of the momentum of the other particles projected onto the line that is perpendicular to the beam having the same $\phi$ angle as the given particle minus its momentum transverse to the beam.
+The momenta of the tracks as measured by the Drift-Chamber (\texttt{DC}) have a systematic shift within each sector as a function of azimuthal-angle $\phi$ of one of the tracks. This can be seen in the ``transverse momentum balance'' plots shown in Fig.~\ref{fig:pbal.before}. The transverse momentum balance for a given particle is defined as the sum of the momentum of the other particles projected onto the line that is perpendicular to the beam having the same $\phi$ angle as the given particle minus its momentum transverse to the beam.
 
 The procedure used is described in the \desg{CLAS} note for the momentum correction of the g9b dataset\cite{clas.note.g9bpcor}, though we choose to show the transverse (to the beam) momentum balance which is slightly more sensitive to this feature. The resulting transverse momentum and missing mass balance are shown in Figs.~\ref{fig:pbal} and \ref{fig:mmbal}. The latter plots can be compared directly to g9b's analysis.
 
@@ -44,7 +44,7 @@ Where geant3 pid is the particle ID (according to geant3) for \π[+], \π[-], p,
 \caption[Momentum Balance Before Corrections]{\label{fig:pbal.before}Transverse momentum balance of exclusive p \π[+] \π[-] events as a function of azimuthal angle $\phi$ of each track before momentum corrections for the proton, π$^+$ and π$^-$.}
 \end{center}\end{figure}
 
-A simulataneous fit was done by adding a correction to the momenta of each particle for each sector which was linear in $\phi$. The result of the correction is shown in Fig.~\ref{fig:pbal}.
+A simultaneous fit was done by adding a correction to the momenta of each particle for each sector which was linear in $\phi$. The result of the correction is shown in Fig.~\ref{fig:pbal}.
 
 \begin{figure}\begin{center}
 \begin{subfigure}{0.4\columnwidth}
@@ -174,7 +174,7 @@ From this using eq.~\ref{eq:tagger.energy} in 4-vector notation
 \begin{align}\label{eq:tagger.energyII}
 P_\text{γ} = P_{E_0} - P_\text{e}\nonumber
 \end{align}
-where $P_{E_0}$ is the beam energy delivered from \abbr{CEBAF} as recorded in the \abbr{RUNC} bank and $P_\text{e}$ is the scattered electron in the \emph{bremsstrahlung} process that is recorded by the tagger. From eq.~\ref{eq:tagger.energy} the only known quantities are $P_{E_0}$ and $P_\text{γ}$. Applying a scaler correction to $P_\text{e}$ as $xP_\text{e}$ and solving for $x$ for all known quantities, eq.~\ref{eq:hyst.eqI} simplifies to;
+where $P_{E_0}$ is the beam energy delivered from \abbr{CEBAF} as recorded in the \abbr{RUNC} bank and $P_\text{e}$ is the scattered electron in the \emph{bremsstrahlung} process that is recorded by the tagger. From eq.~\ref{eq:tagger.energy} the only known quantities are $P_{E_0}$ and $P_\text{γ}$. Applying a scalar correction to $P_\text{e}$ as $xP_\text{e}$ and solving for $x$ for all known quantities, eq.~\ref{eq:hyst.eqI} simplifies to;
 \begin{align}
 x= \frac{P_{E_0}(P_\mathrm{target}-P_\text{π$^+$π$^-$}) + P_\text{π$^+$π$^-$}^2/2  - P_\mathrm{target}P_\text{π$^+$π$^-$}}{(P_{E_0} - P_\text{γ})(P_\mathrm{target} - P_\text{π$^+$π$^-$})}
 \end{align}

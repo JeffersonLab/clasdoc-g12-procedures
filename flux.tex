@@ -3,7 +3,7 @@
 The photon flux is based on the flux procedure outline in Ref. \cite{clas.flux}. The script to generate the photon flux for g12 is here:
 \begin{align}
     \texttt{/home/clasg12/local/scripts/g12-gflux} \nonumber
-\end{align} and there is also a script (/home/clasg12/local/scripts/g12-gflux-all) that doesn't rebin the energies and outputs two columns: energy and flux for each logical paddle in the tagger.
+\end{align} and there is also a script (/home/clasg12/local/scripts/g12-gflux-all) that does not rebin the energies and outputs two columns: energy and flux for each logical paddle in the tagger.
 
 The help output from the script:
 \begin{verbatim}
@@ -19,7 +19,7 @@ where runlist.txt is an ascii file of one column: run
 ...
 \end{verbatim}
 
-To use the script, you will need to create a file that consists of the run numbers you used in your analysis. Using this filename when you call g12-gflux, will give you the total flux as a function of beam energy in the range and binning requested. The command:
+To use the script, you will need to create a file that consists of the run numbers you used in your analysis. Using this file name when you call g12-gflux, will give you the total flux as a function of beam energy in the range and binning requested. The command:
 \begin{verbatim}
 /home/clasg12/local/scripts/g12-gflux 1.5 5.5 0.2 filelist.txt good
 \end{verbatim}
@@ -37,7 +37,7 @@ will return to stdout the flux in the energy bins using three columns: emin, ema
 
 The option good or all can be used to specify if you only want to consider good regions, throwing out beam trips, or if you want all events from good scalar intervals as well as the beam trip regions.
 
-An alternative script which doesn't rebin the data but returns the flux for each logical energy paddle can be run like this:
+An alternative script which does not rebin the data but returns the flux for each logical energy paddle can be run like this:
 \begin{verbatim}
 /home/clasg12/local/scripts/g12-gflux-all filelist.txt good
 \end{verbatim}
@@ -106,7 +106,7 @@ The beam current study that took place from runs 56363 to 56519 had beam current
 
 
 \subsection{\label{sec:flux.runbyrun}Run-by-run Stability and Systematic Uncertainty of Flux}
-This run by run plot shows the stability of the flux corrections for runs after run 56519. These runs all use the same trigger and have a cut on $E_{\gamma}$ > 4.4 GeV. 
+This run by run plot shows the stability of the flux corrections for runs after run 56519. These runs all use the same trigger and have a cut on $E_{\gamma}$ > 4.4 GeV.
 
 \begin{figure}[h]
 \begin{center}

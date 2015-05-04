@@ -3,9 +3,9 @@ During the collection process, for an event to be written by the \abbr{DAQ} it m
 
 Simulation of the \abbr{CC} and \abbr{EC} trigger ``bit 6'', Table~\ref{tab:data.trig.conf.2}, was performed by writing an algorithm that attempted to mimic the method in which triggered data was recorded. To accomplish this a modified function, written by Simeon McAleer from FSU, was written into the simulation reconstruction algorithm. The routine returned the sector and a boolean of 0 or 1 (pass or fail), that simulated the trigger based on the following criteria;
 \begin{enumerate}\label{trig:sim.all}
-\item The sector with the highest EC summed energy over threshold. \label{trig:sim.ECtot} 
-\item The sector with the highest EC Inner Layer summed energy over threshold. \label{trig:sim.ECinner} 
-\item The sector with the highest CC summed energy over threshold. \label{trig:sim.CCtot} 
+\item The sector with the highest EC summed energy over threshold. \label{trig:sim.ECtot}
+\item The sector with the highest EC Inner Layer summed energy over threshold. \label{trig:sim.ECinner}
+\item The sector with the highest CC summed energy over threshold. \label{trig:sim.CCtot}
 \item All three above conditions must be in same sector.
 \end{enumerate}
 Thresholds as described in Table~\ref{tab:data.ecccthresh} are 80~mV, 60~mV and 20~mV for \abbr{EC} \emph{inner}, \abbr{EC}\emph{total} and CC respectively. The \abbr{CC} trigger threshold was applied to groups of eight \abbr{CC} \abbr{PMT}s, called ``sim bits''. The ``sim bits'' were staggered by four \abbr{PMT}s so that each \abbr{PMT} goes into two ``sim bits'', after which all ``sim bits'' were ``\emph{OR}'''d together. If any ``sim bit'' calculated as above threshold, that specific sector was then compared to the remaining sectors to establish the condition listed in~\ref{trig:sim.CCtot}.
@@ -13,19 +13,19 @@ Thresholds as described in Table~\ref{tab:data.ecccthresh} are 80~mV, 60~mV and 
 The \abbr{EC} \emph{inner} and \abbr{EC} \emph{total} trigger thresholds were applied to all \abbr{EC} strips in a sector. This was done by summing over the energy for every strip in every orientation of the \abbr{EC} per sector. If the energy summation for the \abbr{EC} \emph{inner} was above threshold,   that specific sector was then compared to the remaining sectors to establish the condition listed in~\ref{trig:sim.ECinner}. If the energy summation for the \abbr{EC} \emph{total} was above threshold, that specific sector was then compared to the remaining sectors to establish the condition of the sector with the highest EC summed energy over threshold.
 
 \subsubsection{Validity of Trigger Simulation}
-The actual triggered data could have been triggered by the following sceneries;
+The actual triggered data could have been triggered by the following scenarios;
 \begin{enumerate}\label{trig:get.all}
 \item $e^-$ \abbr{CC} and \abbr{EC} hit above preset thresholds,
 \item $e^+$ \abbr{CC} and \abbr{EC} hit above preset thresholds,
-\item $e^-$ \abbr{CC} hit above preset thresholds and $e^+$ \abbr{EC} hit above preset thresholds in the same sector, 
-\item $e^-$ \abbr{EC} hit above preset thresholds and $e^+$ \abbr{CC} hit above preset thresholds in the same sector. 
+\item $e^-$ \abbr{CC} hit above preset thresholds and $e^+$ \abbr{EC} hit above preset thresholds in the same sector,
+\item $e^-$ \abbr{EC} hit above preset thresholds and $e^+$ \abbr{CC} hit above preset thresholds in the same sector.
 \end{enumerate}
-The lepton trigger ``bit 6" was 100\% efficient, for $\pi^0$ candidates (see~\cite{clas.thesis.kunkel} Sec. \textit{\textbf{Lepton Trigger Efficiency for $\pi^0$ Candidates}}), when the data was cut using all the conditions listed above (1, 2, 3, 4) using an ``OR" flag. This means that a $\gamma p \to p e^+ e^-$ event must satisfy at least one of the listed conditions. The reduction in events when at least one of the conditions was satisfied was 69.91\%. Prior to simulating the trigger, cutting the \abbr{MC} with the listed conditions reduced the event yield by 81.91\%. Simulating the trigger and cutting on the \abbr{MC} events with the listed conditions reduced that event yield to 69.48\%. This indicates that the trigger simulation is properly mimicking the trigger configuration used when data is collected. 
+The lepton trigger ``bit 6" was 100\% efficient, for $\pi^0$ candidates (see~\cite{clas.thesis.kunkel} Sec. \textit{\textbf{Lepton Trigger Efficiency for $\pi^0$ Candidates}}), when the data was cut using all the conditions listed above (1, 2, 3, 4) using an ``OR" flag. This means that a $\gamma p \to p e^+ e^-$ event must satisfy at least one of the listed conditions. The reduction in events when at least one of the conditions was satisfied was 69.91\%. Prior to simulating the trigger, cutting the \abbr{MC} with the listed conditions reduced the event yield by 81.91\%. Simulating the trigger and cutting on the \abbr{MC} events with the listed conditions reduced that event yield to 69.48\%. This indicates that the trigger simulation is properly mimicking the trigger configuration used when data is collected.
 
 %actual physics events recorded by \abbr{CLAS}.
 %
 %
-%When all the conditions listed above are compared together using an ``\emph{OR}'' flag, on \piz data, 69.91\% of events remain. To check the validity of the trigger simulation, events from the \piz reconstructed simulation were placed under the conditions as the actual data. Without placing the boolean of 1 on the simulation, 81.91\% of events remain. Placing the boolean of 1 on the simulation, 69.48\% of events remain, indicating the trigger simulation is mimicking the actual physics events recorded by \abbr{CLAS}. 
+%When all the conditions listed above are compared together using an ``\emph{OR}'' flag, on \piz data, 69.91\% of events remain. To check the validity of the trigger simulation, events from the \piz reconstructed simulation were placed under the conditions as the actual data. Without placing the boolean of 1 on the simulation, 81.91\% of events remain. Placing the boolean of 1 on the simulation, 69.48\% of events remain, indicating the trigger simulation is mimicking the actual physics events recorded by \abbr{CLAS}.
 
 
 
