@@ -1,7 +1,5 @@
 \subsection{\label{sec:calib.tof}Time-of-Flight Counter Calibration and Resolution}
 
-\subsubsection{\label{sec:calib.tof.calib}Time-of-Flight Counter Calibration}
-
 \begin{itemize}
     \item The plots shown are for g12's run number 56855, pass0 v7. Did not change to pass1.
     \item Several steps were taken to calibrate the TOF for g12. Listed in Craig's dissertation\cite{clas.thesis.bookwalter}:
@@ -29,83 +27,51 @@
 \end{itemize}
 
 \begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_betavpm.pdf}
-    \caption{TOF $\beta$ versus momentum for negative tracks}
-    \label{plt:tofbetavpneg}
+    \begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_betavpm.pdf}
+        \caption{TOF $\beta$ versus momentum for negative tracks}
+        \label{plt:tofbetavpneg}
+    \end{center}\end{subfigure}\begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_betavpp.pdf}
+        \caption{TOF $\beta$ versus momentum for positive tracks}
+        \label{plt:tofbetavppos}
+    \end{center}\end{subfigure}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_betavpp.pdf}
-    \caption{TOF $\beta$ versus momentum for positive tracks}
-    \label{plt:tofbetavppos}
+    \begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_dedxm.pdf}
+        \caption{TOF energy deposited versus momentum for negative tracks}
+        \label{plt:tofEvpneg}
+    \end{center}\end{subfigure}\begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_dedxp.pdf}
+        \caption{TOF energy deposited versus momentum for positive tracks}
+        \label{plt:tofEvppos}
+    \end{center}\end{subfigure}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_dedxm.pdf}
-    \caption{TOF energy deposited versus momentum for negative tracks}
-    \label{plt:tofEvpneg}
+    \begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_mass.pdf}
+        \caption{TOF mass spectrum}
+        \label{plt:tofmass}
+    \end{center}\end{subfigure}\begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_resolution.pdf}
+        \caption{TOF resolution integrated over all paddles}
+        \label{plt:tofres}
+    \end{center}\end{subfigure}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_dedxp.pdf}
-    \caption{TOF energy deposited versus momentum for positive tracks}
-    \label{plt:tofEvppos}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_mass.pdf}
-    \caption{TOF mass spectrum}
-    \label{plt:tofmass}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_resolution.pdf}
-    \caption{TOF resolution integrated over all paddles}
-    \label{plt:tofres}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s1p2p.pdf}
-    \caption{Representative (sector 1) calibrated timing of the time-of-flight, paddle-by-paddle.}
-    \label{plt:tofsec1}
-\end{center}\end{figure}
-
-\begin{comment}
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s2p2p.pdf}
-    \caption{p2p sector 2}
-    \label{plt:tofsec2}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s3p2p.pdf}
-    \caption{p2p sector 3}
-    \label{plt:tofsec3}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s4p2p.pdf}
-    \caption{p2p sector 4}
-    \label{plt:tofsec4}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s5p2p.pdf}
-    \caption{p2p sector 5}
-    \label{plt:tofsec5}
-\end{center}\end{figure}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s6p2p.pdf}
-    \caption{p2p sector 6}
-    \label{plt:tofsec6}
-\end{center}\end{figure}
-\end{comment}
-
-\begin{figure}\begin{center}
-    \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_runscan_p0v7.eps}
-    \caption{TOF run-by-run performance}
-    \label{plt:tofrunbyrun}
+    \begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_56855_final_s1p2p.pdf}
+        \caption{Representative (sector 1) calibrated timing of the time-of-flight, paddle-by-paddle.}
+        \label{plt:tofsec1}
+    \end{center}\end{subfigure}\begin{subfigure}{0.5\columnwidth}\begin{center}
+        \includegraphics[width=.9\linewidth]{figures/calib/tof/Tof_runscan_p0v7.eps}
+        \caption{TOF run-by-run performance}
+        \label{plt:tofrunbyrun}
+    \end{center}\end{subfigure}
 \end{center}\end{figure}
 
 \subsubsection{\label{sec:calib.tof.eff}Time-of-Flight Counter Efficiency and Bad Paddles}
