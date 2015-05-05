@@ -4,7 +4,7 @@
 
 \begin{itemize}
     \item The plots shown are for g12's run number 56855, pass0 v7. Did not change to pass1.
-    \item Several steps were taken to calibrate the TOF for g12. Listed in Craig's dissertation:
+    \item Several steps were taken to calibrate the TOF for g12. Listed in Craig's dissertation\cite{clas.thesis.bookwalter}:
     \begin{itemize}
         \item Counter status
         \item ADC pedestals
@@ -17,14 +17,14 @@
         \item Paddle-to-paddle offsets
     \end{itemize}
     \item The final time-walk corrections is a mix between constants from g6c and constants derived from g9a laser data using Gamecock.
-    \item The plots included are:
+    \item The plots (Figs.~\ref{plt:tofbetavpneg}--\ref{plt:tofrunbyrun}) included are:
     \begin{itemize}
-        \item The TOF run-by-run performance.
-        \item The RF TOF by paddle ID by sector.
-        \item The TOF resolution integrated over all paddles.
-        \item The TOF mass.
-        \item The energy deposited versus momentum by positive and negative tracks.
         \item The TOF velocity ($\beta$) versus momentum by positive and negative tracks.
+        \item The RF TOF by paddle ID by sector.
+        \item The energy deposited versus momentum by positive and negative tracks.
+        \item The TOF mass.
+        \item The TOF resolution integrated over all paddles.
+        \item The TOF run-by-run performance.
     \end{itemize}
 \end{itemize}
 
@@ -66,10 +66,11 @@
 
 \begin{figure}\begin{center}
     \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s1p2p.pdf}
-    \caption{p2p sector 1}
+    \caption{Representative (sector 1) calibrated timing of the time-of-flight, paddle-by-paddle.}
     \label{plt:tofsec1}
 \end{center}\end{figure}
 
+\begin{comment}
 \begin{figure}\begin{center}
     \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_56855_final_s2p2p.pdf}
     \caption{p2p sector 2}
@@ -99,6 +100,7 @@
     \caption{p2p sector 6}
     \label{plt:tofsec6}
 \end{center}\end{figure}
+\end{comment}
 
 \begin{figure}\begin{center}
     \includegraphics[width=.40\linewidth]{figures/calib/tof/Tof_runscan_p0v7.eps}
@@ -108,7 +110,7 @@
 
 \subsubsection{\label{sec:calib.tof.eff}Time-of-Flight Counter Efficiency and Bad Paddles}
 
-As a standard procedure of the time-of-flight calibrations, the time-of-flight scintillators were initially studied during the calibration period, in which a list~\footnote{Can be obtained using the CLAS calibration database} of scintillators had a faulty ADC or TDC as shown in \ref{tab:craigtof}. Another study, as shown below, was conducted to determine the efficiency of each paddle and to reevaluate the status of their ADC and TDC. Due to the more stringent requirements of paddle efficiency in the study below, more paddles were considered to be faulty than in the initial study. \ref{tab:diff} shows the additional paddles which were considered to be inefficient.
+As a standard procedure of the time-of-flight calibrations, the time-of-flight scintillators were initially studied during the calibration period, in which a list~\footnote{Can be obtained using the CLAS calibration database} of scintillators had a faulty ADC or TDC as shown in Table~\ref{tab:craigtof}. Another study, as shown below, was conducted to determine the efficiency of each paddle and to reevaluate the status of their ADC and TDC. Due to the more stringent requirements of paddle efficiency in the study below, more paddles were considered to be faulty than in the initial study. Table~\ref{tab:diff} shows the additional paddles which were considered to be inefficient.
 
 \input{tables/tof_badpaddles_calib} % label: tab:craigtof
 
@@ -123,7 +125,7 @@ To determine efficiency of each scintillator paddle, the number of hits~\footnot
 100 \times \frac{ \mathrm{Number of hits in paddle } i \mathrm{ of sector } j}{\mathrm{Average of remaining three paddles}} \hspace{2pt}\%
 \]
 
-\ref{plt:occp} shows the relative occupancy of all scintillators plotted on a single histogram. A paddle is defined as inefficient if it is greater than two standard deviations below the mean relative occupancy of all scintillators. \ref{tab:occp} shows the paddles which are below two (left) or three (right) standard deviations below the mean relative occupancy.
+Fig.~\ref{plt:occp} shows the relative occupancy of all scintillators plotted on a single histogram. A paddle is defined as inefficient if it is greater than two standard deviations below the mean relative occupancy of all scintillators. Table.~\ref{tab:occp} shows the paddles which are below two (left) or three (right) standard deviations below the mean relative occupancy.
 
 \input{tables/tof_badpaddles_stddev} % label: tab:occp
 
@@ -134,7 +136,7 @@ To determine efficiency of each scintillator paddle, the number of hits~\footnot
     \caption{\label{plt:adctdcval}Top: ADC values of all scintillators. Left ADC (ADCL) values are on the left and right ADC values are on the right (ADCR). Shaded in red are events recorded with an ADC value of zero or maximum. Bottom: Same as Top but for TDC values}
 \end{center}\end{figure}
 
-The occupancy alone is not enough to determine which scintillators are bad. The ADC and TDC values for all scintillators were also recorded and studied. \ref{plt:adctdcval} shows the ADC and TDC values for all scintillators. Some of the events registered had an ADC or TDC value of zero or a maximum ADC value (shaded in red). The percentage of events a scintillator recorded either a TDC or ADC value of zero or maximum ADC value was studied as shown in Figs.~\ref{plt:adc0vSCID}, \ref{plt:adcMvSCID} and \ref{plt:tdc0vSCID}. Figures~\ref{plt:adc0vSCID}, \ref{plt:tdc0vSCID} and \ref{plt:proj} assisted in determining bad paddles. It (is to be) was decided that a paddle cannot have more than $50\%$ of its ADC (left or right) values be equal to zero or more than $45\%$ of its TDC (left or right) values equal to zero. \ref{tab:adctdc0} shows which paddles fall in these categories. \ref{tab:tofko} shows which scintillators should be knocked out due to low occupancy or too many null ADC or TDC values. Due to the small number of events in which a maximum ADC value is obtained, it is not recommended in knocking paddles out based on this measure. However, \ref{tab:adcM} shows the paddles which attain a maximum ADC value on more than $2.5\%$ of its registered events.
+The occupancy alone is not enough to determine which scintillators are bad. The ADC and TDC values for all scintillators were also recorded and studied. Fig.~\ref{plt:adctdcval} shows the ADC and TDC values for all scintillators. Some of the events registered had an ADC or TDC value of zero or a maximum ADC value (shaded in red). The percentage of events a scintillator recorded either a TDC or ADC value of zero or maximum ADC value was studied as shown in Figs.~\ref{plt:adc0vSCID}, \ref{plt:adcMvSCID} and \ref{plt:tdc0vSCID}. Figures~\ref{plt:adc0vSCID}, \ref{plt:tdc0vSCID} and \ref{plt:proj} assisted in determining bad paddles. It (is to be) was decided that a paddle cannot have more than $50\%$ of its ADC (left or right) values be equal to zero or more than $45\%$ of its TDC (left or right) values equal to zero. Table~\ref{tab:adctdc0} shows which paddles fall in these categories. Table~\ref{tab:tofko} shows which scintillators should be knocked out due to low occupancy or too many null ADC or TDC values. Due to the small number of events in which a maximum ADC value is obtained, it is not recommended in knocking paddles out based on this measure. However, Table~\ref{tab:adcM} shows the paddles which attain a maximum ADC value on more than $2.5\%$ of its registered events.
 
 \input{tables/tof_badpaddles_adc} % label: tab:adctdc0
 
@@ -161,7 +163,7 @@ The occupancy alone is not enough to determine which scintillators are bad. The 
 
 \begin{figure}\begin{center}
     \includegraphics[width=0.8\textwidth]{figures/calib/tof/tofko/adctdc0perc.eps}
-    \caption{\label{plt:proj}Top: Y axis projections of \ref{plt:adc0vSCID}. Bottom: Y axis projections of \ref{plt:tdc0vSCID}}
+    \caption{\label{plt:proj}Top: Y axis projections of Fig.~\ref{plt:adc0vSCID}. Bottom: Y axis projections of Fig.~\ref{plt:tdc0vSCID}}
 \end{center}\end{figure}
 
 \FloatBarrier

@@ -1,50 +1,53 @@
 \subsection{\label{sec:calib.st}Start Counter Calibration and Resolution}
 
-The start counter time-walk calibration took into account the varying geometry of the paddles. Fig.~\ref{fig:calib.st.adcuncor} shows the uncorrected timing difference for paddle 3 (of 24) as a function of \abbr{ADC} while Fig.~\ref{fig:calib.st.adccor} shows the corrected timing. This was done for each paddle and the resulting resolutions can be seen in Fig.~\ref{fig:calib.st.timepion} for pions, Fig.~\ref{fig:calib.st.timeproton} for protons, Fig.~\ref{fig:calib.st.timepion2d} for pions and all paddles, Fig.~\ref{fig:calib.st.timepion.ebeam} for pions a function of beam energy and Fig.~\ref{fig:calib.st.timepion.region} for pions as a function of geometry. The run-by-run resolution can be seen in Fig.~\ref{fig:calib.st.runbyrun}.
+The start counter time-walk calibration took into account the varying geometry of the paddles. Fig.~\ref{fig:calib.st.adcuncor} shows the uncorrected timing difference for paddle 3 (of 24) as a function of \abbr{ADC} while Fig.~\ref{fig:calib.st.adccor} shows the corrected timing. This was done for each paddle and the resulting resolutions can be seen in Fig.~\ref{fig:calib.st.timepion} for pions, Fig.~\ref{fig:calib.st.timeproton} for protons, Fig.~\ref{fig:calib.st.timepion2d} for pions and all paddles, Fig.~\ref{fig:calib.st.timepion.ebeam} for pions a function of beam energy and Fig.~\ref{fig:calib.st.timepion.region} for pions as a function of geometry. The run-by-run resolution can be seen in Fig.~\ref{fig:calib.st.runbyrun}. This shows that the start counter was calibrated properly.
 
 % ADC Uncorrected
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.65\columnwidth]{figures/calib/st/Uncorrected_adc.eps}
-\caption[]{\label{fig:calib.st.adcuncor}}
+\caption[]{\label{fig:calib.st.adcuncor}ADC spectra for a paddle in the start counter. The top two plots are identical and show the all hits in the paddle. The bottom left plot shows hits in the ``leg'' of the counter and the bottom right shows hits in the ``nose.''}
 \end{center}\end{figure}
 
 % ADC Corrected
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.65\columnwidth]{figures/calib/st/Corrected_adc.eps}
-\caption[]{\label{fig:calib.st.adccor}}
+\caption[]{\label{fig:calib.st.adccor}See caption above and caption in Fig.~\ref{fig:calib.st.adcuncor}.}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.65\columnwidth]{figures/calib/st/Hpad3_sttag_pion.eps}
-\caption[]{\label{fig:calib.st.timepion}}
+\caption[]{\label{fig:calib.st.timepion}Difference of timing in a paddle of the start counter and the RF time for pions. The top two plots are identical and show the all hits in the paddle. The bottom left plot shows hits in the ``leg'' of the counter and the bottom right shows hits in the ``nose.''}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.65\columnwidth]{figures/calib/st/Hpad3_sttag_prot.eps}
-\caption[]{\label{fig:calib.st.timeproton}}
+\caption[]{\label{fig:calib.st.timeproton}Same as Fig.~\ref{fig:calib.st.timepion} for protons.}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.6\columnwidth]{figures/calib/st/Hsttag_pion.eps}
-\caption[]{\label{fig:calib.st.timepion2d}}
+\caption[]{\label{fig:calib.st.timepion2d}See caption above.}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.6\columnwidth]{figures/calib/st/Sterg_pion.eps}
-\caption[]{\label{fig:calib.st.timepion.ebeam}}
+\caption[]{\label{fig:calib.st.timepion.ebeam}See caption above.}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.6\columnwidth]{figures/calib/st/Timing_pad_3.eps}
-\caption[]{\label{fig:calib.st.timepion.region}}
+\caption[]{\label{fig:calib.st.timepion.region}See caption above.}
 \end{center}\end{figure}
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=0.65\columnwidth]{figures/calib/st/STmeanandres_v5.eps}
-\caption[]{\label{fig:calib.st.runbyrun}}
+\caption[]{\label{fig:calib.st.runbyrun}Calibrated difference in time between the start counter and RF as a function of run. The mean (green) and 1σ resolution (blue) are shown.}
 \end{center}\end{figure}
 
 \FloatBarrier
+
+%%%%%% add ref to 13,14
+
 
 As a check on the timing resolution of the start counter, we used data containing at least two K$^+$ (this was part of the cascade baryon search) to look at kaons, pion and protons at the same time. The momenta ($p$) of the tracks was given by the drift chamber and tracking algorithm found in the \bank{TBTR} bank, and the energy ($\Epid$) of the particle was set by particle identification. This allowed us to calculate the speed of the particle:
 \begin{equation}
