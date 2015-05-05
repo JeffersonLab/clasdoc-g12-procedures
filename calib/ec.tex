@@ -1,10 +1,10 @@
 \subsection{\label{sec:calib.ec}Electromagnetic Calorimeter Calibration and Resolution}
-The timing calibration of the EC system was performed using the ecGammaCal package, using photon hits. This package has been used by multiple running groups, although not all groups. An example of the method, shown in Fig.~\ref{ectall}, compares the photon vertex time according to EC, and the event vertex time. This calibration process uses real photon hits to perform the calibration on a iterative basis by improving the definition of good photon hits using prior calibration constants. Once the preliminary results are obtained, the stability of the calibration constants are monitored on a run-by-run, basis. The integrated results are  shown in Fig.~\ref{ectrunsec} for sector 1 as an example. Clearly, the whole running period can be divided into several stable running periods to obtain the final calibration constants. The quality of the calibration for these individual ranges can be seen in Fig.~\ref{ectrun}. The timing resolution in Fig.~\ref{ectrun} are shown to be about $700$~ps, instead of $500$~ps, due to the fact that in the inclusion of background hits in the EC that are not photons.
+The timing calibration of the EC system was performed using the ecGammaCal package, using photon hits. This package has been used by multiple running groups, although not all groups. An example of the method, shown in Fig.~\ref{ectall}, compares the photon vertex time according to EC and the event vertex time. This calibration process uses real photon hits to perform the calibration on an iterative basis by improving the definition of good photon hits using prior calibration constants. Once the preliminary results are obtained, the stability of the calibration constants are monitored on a run-by-run basis. The integrated results are shown in Fig.~\ref{ectrunsec} for sector 1 as an example. Clearly, the whole running period can be divided into several stable running periods to obtain the final calibration constants. The quality of the calibration for these individual ranges can be seen in Fig.~\ref{ectrun}. The timing resolution in Fig.~\ref{ectrun} are shown to be about $700$~ps, instead of $500$~ps, due to the fact that in the inclusion of background hits in the EC that are not photons.
 
 \begin{figure}[h]
 \begin{center}
  \includegraphics[width=0.45\textwidth]{figures/calib/ec/ec_vtimeall.eps}
-  \caption{And example of the EC calibration plot, comparing  the difference between photon vertex time according to EC ($T_{model}$, and according to the event vertex time($T_{expected}$), to obtain the EC timing calibration constants. The resolution, integrated for all tubes, are about $500$~ps, for good photon candidates}
+  \caption{An example of the EC calibration plot, comparing the difference between photon vertex time according to EC ($T_{model}$) and according to the event vertex time($T_{expected}$), to obtain the EC timing calibration constants. The resolution, integrated for all tubes, is about $500$~ps for good photon candidates.}
   \label{ectall}
   \end{center}
 \end{figure}
@@ -13,7 +13,7 @@ The timing calibration of the EC system was performed using the ecGammaCal packa
 \begin{figure}[h]
 \begin{center}
  \includegraphics[width=0.45\textwidth]{figures/calib/ec/ec_vtimebyrunsec.eps}
-  \caption{An example of the ec timing calibration before the final results, i.e., the mean and $\sigma$ of the photon vertex time according to EC, and the event vertex time, as a function of the run numbers. Only sector 1 is shown here.}
+  \caption{An example of the EC timing calibration before the final results, i.e., the mean and $\sigma$ of the difference in photon vertex time according to EC and the event vertex time, as a function of the run numbers. Only sector 1 is shown here.}
   \label{ectrunsec}
   \end{center}
 \end{figure}
@@ -21,7 +21,7 @@ The timing calibration of the EC system was performed using the ecGammaCal packa
 \begin{figure}[h]
 \begin{center}
  \includegraphics[width=0.45\textwidth]{figures/calib/ec/ec_vtimebyrun.eps}
-  \caption{The quality of EC timing calibration, i.e., the mean and $\sigma$ of the photon vertex time according to EC, and the event vertex time, monitored for several run ranges. The ranges are chosen according to Fig.~\ref{ectrunsec}.}
+  \caption{The quality of EC timing calibration, i.e., the mean and $\sigma$ of the difference in photon vertex time according to EC and the event vertex time, monitored for several run ranges. The ranges are chosen according to Fig.~\ref{ectrunsec}.}
   \label{ectrun}
   \end{center}
 \end{figure}
@@ -31,7 +31,7 @@ Although not solely dependent on the EC timing calibration quality, the $\pi^0$ 
 \begin{figure}[h]
 \begin{center}
  \includegraphics[width=0.45\textwidth]{figures/calib/ec/ec_pi0mass.eps}
-  \caption{The mass and resolution of the $\pi^0$, reconstructed from fitting two-photon invariant mass spectra, as a function of the run number.}
+  \caption{The mass and resolution of the $\pi^0$ reconstructed from fitting two-photon invariant mass spectra as a function of the run number.}
   \label{ecpi0m}
   \end{center}
 \end{figure}
@@ -41,7 +41,7 @@ Although not solely dependent on the EC timing calibration quality, the $\pi^0$ 
 %
 \FloatBarrier
 \subsubsection{\label{sec:calib.ec.eff}Electromagnetic Calorimeter Efficiency and Bad Paddles}
-The efficiency for the \abbr{EC} subsystem is different for each strip in the $u$, $v$, $w$ arrangement. As a result, there are regions of detection which are inefficient. An extreme example of this is illustrated in Fig.~\ref{fig:neg:ec.sec5}, where the \abbr{EC} \emph{inner} (top row) and \emph{outer} (bottom row) strips are plotted as a function of the azimuthal angle~($\phi$) for sector 5. A dead or inefficient strip is seen as a horizontal band in Fig.~\ref{fig:neg:ec.sec5}.  The curvature of inefficient strips seen are reflections of inefficiency in an another orientation. For example, the curves seen in the top left plot, $u$ orientation, of Fig.~\ref{fig:neg:ec.sec5} is a reflection of dead or inefficient strips from $v$ and $w$ orientations respectively.All inefficiencies and cuts shown are for he $e^-$ data. These inefficiencies and cuts are valid for the $e^+$ data.
+The efficiency for the \abbr{EC} subsystem is different for each strip in the $u$, $v$, $w$ arrangement. As a result, there are regions of detection which are inefficient. An extreme example of this is illustrated in Fig.~\ref{fig:neg:ec.sec5}, where the \abbr{EC} \emph{inner} (top row) and \emph{outer} (bottom row) strips are plotted as a function of the azimuthal angle~($\phi$) for sector 5. A dead or inefficient strip is seen as a horizontal band in Fig.~\ref{fig:neg:ec.sec5}.  The curvature of inefficient strips seen are reflections of inefficiency in an another orientation. For example, the curves seen in the top left plot, $u$ orientation, of Fig.~\ref{fig:neg:ec.sec5} is a reflection of dead or inefficient strips from $v$ and $w$ orientations respectively.All inefficiencies and cuts are shown for the $e^-$ data. These inefficiencies and cuts are valid for the $e^+$ data.
 %
 \begin{figure}[h!]\begin{center}
 \includegraphics[width=\figwidth,height=\hfigheight]{figures/calib/ec/pim_ecuvw_phi_NOKnockout_sec5.eps}
@@ -166,7 +166,7 @@ The inefficient strips were removed in data and \abbr{MC}. The effect of the ine
   \begin{subfigure}[b]{\figwidth}
   \includegraphics[width=\figwidth, height=3.5in,valign=c]{figures/calib/ec/pim_ecuvw_NOKnockout_sec4.eps}\caption{}\label{fig:EC_II_IV}
   \end{subfigure}%
-      \caption {Inefficient \abbr{EC} $u$, $v$, $w$ strips vs. $\phi$ for sector 4 in \abbr{CLAS} $e^{-} \ $ data~(\ref{fig:EC_I_IV}), notation the same as Fig.~\ref{fig:neg:ec.sec5}. Number of hits vs. inefficient \abbr{EC} $u$, $v$, $w$ strips for sector 4 for $e^-$ data~(\ref{fig:EC_II_IV}). Notation same as in Fig.~\ref{fig:neg.ecstrip.sec5}. Image source:~\cite{clas.thesis.kunkel}}
+      \caption {Inefficient \abbr{EC} $u$, $v$, $w$ strips vs. $\phi$ for sector 4 in \abbr{CLAS} $e^{-} \ $ data~(\ref{fig:EC_I_IV}), notation the same as Fig.~\ref{fig:neg:ec.sec5}. Number of hits vs. inefficient \abbr{EC} $u$, $v$, $w$ strips for sector 4 for $e^-$ data~(\ref{fig:EC_II_IV}). Notation same as in Fig.~\ref{fig:neg.ecstrip.sec5}. Fig.~\ref{fig:EC_I_IV} is plotted with split $\phi$ ranges due sector 4 having a defined $\phi$ range from 150 to 180 and -180 to 150. Image source:~\cite{clas.thesis.kunkel}}
         \label{fig:EC_no_IV}
 \end{figure}
 
@@ -181,7 +181,7 @@ The inefficient strips were removed in data and \abbr{MC}. The effect of the ine
   \begin{subfigure}[b]{\figwidth}
   \includegraphics[width=\figwidth, height=3.5in,valign=c]{figures/calib/ec/pim_ecuvw_afterGeoFid_sec4.eps}\caption{}\label{fig:EC_IV_IV}
   \end{subfigure}%
-      \caption {\abbr{EC} $u$, $v$, $w$ strips vs. $\phi$ for sector 4 with fiducial cuts and inefficient paddle knockouts applied to $e^-$ data~(\ref{fig:EC_III_IV}), notation the same as Fig.~\ref{fig:neg:ec.sec5_cut}. Number of hits vs. \abbr{EC} $u$, $v$, $w$ strips for sector 4 with fiducial cuts and inefficient paddle knockouts applied to $e^-$ data~(\ref{fig:EC_IV_IV}). Notation same as in Fig.~\ref{fig:neg.ecstrip.sec5_cut}. Image source:~\cite{clas.thesis.kunkel}}
+      \caption {\abbr{EC} $u$, $v$, $w$ strips vs. $\phi$ for sector 4 with fiducial cuts and inefficient paddle knockouts applied to $e^-$ data~(\ref{fig:EC_III_IV}), notation the same as Fig.~\ref{fig:neg:ec.sec5_cut}. Fig.~\ref{fig:EC_III_IV} is plotted with split $\phi$ ranges due sector 4 having a defined $\phi$ range from 150 to 180 and -180 to 150. Number of hits vs. \abbr{EC} $u$, $v$, $w$ strips for sector 4 with fiducial cuts and inefficient paddle knockouts applied to $e^-$ data~(\ref{fig:EC_IV_IV}). Notation same as in Fig.~\ref{fig:neg.ecstrip.sec5_cut}. Image source:~\cite{clas.thesis.kunkel}}
         \label{fig:EC_cut_IV}
 \end{figure}
 
@@ -243,7 +243,7 @@ The inefficient strips were removed in data and \abbr{MC}. The effect of the ine
 %
 
 \FloatBarrier
-The parameters for the \abbr{EC} strip cuts are listed in Tab.~\ref{tab:ec.eq} and the parameters for the good \abbr{EC} fiducial range can be found in Tab.~\ref{tab:ecfid.eq}.
+The inefficiencies for the other 5 sectors are shown in Figs.~\ref{fig:EC_no_I} to \ref{fig:EC_cut_VI}. The final parameters for the \abbr{EC} strip cuts are listed in Tab.~\ref{tab:ec.eq} and the parameters for the good \abbr{EC} fiducial range can be found in Tab.~\ref{tab:ecfid.eq}.
 \input{tables/EC_fidcut_eq.tex}
 \input{tables/EC_fidcut_eq_II.tex}
 
