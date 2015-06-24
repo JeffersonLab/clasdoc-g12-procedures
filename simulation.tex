@@ -35,10 +35,10 @@ and for electrons and positrons
 gamp2part -r10 -oevents.part -T -S-0.321,0.378,-0.254,0.407 \
   -z-110,-70 events.gamp
 \end{verbatim}
-where the option -r10 is specific to RUN 10 in
+where the option -r10 is specific to RUN 10 in:
 \begin{verbatim}
 export CLAS_CALDB_RUNINDEX=calib_user.RunIndexg12_mk
-\end{verbatim}.
+\end{verbatim}
 This writes a BOS file full of PART, sector 0 banks with the 4-vector information from the gamp file. Also, the -z option smears the target distribution in Z, while the -S smears it in X and Y. The parameters are means and sigmas of a 2D Gaussian which were derived from a fit to the data. An alternative way to convert a gamp file to a BOS PART bank file is using gamp2txt and txt2part. These programs are piped together during run time.
 \begin{verbatim}
 gamp2txt -E5.714 -z-110,-70 < events.gamp | txt2part -T -oevents.part
@@ -87,7 +87,8 @@ The output can be txt or gamp file depending on user's needs. Follow the previou
 
 The program to track the particles through the simulation and ultimately digitize the information to simulated ``raw'' banks is the geant3-based program: \texttt{gsim}. Running this on the BOS file created above looks like this:
 \begin{verbatim}
-gsim_bat -ffread ffread.g12 -kine 1 -mcin events.part -bosout events.gsim -trig 2000000
+gsim_bat -ffread ffread.g12 -kine 1 -mcin events.part \
+  -bosout events.gsim -trig 2000000
 \end{verbatim}
 Using the above command, should create a gsim BOS output file. Here is the FFREAD file should be used to run gsim\_bat for \desg{g12} analyses not using electrons/positrons:
 \begin{verbatim}
@@ -163,7 +164,7 @@ and for electrons and positrons
 gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R10 -P0x7f -oevents.gpp events.gsim
 \end{verbatim}
 The values passed to the gpp command line options, -a, -b, -c, helps match the tracking resolution of the simulated data to that of the real events in the regions 1,2 and 3 of the CLAS Drift Chambers. They accomplish this by smearing the DOCA values and hence gpp is able to match the DC residuals for the simulated CLAS tracks to that of the real CLAS tracks on a region-by-region basis. The gpp option -f smears the Time-of-Flight tdc values and during analysis the default gpp smearing for TOF was found to be adequate. The smearing should be run with a good g12 run number; run 56855 has all the necessary constants in the database to get the tagger timing smearing done correctly. Also, interested parties can add accidentals to the TAGR bank by using the -A option like so:
-\begin{verbatim}
+\label{cmd:gppAoption}\begin{verbatim}
 gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 -P0x7f -oevents.gpp \
   -A/path/to/output/from/filter_tagr events.gsim
 \end{verbatim}

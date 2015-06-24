@@ -28,7 +28,7 @@ In this section we show a series of figures depicting known resonances with the 
 
 Various cross sections have been extracted using the g12 data set, all showing consistent results when compared with prior CLAS measurements if available, such as the ω, the Λ, as well as π$^0$. In particular, the ω cross section results(FSU) , measured using γ p $\rightarrow$ p π$^+$ π$^-$ (π$^0$), are presented here and compared with the g11 results and are consistent across the g12 photon energy range. Although some disagreements do show up at particular kinematic bins, it's safe to say that g12 does not have an overall normalization issue.
 
-Figures~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2} show the differential cross sections for the reaction: γ p $\rightarrow$ p ω, based on the dominant decay mode: ω $\rightarrow$ π$^+$ π$^-$ π$^0$. For this analysis, we have selected events with two positively-charged tracks for the proton and the π$^+$ as well as one negatively-charged track for the π$^-$. The selection has used runs 56520 - 56572, 56573 - 56594, and 56608 - 56646 (Table 2), which were {\it event-sorted} according to {\bf 2-2pos1neg\_not\_1ckaon1ctrk} (Section~3.2). The analyzed run ranges comprise all g12-events that require in the trigger at least three charged tracks in three different sectors but were not subjected to {\it pre-scaling} to enhance events with high photon energies. This removed an additional layer of complication for studying normalization issues.
+Figures~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2} show the differential cross sections for the reaction: γ p $\rightarrow$ p ω, based on the dominant decay mode: ω $\rightarrow$ π$^+$ π$^-$ π$^0$. For this analysis, we have selected events with two positively-charged tracks for the proton and the π$^+$ as well as one negatively-charged track for the π$^-$. The selection has used runs 56520 - 56572, 56573 - 56594, and 56608 - 56646 (Table~\ref{tab:data.trig.conf.2}), which were {\it event-sorted} according to {\bf 2-2pos1neg\_not\_1ckaon1ctrk} (Section~\ref{sec:data.pass1}). The analyzed run ranges comprise all g12-events that require in the trigger at least three charged tracks in three different sectors but were not subjected to {\it pre-scaling} to enhance events with high photon energies. This removed an additional layer of complication for studying normalization issues.
 
 For the $\omega$ events, the standard {\sc eloss} corrections but tuned momentum corrections to the proper shape of the pull distributions in the kinematic fitting of the reaction: γ p $\rightarrow$ p π$^+$ π$^-$ (no missing particle). (For these particular results, the g12 beam energy correction is not applied) After all initial kinematic corrections, the three-track events were then subject to 1C kinematic fitting imposing energy and momentum conservation as well as requiring a missing π$^0$ in the reaction; events have then been selected with a confidence-level (CL) cut of 0.001 which essentially only demands fit convergence. In the final step, ω $\rightarrow$ π$^+$ π$^-$ π$^0$ events were identified in the invariant π$^+$ π$^-$ π$^0$ mass. The signal and background separation was achieved by applying the Q-value method which assigns a quality factor to each event indicating the likelihood for the event to be signal. The high efficiency of this method justifies the relatively small CL cut. At this point, we have not yet applied the fiduciary cuts discussed in this note. However, we do not expect any significant impact on our final results.
 
@@ -46,8 +46,6 @@ For the differential cross sections, the ω yields have been determined for 50-M
 \caption[]{\label{fig:xsec.omega2}Differential cross sections for the reaction γ p $\rightarrow$ p ω based on the dominant decay mode ω $\rightarrow$ π$^+$ π$^-$ π$^0$ with a beam energy from 2.5 to 3.65~GeV. Comparison to g11 is in red.}
 \end{center}\end{figure}
 
-Furthermore, the ω yields normalized to the flux as a function of different beam currents has also been studied, in order to verify if there is any trigger/reconstruction inefficiency that is beam current dependent. This study is possible since g12 took data at various beam currents at the beginning of the running period.  The variance photon multiplicity, i.e., having more than one photons in the chosen time bucket for the event, has also been taken into account. It can be seen, that the g12 normalized yields for the ω do not have any statistically significant beam current dependency. In fact, the slope in Fig.\ref{fig:omega.yields} is slightly positive, but still consistent with zero.
-
 In terms of the photon multiplicity, at 60-65nA of the production current, about 87$\pm 1$\% of the data has only one photon in the same time bucket chosen for the event, around 12\% has exactly two photons, and approximately 1\% has more than two photons. This has a slight beam energy dependence, however, the variance is on the percent level. The photon multiplicity must be addressed since it is significant. One can correct the cross sections, if  those events with multiple photons are all included in their analyses and the photon was chosen randomly, or they were all excluded. However, one can also address this issue by looping over all photons, and that would not require additional corrections. Since this correction depends on the preference of the individuals, we do not prescribe this as a universal procedure by itself.
 
 The Λ(1115) differential cross section was measured and compared to the \desg{g11a} results shown in Figs.~\ref{fig:lambda.dcs.1} and \ref{fig:lambda.dcs.2}. The \desg{g12} data employed tight timing and fiducial cuts to minimize systematic uncertainty at the expense of larger statistical uncertainty and very low statistics at high energy and large angle.
@@ -56,23 +54,34 @@ In this analysis,
 \begin{equation}
     \text{γ p} \rightarrow \text{[Λ] Κ$^+$} \rightarrow \text{p π$^-$ K$^+$}
 \end{equation}
-was simulated with a $t$-slope off the K$^+$ set to unity. The divisions in polar angle were fine enough so that the acceptance was approximately linear in each bin. All three final state particles (p π$^-$ K$^+$) were reconstructed and the trigger was modeled to require two particles to be in two different sectors for the high-energy part of the tagger and three particles in three different sectors for the low-energy part of the tagger. Additionally, the tagger was populated with noise generated from the data using \prog{gpp}'s \verb+-A+ option. An associated start counter hit was required for each final-state particle and a timing cut against the \abbr{RF} was set to $\pm$3σ.
+was simulated with a $t$-slope off the K$^+$ set to unity. The divisions in polar angle were fine enough so that the acceptance was approximately linear in each bin. All three final state particles (p π$^-$ K$^+$) were reconstructed and the trigger was modeled to require two particles to be in two different sectors for the high-energy part of the tagger and three particles in three different sectors for the low-energy part of the tagger. Additionally, the tagger was populated with noise generated from the data using \prog{gpp}'s \verb+-A+ option (see Sec.~\ref{sec:sim.digit}, page~\pageref{cmd:gppAoption}). An associated start counter hit was required for each final-state particle and a timing cut against the \abbr{RF} was set to $\pm 3σ$.
 
 \begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.99\columnwidth]{{figures/xsec/lambda.dcs.1.linear}.pdf}
-\caption[]{\label{fig:lambda.dcs.1}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at 3σ of their quoted statistical uncertainty.}
+\caption[]{\label{fig:lambda.dcs.1}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at $3σ$ of their quoted statistical uncertainty.}
 \end{center}\end{figure}
 
 
 \begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.99\columnwidth]{{figures/xsec/lambda.dcs.2.log}.pdf}
-\caption[]{\label{fig:lambda.dcs.2}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at 3σ of their quoted statistical uncertainty.}
+\caption[]{\label{fig:lambda.dcs.2}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at $3σ$ of their quoted statistical uncertainty.}
 \end{center}\end{figure}
 
 
-\begin{figure}[htpb]\begin{center}
-\includegraphics[width=0.7\columnwidth]{{figures/xsec/omegaYieldsCurrent}.png}
-\caption[]{\label{fig:omega.yields}The flux-corrected yield of the ω by beam current for high-energy part of the tagger ($E_\text{γ} > 4.4$~GeV).}
-\end{center}\end{figure}
+The π$^0$ differential cross-section, shown in Figs.~\ref{fig:pi0.xsec.1} and \ref{fig:pi0.xsec.2}, was measured in the reaction
+\begin{align}\label{channel}
+\text{γ p} \rightarrow \text{p [π$^0$]} \rightarrow \text{p e$^+$ e$^-$ [γ]}
+\end{align}
+where the detected final state particles were one proton, one positron and one electron, while the final state photon was identified through kinematic fitting. For the identification of the leptons, where the incident photon beam energy was less than 3.6~GeV, the use of the trigger configuration 6 (see Table~\ref{tab:data.trig.conf.2} on page~\pageref{tab:data.trig.conf.2}) was employed. To ensure proper simulation of trigger configuration 6, a trigger model was used which mimicked the discrimination of low voltage from the Cherenkov and Electromagnetic calorimeter PMT's. Simulation was performed using \verb#PLUTO++# to generate phasespace of \ref{channel}. All incident beam photons that were within 2.004~ns of the timed particles were analyzed, meaning if an event had 2 or more incident beam photons that were in time with the detected particles within 2.004~ns, then each photon was analyzed as a separate event along with the quantities of the detected particles.
+
+\begin{figure}[htpb]
+\includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_I.eps}
+\caption{\label{fig:pi0.xsec.1}Differential cross section of the π$^0$ up to a beam energy of approximately 2~GeV, using the lepton decay channel.}
+\end{figure}
+
+\begin{figure}[htpb]
+\includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_II.eps}
+\caption{\label{fig:pi0.xsec.2}Differential cross section of the π$^0$ starting from a beam energy of approximately 2~GeV, using the lepton decay channel.}
+\end{figure}
 
 To summarize, the g12 data set does not shown any significant beam-intensity-dependent inefficiency, and the overall normalization, when all corrections documented in this note are applied, can be validated by the consistency between the cross sections such as ω, π$^0$ and Λ when compared with prior results.

@@ -81,7 +81,7 @@ A simultaneous fit was done by adding a correction to the momenta of each partic
 \FloatBarrier
 
 
-\subsubsection{\label{sec:calib.tag}Photon Tagger Calibration and Beam Energy Corrections}
+\subsubsection{Photon Tagger Calibration and Beam Energy Corrections}
 
 The \desg{g12} experiment had a complicated trigger which presented difficulties that were ironed out as described in this section. The problem was first noticed by \desg{g12} participants at the analysis level in which missing particle masses were systematically low. It was realized while investigating the issue that the low missing particle mass was dependent on the run number and varied in mass as much as 10~MeV. There was also features in the run dependent missing mass that showed a constant low mass (run$<$56550) followed by a jump in mass which remained constant (56500$<$run$<$56920) until another jump in mass which seemed to produce a mass closer the \abbr{PDG} mass (run$>$56920). To analyze and correct for the cause of the problem, two topologies were chosen to isolate the missing particles, proton and neutron. The first topology;
 \begin{equation}
@@ -180,17 +180,17 @@ where $P_{E_0}$ is the beam energy delivered from \abbr{CEBAF} as recorded in th
 \begin{align}
 x= \frac{P_{E_0}(P_\mathrm{target}-P_\text{π$^+$π$^-$}) + P_\text{π$^+$π$^-$}^2/2  - P_\mathrm{target}P_\text{π$^+$π$^-$}}{(P_{E_0} - P_\text{γ})(P_\mathrm{target} - P_\text{π$^+$π$^-$})}
 \end{align}
-To reduce statistical fluctuations $\frac{1}{10}$ of run 56515 was analyzed to obtain the correction factor $x$. The correction factor was fitted to a $3^\mathrm{rd}$ order polynomial $\pm~0.008$ from the mean of the peak to establish an accurate measurement of the peak, this is shown in Fig~\ref{fig:56515.cor}. After the correction factor was extracted for run 56515, it was applied to both the topologies listed in Eq.~\ref{eq:beam.cortopology} and Eq.~\ref{eq:beam.checktopology} by recalculating the photon beam energy as
+To reduce statistical fluctuations $\frac{1}{10}$ of run 56515 was analyzed to obtain the correction factor $x$. The correction factor was fitted to a $3^\mathrm{rd}$ order polynomial $\pm 0.008$ from the mean of the peak to establish an accurate measurement of the peak, this is shown in Fig.~\ref{fig:56515.cor}. After the correction factor was extracted for run 56515, it was applied to both the topologies listed in Eq.~\ref{eq:beam.cortopology} and Eq.~\ref{eq:beam.checktopology} by recalculating the photon beam energy as
 \begin{align}
 E_e = E_{\abbr{CEBAF}} - E_{γ} \nonumber \\
 E_{γ}^{new} = E_{E_0} - E_e*x \nonumber.
 \end{align}
-Figures~\ref{fig:proton.fix},~\ref{fig:neutron.fix} illustrate the missing mass topologies after beam correction and shows that the new calculated missing mass is less than 1~MeV from \abbr{PDG} values. Since both the missing proton mass and missing neutron mass were adjusted properly to the correct mass by using the same beam correction factor, it shows that the correction factor is independent of topology and therefore must be applied to all \desg{g12} analyses. The procedure to calculate $x$ was repeated for every run in \desg{g12}, Fig~\ref{fig:beamcor.run}, with $\frac{1}{10}$ of the data used. To validate the corrections of the entire \desg{g12} data set, the missing neutron mass was recalculated for each run, shown in  Fig.~\ref{fig:neutron.fixall}, using several correction schemes, i.e. a scheme of just ``energy-loss'' corrections, a scheme of ``energy-loss'' and momentum corrections (JTG PCor), a scheme of ``energy-loss'', momentum corrections (JTG PCor) and beam corrections (MK BeamCor) and a scheme of ``energy-loss'' and beam corrections (MK BeamCor). It can be seen in Fig.~\ref{fig:neutron.fixall} that the only scheme that sufficed was the combination of ``energy-loss'' and beam corrections.
+Figures~\ref{fig:proton.fix} and \ref{fig:neutron.fix} illustrate the missing mass topologies after beam correction and shows that the new calculated missing mass is less than 1~MeV from \abbr{PDG} values. Since both the missing proton mass and missing neutron mass were adjusted properly to the correct mass by using the same beam correction factor, it shows that the correction factor is independent of topology and therefore must be applied to all \desg{g12} analyses. The procedure to calculate $x$ was repeated for every run in \desg{g12}, Fig.~\ref{fig:beamcor.run}, with $\frac{1}{10}$ of the data used. To validate the corrections of the entire \desg{g12} data set, the missing neutron mass was recalculated for each run, shown in  Fig.~\ref{fig:neutron.fixall}, using several correction schemes, i.e. a scheme of just ``energy-loss'' corrections, a scheme of ``energy-loss'' and momentum corrections (JTG PCor), a scheme of ``energy-loss'', momentum corrections (JTG PCor) and beam corrections (MK BeamCor) and a scheme of ``energy-loss'' and beam corrections (MK BeamCor). It can be seen in Fig.~\ref{fig:neutron.fixall} that the only scheme that sufficed was the combination of ``energy-loss'' and beam corrections.
 
 
 \begin{figure}\begin{center}
 \includegraphics[width=0.6\textwidth]{figures/calib/tag/ecor/56515_cor.eps}
-\caption[Beam Correction Factor for Run 56515]{\label{fig:56515.cor} Beam correction factor for run 56515. The fit is a $3^\mathrm{rd}$ order polynomial $\pm~0.008$ from the mean of the peak. Image source:~\cite{clas.thesis.kunkel}}
+\caption[Beam Correction Factor for Run 56515]{\label{fig:56515.cor} Beam correction factor for run 56515. The fit is a $3^\mathrm{rd}$ order polynomial $\pm 0.008$ from the mean of the peak. Image source:~\cite{clas.thesis.kunkel}}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
