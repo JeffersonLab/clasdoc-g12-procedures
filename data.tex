@@ -76,6 +76,9 @@ Typical analyses with \desg{g12} will start with the particles as identified in 
 
 For a deeper analysis, one can get information for specific hits in a given subsystem by following the pointers in the \abbr{PART} and \abbr{TBID} bank to the \abbr{TBTR}, \abbr{SCRC}, \abbr{ECHB} or other similar banks. Most of the relevant banks needed for this type of investigation are included in the cooked data though several raw banks were dropped to save space. To recover the missing banks one would have to go back to the raw data and recook using the \prog{a1c} program though we anticipate this will be a rare event.
 
+\begin{v2}
+The following banks were written out to tape in the pass1 reconstructed data: \abbr{CC CC01 CCPB CCRC CL01 DCPB DSTC EC EC1 EC1R ECHB ECPB ECPC ECPI ECS EPIC EVNT FBPM HBER HBID HBTR HEAD HEVT HLS LCPB MVRT PART RGLK S1ST SC SC1 SCPB SCR SCRC SCS ST1 STN0 STN1 STPB STR STSN SYNC TAGE TAGI TAGR TBER TBID TBTR TDPL TGBI TGPB TGS TRGS TRKS TRL1}. Note that the SEB-related banks (\abbr{EVNT} etc.) were written out. These may be used for any analysis though care should be taken not to mix these with the \abbr{PART}-related series of banks except where there is an apparent redundancy.
+\end{v2}
 
 \input{data/corrections}
 
