@@ -68,7 +68,7 @@ which contains the following subdirectories or ``categories'' used for event-sor
     \item[7-4ctrk] Redundant set of all four-charged track events.
     \item[8-ppbar] Redundant set of all proton, anti-proton events according to the PART bank.
 \end{description}
-Note that the first five of these categories are \emph{mutually exclusive and complete} while the last three are completely redundant and are provided for convenience.
+Note that the first five of these categories are \emph{mutually exclusive and complete} while the last three are completely redundant and are provided for convenience. \begin{v2}Non-physics events are included in the fifth (``other'') skim. If one wishes to synchronize these events with their data, they have some options. Perhaps the easiest is to process the raw data which is completely ordered. Timestamps could be used instead, provided they exist in the non-physics skim.\end{v2}
 
 \paragraph{This bears repeating since it is a non-standard sorting of the cooked data:} The five categories numbered 1 through 5 listed above consist of one and only one of \emph{every} event recorded by the data acquisition during the g12 run period for the set of run which were deemed ``good.'' A specific single event will only be found in one of the first five categories. If you want to run on events that are described by category number 4 for example, you will have to include the data in categories 1 through 3 since these will also satisfy category 4 by design and by definition.
 
