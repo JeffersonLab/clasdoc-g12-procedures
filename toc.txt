@@ -1,0 +1,40 @@
+Contents
+1 Summary of Running Conditions
+    1.1 Trigger Configurations
+    1.2 Lists of Runs
+2 Calibration and Detector Performance
+    2.1 Trigger Rates
+    2.2 Tagger Timing Calibration
+    2.3 Target Density
+    2.4 Start Counter Calibration and Resolution
+        2.4.1 Start Counter Efficiency
+    2.5 Drift Chamber Calibration and Resolution
+    2.5.1 Drift Chamber Wire Efficiency
+    2.6 Time-of-Flight Counter Calibration and Resolution
+        2.6.1 Time-of-Flight Counter Efficiency and Bad Paddles
+        2.6.2 ADC and TDC Values
+    2.7 Electromagnetic Calorimeter Calibration and Resolution
+        2.7.1 Electromagnetic Calorimeter Efficiency and Bad Paddles
+    2.8 Beam Polarization
+3 Procedure for Data Analysis
+    3.1 "Pass1" Cooking and Data Reconstruction
+    3.2 Obtaining Reconstructed Data
+    3.3 g12-Specific Corrections
+        3.3.1 Final-State Particle Momentum Corrections
+        3.3.2 Photon Tagger Calibration and Beam Energy Corrections
+    3.4 General Features of Lepton Data in g12
+        3.4.1 CC Comparison
+        3.4.2 EC Comparison
+4 Flux Determination
+    4.1 Beam Trips
+    4.2 Normalized Yields for Different Beam Conditions
+    4.3 Run-by-run Stability and Systematic Uncertainty of Flux
+5 Simulations
+    5.1 Generating Events for Digitization
+    5.2 Digitization and Smearing
+    5.3 Reconstruction of Simulated Data
+    5.4 Fiducial Region Selection
+    5.5 Simulating the Lepton Trigger
+        5.5.1 Validity of Trigger Simulation
+6 Comparison of Data to Known States and Cross Sections
+7 Comparison of Data to Known Cross Sections
