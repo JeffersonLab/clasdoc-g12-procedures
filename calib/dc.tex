@@ -25,10 +25,15 @@ fabs(TBLA->tbla[i].fitdoca) - fabs(TBLA->tbla[i].calcdoca)
 
 \subsubsection{\label{sec:calib.dc.eff}Drift Chamber Wire Efficiency}
 
-To generate the wire map for \desg{g12}, the utility \prog{pdu}, available in \abbr{SVN}, was used. Maurizio Ungaro made the wire-maps for \desg{g12} with the root files [\verb+A01+ and \verb+A02+] for each run. These output files are at \url{/home/mukesh/work/pdu_hbook} at \abbr{Jlab}. Root files needed are at \url{/home/mukesh/work/pdu_root}. The values were added to the \desg{g12} database. The results of the wire map are plotted in for each sector:
-
+To generate the wire map for \desg{g12}, the utility \prog{pdu}, available in \abbr{SVN}, was used. Maurizio Ungaro made the wire-maps for \desg{g12} with the root files [\verb+A01+ and \verb+A02+] for each run. These output files are at \url{/home/mukesh/work/pdu_hbook} at \abbr{Jlab}. Root files needed are at \url{/home/mukesh/work/pdu_root}. The values were added to the \desg{g12} database. The results of the wire map are plotted in for each sector and can be found here:
 \begin{verbatim}
 http://www.jlab.org/~ungaro/maureepage/proj/dceff/dc_periods/g12.html
 \end{verbatim}
+\begin{v2}An example plot from this site is shown in Fig.~\ref{fig:calib.dc.eff}. The DC wire efficiencies were computed for each wire using the whole data set, using the CLAS utility \prog{pdu}. An example of this is shown in the beginning of DC calibration section. Simulation data all use the \prog{gpp} to apply this efficiency map. Comparison of the real data and MC data depends on the topology and model.\end{v2}
+
+\begin{figure}\begin{center}
+\includegraphics[width=0.6\textwidth]{figures/calib/dc/Occupancy_g12_s1.eps}
+\caption[DC Efficiency Map Sector 1]{\label{fig:calib.dc.eff}DC efficiency map for sector 1. All other sectors show very similar results.}
+\end{center}\end{figure}
 
 \FloatBarrier
