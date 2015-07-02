@@ -6,8 +6,12 @@ Tracking in the Drift Chamber of a \abbr{CLAS} Sector is performed using the six
 fabs(TBLA->tbla[i].fitdoca) - fabs(TBLA->tbla[i].calcdoca)
 \end{verbatim}
 
-The values of the \abbr{DC} residuals in the \abbr{CLAS} data are empirically found to be a good fit to a convolution of 2 Gaussians - a narrow Gaussian and a broad Gaussian. During \abbr{DC} calibrations efforts were made to minimize this residual to have maximum reconstruction efficiency. The mean and width of the residuals as a function of superlayer and run number are shown in Figs.~\ref{fig:calib.dc.residuals.mean} and \ref{fig:calib.dc.residuals.wid} respectively.
+\begin{v2}The Drift Chamber alignment was done by correcting the mean of the residuals and the results are shown in Fig.~\ref{fig:dc.align}.\end{v2}  The values of the \abbr{DC} residuals in the \abbr{CLAS} data are empirically found to be a good fit to a convolution of 2 Gaussians - a narrow Gaussian and a broad Gaussian. During \abbr{DC} calibrations efforts were made to minimize this residual to have maximum reconstruction efficiency. The mean and width of the residuals as a function of superlayer and run number are shown in Figs.~\ref{fig:calib.dc.residuals.mean} and \ref{fig:calib.dc.residuals.wid} respectively.
 
+\begin{figure}\begin{center}
+\includegraphics[width=0.6\textwidth]{figures/calib/dc/dc_align1.eps}
+\caption[DC Alignment]{\label{fig:dc.align}Alignment of the Drift Chambers in sector 1. All other sectors show very similar results.}
+\end{center}\end{figure}
 
 \begin{figure}\begin{center}
 \includegraphics[width=0.6\textwidth]{figures/calib/dc/dc_resid_mean.eps}
