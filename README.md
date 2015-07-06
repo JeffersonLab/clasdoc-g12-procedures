@@ -3,6 +3,8 @@ clasdoc-g12-procedures
 
 [Here is a link to the current PDF file](https://clasweb.jlab.org/rungroups/g12/wiki/index.php/File:G12_procedures.pdf)
 
+[Here is a link to the most current "working" version](https://clasweb.jlab.org/rungroups/g12/wiki/index.php/File:G12_procedures_working_version.pdf)
+
 Summary and analysis procedures documentation for the g12 experiment with CLAS at JLab.
 
 Building the PDF File
