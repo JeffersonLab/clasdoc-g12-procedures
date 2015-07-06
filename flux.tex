@@ -121,4 +121,8 @@ Fig.~\ref{gfluxbyrun} shows the stability of the flux corrections for runs after
   \end{center}
 \end{figure}
 
+\begin{v2}
+The algorithm for summing the flux in each energy bin in \prog{g12-gflux} is rather crude. It locks each energy bin to the center-point energy of the 767 tagger (logical) paddles. If finer control over the binning is required, one may use the \prog{g12-gflux-all} program to return the flux in each individual logical energy bin of the tagger.
+\end{v2}
+
 \FloatBarrier
