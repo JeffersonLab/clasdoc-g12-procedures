@@ -1,6 +1,6 @@
 \section{\label{sec:resonances}Comparison of Data to Known States and Cross Sections}
 
-In this section we show a series of figures depicting known resonances with the \abbr{g12} data. The reader is encouraged to compare the masses and widths measured with the PDG\cite{pdg}. The masses of the narrow states in g12 are all measured to be consistent with the known values, such as η in Fig.~\ref{fig:resonances.eta} using the missing mass technique, π$^0$ reconstructed using two photons Fig.~\ref{fig:resonances.2gamma.pi0}, ρ/ω reconstructed using two leptons Fig.~\ref{fig:resonances.ee.rho_omega}, as well as Ξ$^-$ from the reaction of γ π $\rightarrow$ K$^+$ K$^+$ ($X$) shown in Fig.~\ref{fig:resonances.xi}. \begin{v2}Fig.~\ref{fig:resonances.kstar} shows the invariant mass of the K$^*$ from K$^+$ [π$^0$]. In addition to these missing masses, we have already shown a good $K_s$ signal from π$^+$ π$^-$ in Fig.~\ref{fig:beamcor.k_mass} on page~\pageref{fig:beamcor.k_mass}. The $K^{*+}$, shown in Fig.~\ref{fig:resonances.star}, and the $\phi(1020$ shown in Fig.~\ref{fig:resonances.phi}, are also spot on when compared with the PDG values.\end{v2}
+In this section we show a series of figures depicting known resonances with the \abbr{g12} data. The reader is encouraged to compare the masses and widths measured with the PDG\cite{pdg}. The masses of the narrow states in g12 are all measured to be consistent with the known values, such as η in Fig.~\ref{fig:resonances.eta} using the missing mass technique, π$^0$ reconstructed using two photons Fig.~\ref{fig:resonances.2gamma.pi0}, ρ/ω reconstructed using two leptons Fig.~\ref{fig:resonances.ee.rho_omega}, as well as Ξ$^-$ from the reaction of γ π $\rightarrow$ K$^+$ K$^+$ ($X$) shown in Fig.~\ref{fig:resonances.xi}. \begin{v2}Fig.~\ref{fig:resonances.kstar} shows the invariant mass of the K$^*$ from K$^+$ [π$^0$]. In addition to these missing masses, we have already shown a good $K_s$ signal from π$^+$ π$^-$ in Fig.~\ref{fig:beamcor.k_mass} on page~\pageref{fig:beamcor.k_mass}. The $K^{*+}$, shown in Fig.~\ref{fig:resonances.kstar}, and the $\phi(1020$ shown in Fig.~\ref{fig:resonances.phi}, are also spot on when compared with the PDG values.\end{v2}
 
 \begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.4\columnwidth,angle=-90]{{figures/resonances/MMp-eta}.pdf}
@@ -28,42 +28,41 @@ In this section we show a series of figures depicting known resonances with the 
 \end{center}\end{figure}
 
 \begin{figure}[htpb]\begin{center}
-\includegraphics[width=0.4\columnwidth,angle=270]{{figures/resonances/phi_IM_kk.pdf}.pdf}
+\includegraphics[width=0.4\columnwidth,angle=270]{{figures/resonances/phi_IM_kk}.pdf}
 \caption[KK Mass]{\label{fig:resonances.phi}$K^+K^-$ invariant mass spectrum in the reaction $\gamma p \rightarrow K^+ K^- p$, where all particles are detected by CLAS. The line indicates the PDG value of $\phi(1020)$ mass.}
 \end{center}\end{figure}
 
 
 
 \section{\label{sec:trackEff}Track dependent inefficiency correction}
-If the efficiency of the detectors and the triggers have been measured and modeled, then it's reasonable to expect that the reconstruction efficiency can be faithfully reproduced in simulation on a track-by-track basis. For the charged particles, this has been investigated thoroughly using the reaction $\gamma p \rightarrow p \pi^+ \pi^-$ events, using the  ollowing 3 topologies; 
+If the efficiency of the detectors and the triggers have been measured and modeled, then it's reasonable to expect that the reconstruction efficiency can be faithfully reproduced in simulation on a track-by-track basis. For the charged particles, this has been investigated thoroughly using the reaction $\gamma p \rightarrow p \pi^+ \pi^-$ events, using the  ollowing 3 topologies;
 \begin{align}\label{eq:eff_topologies}
 \gamma p \rightarrow p \pi^+ (\pi^-) \nonumber\\
 \gamma p \rightarrow p \pi^- (\pi^+)  \nonumber\\
 \gamma p \rightarrow \pi^+ \pi^- (p)
 \end{align}.
 
-The inefficiency map was derived for each particle, as a function of momentum, angles ($\theta, \phi$) in the lab frames, as well as the vertex positions, in the same manner for $p, \pi^+, \pi^-$. The results of pions are applied to be kaons for analyses involving detected kaons. For example, for $\pi^+$, the reconstruction efficiency can be derived using the $ \gamma p \rightarrow p \pi^- (\pi^+)$. If $\pi^+$ can be can be reconstructed using the missing mass techniques and also pass the kinematic fitting probability cut $>1~\%$, then the data was checked to see if the $\pi^+$ was actually detected. This was done exactly the same way in both simulation and real data. In a perfect word, the ratio of the two efficiency map (Simulation decided by the real data) should exactly $1$ everywhere. However, as can be seen in  Fig.~\ref{fig:PipEff}, the ratio is usually larger than $1$, indicating the simulation has an over efficiency on the order of $5~\%$. Similar over efficiency can also be seen for the $\pi^-$ and the proton, as shown in Fig.~\ref{fig:PimEff} and ~\ref{fig:ProtonEff}. For a final state that requires three charged tracks, this will lead to an correction that is on average about $18~\%$ globally. This correction accidentally is very similar to the g11 global normalization correction factor. However, the g12 correction is a function of momentum, angles and vertex positions, and is applied dynamically on a event-by-event basis. The standard g12 procedure for applying the above corrections can be applied using the routines at 
-
+The inefficiency map was derived for each particle, as a function of momentum, angles ($\theta, \phi$) in the lab frames, as well as the vertex positions, in the same manner for $p, \pi^+, \pi^-$. The results of pions are applied to be kaons for analyses involving detected kaons. For example, for $\pi^+$, the reconstruction efficiency can be derived using the $ \gamma p \rightarrow p \pi^- (\pi^+)$. If $\pi^+$ can be can be reconstructed using the missing mass techniques and also pass the kinematic fitting probability cut $>1 \%$, then the data was checked to see if the $\pi^+$ was actually detected. This was done exactly the same way in both simulation and real data. In a perfect word, the ratio of the two efficiency map (Simulation decided by the real data) should exactly $1$ everywhere. However, as can be seen in  Fig.~\ref{fig:PipEff}, the ratio is usually larger than $1$, indicating the simulation has an over efficiency on the order of $5 \%$. Similar over efficiency can also be seen for the $\pi^-$ and the proton, as shown in Fig.~\ref{fig:PimEff} and ~\ref{fig:ProtonEff}. For a final state that requires three charged tracks, this will lead to an correction that is on average about $18 \%$ globally. This correction accidentally is very similar to the g11 global normalization correction factor. However, the g12 correction is a function of momentum, angles and vertex positions, and is applied dynamically on a event-by-event basis. The standard g12 procedure for applying the above corrections can be applied using the routines found in the jlab SVN repository (\url{https://jlabsvn.jlab.org/svnroot}) here:
 \begin{verbatim}
-https://jlabsvn.jlab.org/svnroot/clas/users/mkunkel/clas/g12_corrections/g12_trackEfficiency.hpp
+clas/users/mkunkel/clas/g12_corrections/g12_trackEfficiency.hpp
 \end{verbatim}
 
-\begin{figure}[h!]\begin{center}
-\includegraphics[width=1.1 \figwidth,height=\hfigheight]{\figures/xsec/Pip_Eff.pdf}
-\caption[$\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the $\pi^+$ with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction]{\label{fig:PipEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the $\pi^+$ with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction.}
+\begin{figure}[htpb]\begin{center}
+\includegraphics[width=1.1 \figwidth,height=\hfigheight]{figures/xsec/Pip_Eff.pdf}
+\caption{\label{fig:PipEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the π$^+$ with z-vertex $z \in [-90,-85]$~cm and momentum $p \in [0.75,1]$~GeV from a 2 charged track reaction.}
 \end{center}\end{figure}
 
-\begin{figure}[h!]\begin{center}
-\includegraphics[width=1.1 \figwidth,height=\hfigheight]{\figures/xsec/Proton_Eff.pdf}
-\caption[$\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the proton with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction]{\label{fig:ProtonEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the proton with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction.}
+\begin{figure}[htpb]\begin{center}
+\includegraphics[width=1.1 \figwidth,height=\hfigheight]{figures/xsec/Proton_Eff.pdf}
+\caption{\label{fig:ProtonEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the proton with z-vertex $z \in [-90,-85]$~cm and momentum $p \in [0.75,1]$~GeV from a 2 charged track reaction.}
 \end{center}\end{figure}
 
-\begin{figure}[h!]\begin{center}
-\includegraphics[width=1.1 \figwidth,height=\hfigheight]{\figures/xsec/Pim_Eff.pdf}
-\caption[$\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the $\pi^-$ with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction]{\label{fig:PimEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the $\pi^-$ with z-vertex $-90\textless z\textless-85$~cm and momentum $0.75\textless p \textless 1$~GeV from a 2 charged track reaction.}
+\begin{figure}[htpb]\begin{center}
+\includegraphics[width=1.1 \figwidth,height=\hfigheight]{figures/xsec/Pim_Eff.pdf}
+\caption{\label{fig:PimEff} $\theta \cos\phi$ vs. $\theta \sin\phi$ plot showing the over-efficiency of simulating the $\pi^-$ with z-vertex $z \in [-90,-85]$~cm and momentum $p \in [0.75,1]$~GeV from a 2 charged track reaction.}
 \end{center}\end{figure}
 
-Further details about this procedure can be found in Reference~\cite{clas.thesis.kunkel}. It is important to point out that this track-dependent efficiency correction is also tied to the multiple photon correction, and can be derived by either accounting for  events lost to multiple photons, or using all photons in the chosen time bucket. The difference between this two methods can be used to be estimate the systematic uncertainty of this correction. For a three-charged tracks topology, the uncertainty is estimated to be around $3~\%$. 
+Further details about this procedure can be found in Reference~\cite{clas.thesis.kunkel}. It is important to point out that this track-dependent efficiency correction is also tied to the multiple photon correction, and can be derived by either accounting for  events lost to multiple photons, or using all photons in the chosen time bucket. The difference between this two methods can be used to be estimate the systematic uncertainty of this correction. For a three-charged tracks topology, the uncertainty is estimated to be around $3 \%$.
 
 
 

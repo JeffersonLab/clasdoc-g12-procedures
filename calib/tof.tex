@@ -135,16 +135,17 @@ The occupancy alone is not enough to determine which scintillators are bad. The 
 \subsubsection{\label{sec:calib.tof.resolution}Time-of-Flight Paddle Resolution}
 So far, the selection of bad paddles is based only the raw data, which is only good for the initial selection. We further investigate the timing resolution of each paddle for positively and negatively charged tracks. The following data analyzed were from events containing $p K^{+} K^{-}$ or $p \pi^{+} \pi^{-}$ in the final state. For each of the particles in the final state, the difference between the measured time-of-flight and the expected time-of-flight was plotted and fitted to a Gaussian. This was done for every paddle and we define the resolution of that paddle to be the standard deviation of the fit. Figure~\ref{plot:example.tofdiff} shows an example of this.
 
-To obtain which paddles had bad resolution, we first knocked out the recommended paddles (table~\ref{tab:tofko}). We then plotted the resolution of the remaining paddles (figures with cut on resolution). The paddles with ID's greater than 40 and less than 5 were ignored in this study as their occupancy was already low compared to the other paddles. 
+To obtain which paddles had bad resolution, we first knocked out the recommended paddles (table~\ref{tab:tofko}). We then plotted the resolution of the remaining paddles (figures with cut on resolution). The paddles with ID's greater than 40 and less than 5 were ignored in this study as their occupancy was already low compared to the other paddles.
 
 \begin{figure}\begin{center}
-   \begin{minipage}{0.475\textwidth}
-      \includegraphics[width=0.95\textwidth]{figures/calib/tof/tofko/res_sec2_scid36_p.eps}
-   \end{minipage}\hfill
-   \begin{minipage}{0.475\textwidth}
-      \includegraphics[width=0.95\textwidth]{figures/calib/tof/tofko/res_sec2_scid36_m.eps}
-   \end{minipage}{0.475\textwidth}
-   \caption{\label{plt:example.tofdiff}Example plots of measured time-of-flight and expected time-of-flight for paddle 36 in sector 2. Left plot is for positively charged tracks and right is for negatively charged tracks.}
+   \begin{minipage}{0.475\columnwidth}
+      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/tofko/res_sec2_scid36_p.eps}
+   \end{minipage}
+   \hfill
+   \begin{minipage}{0.475\columnwidth}
+      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/tofko/res_sec2_scid36_m.eps}
+   \end{minipage}
+   \caption{\label{plot:example.tofdiff}Example plots of measured time-of-flight and expected time-of-flight for paddle 36 in sector 2. Left plot is for positively charged tracks and right is for negatively charged tracks.}
 \end{center}\end{figure}
 
 
