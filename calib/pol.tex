@@ -3,26 +3,37 @@ The electron beam produced with a polarized laser incident on gallium arsenide a
 \begin{equation}
 P_\odot(E_\gamma) = \frac{x(4-x)}{4 - 4x + 3x^2}P_{elec}
 \end{equation}
-where $x = E_\gamma /E_{elec}$ is the ratio of photon energy, $E_\gamma$, to beam energy, $E_{elec}$. The g12 experiment ran with a constant electron energy of $E_{elec} = 5.715$ GeV.  (The actual electron beam energy was corrected on a run-by-run basis, see later section) The polarization of the electron beam was measured regularly using the a M{\o}ller polarimeter.  The polarimeter measures electron polarization by making use of the helicity dependent nature of M{\o}ller scattering~\cite{Mecking,Carman}. The M{\o}ller measurements, summarized in Table~\ref{moltable}, were performed regularly (every few days) during g12. During the g12 running period, Hall B did not have the priority. As a result, the polarization of the beam was delivered as a byproduct as other Halls requirement, and fluctuates. However, the majority of the g12 runs has beam polarization close to 70\%. The run-integrated and flux -weighted value of the polarization of a particular range of photon energies can be easily obtained by using the maximum-Olsen formula.
+where $x = E_\gamma /E_{elec}$ is the ratio of photon energy, $E_\gamma$, to beam energy, $E_{elec}$. The g12 experiment ran with a constant electron energy of $E_{elec} = 5.715$ GeV.  (The actual electron beam energy was corrected on a run-by-run basis, see later section) The polarization of the electron beam was measured regularly using the a M{\o}ller polarimeter.  The polarimeter measures electron polarization by making use of the helicity dependent nature of M{\o}ller scattering~\cite{Mecking,Carman}. The M{\o}ller measurements, summarized in Table~\ref{moltable}, were performed regularly (every few days) during g12 and whenever we were notified of any beam changes. During the g12 running period, Hall B did not have the priority. As a result, the polarization of the beam was delivered as a byproduct as other Halls requirement, and fluctuates. However, the majority of the g12 runs has beam polarization close to 70\% with a total uncertainty estimated to be 5\%. The run-integrated and flux -weighted value of the polarization of a particular range of photon energies can be easily obtained by using the maximum-Olsen formula.
 
 \begin{table}[htpb]
 \begin{center}
  \includegraphics[width=0.3\textwidth]{figures/calib/pol/moltable.eps}
-  \caption{The degree of longitudinal electron polarization ($P_e)$ for each M{\o}ller run. }
+  \caption{The degree of longitudinal electron polarization ($P_e)$ for each M{\o}ller run. The uncertainties shown are statistical uncertainties. }
   \label{moltable}
   \end{center}
 \end{table}
 
 An important experimental aspect of g12 is that the electron-beam helicity was flipped at a rate around 30 Hz. While the helicity information was recorded and stored in the HEVT bank for each event, the convention for bit encoding has been known to change from real-time to delayed-time recording. Further considerations, such as the half-wave plate orientation also had to be accounted for.
 
-The only sure way to pin down the absolute beam helicity orientation for our data was to analyze a well known helicity-dependent reaction. Well-established results in Ref.~\cite{Io} in the beam-helicity asymmetry, $I^\odot(\phi^{hel}_\pi)$, for the reaction, $\gamma p \to p \pi^+ \pi^-$, were reproduced.  The mentioned reaction was shown to have a specific helicity-frame defined $\phi^{hel}_{\pi^+}$-dependent structure.  If the helicity convention was reversed then we would observe $I^\odot(\phi^{hel}_{\pi^+}) \to -I^\odot(\phi^{hel}_{\pi^+})$.
+The only sure way to pin down the absolute beam helicity orientation for our data was to analyze a well known helicity-dependent reaction. Well-established results in Ref.~\cite{Io} in the beam-helicity asymmetry, $I^\odot(\phi^{hel}_\pi)$, for the reaction, $\gamma p \to p \pi^+ \pi^-$, were reproduced.  The mentioned reaction was shown to have a specific helicity-frame defined $\phi^{hel}_{\pi^+}$-dependent structure.  If the helicity convention was reversed then we would observe $I^\odot(\phi^{hel}_{\pi^+}) \to -I^\odot(\phi^{hel}_{\pi^+})$. 
 
 The sub-analysis we performed required exclusive $p \pi^+ \pi^-$ events in the final state. To ensure exclusivity we required zero missing energy and momentum within detector resolution. The helicity frame (shown in Fig.~\ref{ioplane}) was defined to be the rest frame of the hypothetical parent meson of the two pion system, with  $\hat{z}$ aligned along its center-of-mass defined momentum. $\phi^{hel}_{\pi^+}$ is the angle between the proton-production plane, and the plane containing both pions. The beam helicity asymmetry is given by,
 \begin{equation}
-I_\odot = \frac{N^+ - N^-}{N^+ + N^-},
+I_\odot = \frac{1}{P_{\gamma}} \frac{N^+ - N^-}{N^+ + N^-},
 \end{equation}
 where $N^\pm$ indicates the number of events with positive (negative) photon helicity.  Figs.~\ref{myIo}-\ref{Io} show the $I_{\odot}(\phi^{hel}_{\pi^+})$ for g12 and in the analysis of \cite{Io}.
-The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. The reproduction of beam-helicity asymmetry for double charged pion production also served as a way to test the accuracy of the calculated photon polarization magnitude: both results' wave amplitudes were in good agreement.
+The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. The following method, stored in \textit{to be stored}, takes care of these issues and returns the helicity for a given event:
+\begin{verbatim}
+int GetHelicity(clasHEVT_t *HEVT)
+{
+     int helicity = 0;
+     int readout = HEVT->hevt[0].trgprs;
+     if(readout > 0) helicity = -1;
+     if(readout < 0) helicity = 1;
+     return helicity;
+}
+\end{verbatim}
+The reproduction of beam-helicity asymmetry for double charged pion production also served as a way to test the accuracy of the calculated photon polarization magnitude: both results' wave amplitudes were in good agreement.
 
 \begin{figure}[htpb]
 \begin{center}
@@ -50,8 +61,7 @@ The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$h
   \end{center}
 \end{figure}
 
-
-
+\textit{Plot of ratio of g12's $I_{\odot}$ to g1c's is currently in progress}.
 
 To conclude, the g12 beam polarization was measured with standard methods, and the validity of the photon helicity definition in the HEVT bank was double checked against existing experimental results and confirmed to be correct. All g12 measurements that utilizes the beam polarization refer to what has been summarized here.
 
