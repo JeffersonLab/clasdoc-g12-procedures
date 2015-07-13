@@ -134,19 +134,12 @@ The occupancy alone is not enough to determine which scintillators are bad. The 
 
 \begin{v2}
 \subsubsection{\label{sec:calib.tof.resolution}Time-of-Flight Paddle Resolution}
-So far, the selection of bad paddles is based only the raw data, which is only good for the initial selection. We further investigate the timing resolution of each paddle for positively and negatively charged tracks. The following data analyzed were from events containing $p K^{+} K^{-}$ or $p \pi^{+} \pi^{-}$ in the final state. For each of the particles in the final state, the difference between the measured time-of-flight and the expected time-of-flight was plotted and fitted to a Gaussian. This was done for every paddle and we define the resolution of that paddle to be the standard deviation of the fit. Figure~\ref{plot:example.tofdiff} shows an example of this.
+So far, the selection of bad paddles is based only the raw data, which is only good for the initial selection. We further investigate the timing resolution of each paddle by run in order to determine stability of their resolutions throughout the experiment. The following data analyzed were from events containing $p \pi^{+} \pi^{-}$ in the final state. For the $\pi^{+}$, the difference between the measured time-of-flight and the expected time-of-flight for a given run was plotted and fitted to a Gaussian. This was done for every paddle and every run. We define the resolution of that paddle to be the standard deviation of the fit. Figure~\ref{plot:example.tofresVrun} shows an example of this. The TOF resolution for every paddle as a function of run number is stored in the g12 wiki page.
 
-To obtain which paddles had bad resolution, we first knocked out the recommended paddles (table~\ref{tab:tofko}). We then plotted the resolution of the remaining paddles (figures with cut on resolution). The paddles with ID's greater than 40 and less than 5 were ignored in this study as their occupancy was already low compared to the other paddles.
 
 \begin{figure}\begin{center}
-   \begin{minipage}{0.475\columnwidth}
-      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/tofko/res_sec2_scid36_p.eps}
-   \end{minipage}
-   \hfill
-   \begin{minipage}{0.475\columnwidth}
-      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/tofko/res_sec2_scid36_m.eps}
-   \end{minipage}
-   \caption{\label{plot:example.tofdiff}Example plots of measured time-of-flight and expected time-of-flight for paddle 36 in sector 2. Left plot is for positively charged tracks and right is for negatively charged tracks.}
+      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/resVrun_sec3_scid21.eps}
+   \caption{\label{plot:example.tofresVrun}TOF resolution as a function of run number for paddle}
 \end{center}\end{figure}
 \end{v2}
 
