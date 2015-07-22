@@ -77,8 +77,7 @@ Figures~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2} show the differential cr
 
 For the $\omega$ events, the standard {\sc eloss} corrections but tuned momentum corrections to the proper shape of the pull distributions in the kinematic fitting of the reaction: γ p $\rightarrow$ p π$^+$ π$^-$ (no missing particle). (For these particular results, the g12 beam energy correction is not applied) After all initial kinematic corrections, the three-track events were then subject to 1C kinematic fitting imposing energy and momentum conservation as well as requiring a missing π$^0$ in the reaction; events have then been selected with a confidence-level (CL) cut of 0.001 which essentially only demands fit convergence. In the final step, ω $\rightarrow$ π$^+$ π$^-$ π$^0$ events were identified in the invariant π$^+$ π$^-$ π$^0$ mass. The signal and background separation was achieved by applying the Q-value method which assigns a quality factor to each event indicating the likelihood for the event to be signal. The high efficiency of this method justifies the relatively small CL cut. At this point, we have not yet applied the fiduciary cuts discussed in this note. However, we do not expect any significant impact on our final results.
 
-For the differential cross sections, the ω yields have been determined for 50-MeV wide energy bins and 20 bins in the corresponding angular distributions (of the ω in the overall center-of-mass system). Shown in Figs.~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2} is the energy range 1.50 - 3.80 GeV.  The angular distributions of the ω production were acceptance corrected by studying the reaction in GEANT-based simulations. These acceptance corrections include a simulation of the geometrical trigger configuration requiring three different tracks in three different sectors.  We have compared normalized and acceptance-corrected ω yields from the production runs (at 60 nA) as well as single-sector runs (at 24 nA) and observed a near perfect agreement over the full run range used in this analysis. From this we conclude that the current and trigger corrections are under control. The full energy range for the ω cross sections, obviously, will be discussed by the corresponding analysis note of this particular results by FSU.
-
+For the differential cross sections, the ω yields have been determined for 50-MeV wide energy bins and 20 bins in the corresponding angular distributions (of the ω in the overall center-of-mass system). Shown in Figs.~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2} is the energy range 1.50 - 3.80 GeV, \begin{v2}along with the pull distribution in Fig.~\ref{fig:xsec.omega.pull}.\end{v2}  The angular distributions of the ω production were acceptance corrected by studying the reaction in GEANT-based simulations. These acceptance corrections include a simulation of the geometrical trigger configuration requiring three different tracks in three different sectors.  We have compared normalized and acceptance-corrected ω yields from the production runs (at 60 nA) as well as single-sector runs (at 24 nA) and observed a near perfect agreement over the full run range used in this analysis. From this we conclude that the current and trigger corrections are under control. The full energy range for the ω cross sections, obviously, will be discussed by the corresponding analysis note of this particular results by FSU.
 
 \begin{figure}[htpb]\begin{center}
 \includegraphics[width=\columnwidth]{{figures/xsec/cross_omega_1}.eps}
@@ -90,6 +89,13 @@ For the differential cross sections, the ω yields have been determined for 50-M
 \includegraphics[width=\columnwidth]{{figures/xsec/cross_omega_2}.eps}
 \caption[]{\label{fig:xsec.omega2}Differential cross sections for the reaction γ p $\rightarrow$ p ω based on the dominant decay mode ω $\rightarrow$ π$^+$ π$^-$ π$^0$ with a beam energy from 2.5 to 3.65~GeV. Comparison to g11 is in red.}
 \end{center}\end{figure}
+
+
+\begin{figure}[htpb]\begin{center}
+\includegraphics[width=0.5\columnwidth]{{figures/xsec/cross_omega_pull}.eps}
+\caption[]{\label{fig:xsec.omega.pull}Pull distribution for the data shown in Figs.~\ref{fig:xsec.omega1} and \ref{fig:xsec.omega2}.}
+\end{center}\end{figure}
+
 
 In terms of the photon multiplicity, at 60-65nA of the production current, about 87$\pm 1$\% of the data has only one photon in the same time bucket chosen for the event, around 12\% has exactly two photons, and approximately 1\% has more than two photons. This has a slight beam energy dependence, however, the variance is on the percent level. The photon multiplicity must be addressed since it is significant. One can correct the cross sections, if  those events with multiple photons are all included in their analyses and the photon was chosen randomly, or they were all excluded. However, one can also address this issue by looping over all photons, and that would not require additional corrections. Since this correction depends on the preference of the individuals, we do not prescribe this as a universal procedure by itself.
 
@@ -117,7 +123,7 @@ The π$^0$ differential cross-section, shown in Figs.~\ref{fig:pi0.xsec.1} and \
 \begin{align}\label{channel}
 \text{γ p} \rightarrow \text{p [π$^0$]} \rightarrow \text{p e$^+$ e$^-$ [γ]}
 \end{align}
-where the detected final state particles were one proton, one positron and one electron, while the final state photon was identified through kinematic fitting. For the identification of the leptons, where the incident photon beam energy was less than 3.6~GeV, the use of the trigger configuration 6 (see Table~\ref{tab:data.trig.conf.2} on page~\pageref{tab:data.trig.conf.2}) was employed. To ensure proper simulation of trigger configuration 6, a trigger model was used which mimicked the discrimination of low voltage from the Cherenkov and Electromagnetic calorimeter PMT's. Simulation was performed using \verb#PLUTO++# to generate phasespace of \ref{channel}. All incident beam photons that were within 2.004~ns of the timed particles were analyzed, meaning if an event had 2 or more incident beam photons that were in time with the detected particles within 2.004~ns, then each photon was analyzed as a separate event along with the quantities of the detected particles.
+where the detected final state particles were one proton, one positron and one electron, while the final state photon was identified through kinematic fitting. \begin{v2}The pull distrituion against \textit{g1c} data is shown for this data in Fig.~\ref{fig:pi0.xsec.pull}.\end{v2} For the identification of the leptons, where the incident photon beam energy was less than 3.6~GeV, the use of the trigger configuration 6 (see Table~\ref{tab:data.trig.conf.2} on page~\pageref{tab:data.trig.conf.2}) was employed. To ensure proper simulation of trigger configuration 6, a trigger model was used which mimicked the discrimination of low voltage from the Cherenkov and Electromagnetic calorimeter PMT's. Simulation was performed using \verb#PLUTO++# to generate phasespace of \ref{channel}. All incident beam photons that were within 2.004~ns of the timed particles were analyzed, meaning if an event had 2 or more incident beam photons that were in time with the detected particles within 2.004~ns, then each photon was analyzed as a separate event along with the quantities of the detected particles.
 
 \begin{figure}[htpb]
 \includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_I.eps}
@@ -127,6 +133,11 @@ where the detected final state particles were one proton, one positron and one e
 \begin{figure}[htpb]
 \includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_II.eps}
 \caption{\label{fig:pi0.xsec.2}Differential cross section of the π$^0$ starting from a beam energy of approximately 2~GeV, using the lepton decay channel.}
+\end{figure}
+
+\begin{figure}[htpb]
+\includegraphics[width=0.7\columnwidth]{figures/xsec/G12_Pi0_XSection_pull.eps}
+\caption{\label{fig:pi0.xsec.pull}Pull distribution for g12/g1c comparison of data shown in Figs.~\ref{fig:pi0.xsec.1} and \ref{fig:pi0.xsec.2}.}
 \end{figure}
 
 To summarize, the g12 data set does not shown any significant beam-intensity-dependent inefficiency, and the overall normalization, when all corrections documented in this note are applied, can be validated by the consistency between the cross sections such as ω, π$^0$ and Λ when compared with prior results.
