@@ -15,14 +15,14 @@ where $x = E_\gamma /E_{elec}$ is the ratio of photon energy, $E_\gamma$, to bea
 
 An important experimental aspect of g12 is that the electron-beam helicity was flipped at a rate around 30 Hz. While the helicity information was recorded and stored in the HEVT bank for each event, the convention for bit encoding has been known to change from real-time to delayed-time recording. Further considerations, such as the half-wave plate orientation also had to be accounted for.
 
-The only sure way to pin down the absolute beam helicity orientation for our data was to analyze a well known helicity-dependent reaction. Well-established results in Ref.~\cite{Io} in the beam-helicity asymmetry, $I^\odot(\phi^{hel}_\pi)$, for the reaction, $\gamma p \to p \pi^+ \pi^-$, were reproduced.  The mentioned reaction was shown to have a specific helicity-frame defined $\phi^{hel}_{\pi^+}$-dependent structure.  If the helicity convention was reversed then we would observe $I^\odot(\phi^{hel}_{\pi^+}) \to -I^\odot(\phi^{hel}_{\pi^+})$. 
+The only sure way to pin down the absolute beam helicity orientation for our data was to analyze a well known helicity-dependent reaction. Well-established results in Ref.~\cite{Io} in the beam-helicity asymmetry, $I^\odot(\phi^{hel}_\pi)$, for the reaction, $\gamma p \to p \pi^+ \pi^-$, were reproduced.  The mentioned reaction was shown to have a specific helicity-frame defined $\phi^{hel}_{\pi^+}$-dependent structure.  If the helicity convention was reversed then we would observe $I^\odot(\phi^{hel}_{\pi^+}) \to -I^\odot(\phi^{hel}_{\pi^+})$.
 
 The sub-analysis we performed required exclusive $p \pi^+ \pi^-$ events in the final state. To ensure exclusivity we required zero missing energy and momentum within detector resolution. The helicity frame (shown in Fig.~\ref{ioplane}) was defined to be the rest frame of the hypothetical parent meson of the two pion system, with  $\hat{z}$ aligned along its center-of-mass defined momentum. $\phi^{hel}_{\pi^+}$ is the angle between the proton-production plane, and the plane containing both pions. The beam helicity asymmetry is given by,
 \begin{equation}
 I_\odot = \frac{1}{P_{\gamma}} \frac{N^+ - N^-}{N^+ + N^-},
 \end{equation}
 where $N^\pm$ indicates the number of events with positive (negative) photon helicity.  Figs.~\ref{myIo}-\ref{Io} show the $I_{\odot}(\phi^{hel}_{\pi^+})$ for g12 and in the analysis of \cite{Io}.
-The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. The following method, stored in \textit{to be stored}, takes care of these issues and returns the helicity for a given event:
+The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. \begin{v2}The following method, stored in \textit{to be stored}, takes care of these issues and returns the helicity for a given event:
 \begin{verbatim}
 int GetHelicity(clasHEVT_t *HEVT)
 {
@@ -33,6 +33,7 @@ int GetHelicity(clasHEVT_t *HEVT)
      return helicity;
 }
 \end{verbatim}
+\end{v2}
 The reproduction of beam-helicity asymmetry for double charged pion production also served as a way to test the accuracy of the calculated photon polarization magnitude: both results' wave amplitudes were in good agreement.
 
 \begin{figure}[htpb]
