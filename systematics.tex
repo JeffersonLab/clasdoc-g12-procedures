@@ -99,7 +99,7 @@ For the differential cross sections, the ω yields have been determined for 50-M
 
 In terms of the photon multiplicity, at 60-65nA of the production current, about 87$\pm 1$\% of the data has only one photon in the same time bucket chosen for the event, around 12\% has exactly two photons, and approximately 1\% has more than two photons. This has a slight beam energy dependence, however, the variance is on the percent level. The photon multiplicity must be addressed since it is significant. One can correct the cross sections, if  those events with multiple photons are all included in their analyses and the photon was chosen randomly, or they were all excluded. However, one can also address this issue by looping over all photons, and that would not require additional corrections. Since this correction depends on the preference of the individuals, we do not prescribe this as a universal procedure by itself.
 
-The Λ(1115) differential cross section was measured and compared to the \desg{g11a} results shown in Figs.~\ref{fig:lambda.dcs.1} and \ref{fig:lambda.dcs.2}. The \desg{g12} data employed tight timing and fiducial cuts to minimize systematic uncertainty at the expense of larger statistical uncertainty and very low statistics at high energy and large angle.
+The Λ(1115) differential cross section was measured and compared to the \desg{g11a} results shown in Figs.~\ref{fig:lambda.dcs.1} and \ref{fig:lambda.dcs.2} \begin{v2}with the pull distribution in Fig.~\ref{fig:lambda.dcs.pull}\end{v2}. The \desg{g12} data employed tight timing and fiducial cuts to minimize systematic uncertainty at the expense of larger statistical uncertainty and very low statistics at high energy and large angle.
 
 In this analysis,
 \begin{equation}
@@ -112,12 +112,15 @@ was simulated with a $t$-slope off the K$^+$ set to unity. The divisions in pola
 \caption[]{\label{fig:lambda.dcs.1}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at $3σ$ of their quoted statistical uncertainty.}
 \end{center}\end{figure}
 
-
 \begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.99\columnwidth]{{figures/xsec/lambda.dcs.2.log}.pdf}
 \caption[]{\label{fig:lambda.dcs.2}Differential cross section of Λ K$^+$ photoproduction in red with a comparison to \desg{g11a} with the black line and yellow band at $3σ$ of their quoted statistical uncertainty.}
 \end{center}\end{figure}
 
+\begin{figure}[htpb]\begin{center}
+\includegraphics[width=0.6\columnwidth]{{figures/xsec/lambda_g11_pull}.pdf}
+\caption[]{\label{fig:lambda.dcs.pull}Pull distribution against the \textit{g11} data shown in Figs.~\ref{fig:lambda.dcs.1} and \ref{fig:lambda.dcs.2}.}
+\end{center}\end{figure}
 
 The π$^0$ differential cross-section, shown in Figs.~\ref{fig:pi0.xsec.1} and \ref{fig:pi0.xsec.2}, was measured in the reaction
 \begin{align}\label{channel}
@@ -125,19 +128,19 @@ The π$^0$ differential cross-section, shown in Figs.~\ref{fig:pi0.xsec.1} and \
 \end{align}
 where the detected final state particles were one proton, one positron and one electron, while the final state photon was identified through kinematic fitting. \begin{v2}The pull distrituion against \textit{g1c} data is shown for this data in Fig.~\ref{fig:pi0.xsec.pull}.\end{v2} For the identification of the leptons, where the incident photon beam energy was less than 3.6~GeV, the use of the trigger configuration 6 (see Table~\ref{tab:data.trig.conf.2} on page~\pageref{tab:data.trig.conf.2}) was employed. To ensure proper simulation of trigger configuration 6, a trigger model was used which mimicked the discrimination of low voltage from the Cherenkov and Electromagnetic calorimeter PMT's. Simulation was performed using \verb#PLUTO++# to generate phasespace of \ref{channel}. All incident beam photons that were within 2.004~ns of the timed particles were analyzed, meaning if an event had 2 or more incident beam photons that were in time with the detected particles within 2.004~ns, then each photon was analyzed as a separate event along with the quantities of the detected particles.
 
-\begin{figure}[htpb]
+\begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_I.eps}
 \caption{\label{fig:pi0.xsec.1}Differential cross section of the π$^0$ up to a beam energy of approximately 2~GeV, using the lepton decay channel.}
-\end{figure}
+\end{center}\end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.95\columnwidth]{figures/xsec/G12_Pi0_XSection_forAnalysisNote_II.eps}
 \caption{\label{fig:pi0.xsec.2}Differential cross section of the π$^0$ starting from a beam energy of approximately 2~GeV, using the lepton decay channel.}
-\end{figure}
+\end{center}\end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[htpb]\begin{center}
 \includegraphics[width=0.7\columnwidth]{figures/xsec/G12_Pi0_XSection_pull.eps}
 \caption{\label{fig:pi0.xsec.pull}Pull distribution for g12/g1c comparison of data shown in Figs.~\ref{fig:pi0.xsec.1} and \ref{fig:pi0.xsec.2}.}
-\end{figure}
+\end{center}\end{figure}
 
 To summarize, the g12 data set does not shown any significant beam-intensity-dependent inefficiency, and the overall normalization, when all corrections documented in this note are applied, can be validated by the consistency between the cross sections such as ω, π$^0$ and Λ when compared with prior results.
