@@ -320,17 +320,24 @@ However these instabilities appear even within a single file. It would be good
 to see timelines for vertex time difference and resolutions for protons and 
 pions vs. run number for individual paddles.}\\
 
-The following data analyzed were from events containing $p \pi^{+} \pi^{-}$ in the final state. For the $\pi^{+}$ and $\pi^{-}$, the difference between the measured time-of-flight and the expected time-of-flight for a given run was plotted and fitted to a Gaussian. This was done for every paddle and every run. We define the resolution of that paddle to be the standard deviation of the fit. A few paddles that had not been previously knocked out had drifts on either the resolution or the mean $\Delta$ TOF and were not properly calibrated. Table~\ref{tab:tofko.additional} shows which paddles should ideally be knocked out due to this. However, the track dependent efficiency correction was derived without these paddles being knocked out. Consequently, these paddles should not be knocked out if using the track dependent efficiency correction. If one would like to use these additional time-of-flight knockouts, then one would need to re-derive the track dependent efficiency corrections. Figure~\ref{plot:example.goodpaddle} shows an example of a good paddle's resolution and mean $\Delta$ TOF while figure~\ref{plot:example.badpaddle} shows and example of a bad paddle. The TOF resolution for every paddle by run is stored in the g12 wiki.
+The following data analyzed were from events containing $p \pi^{+} \pi^{-}$ in the final state. For the $\pi^{+}$ and $\pi^{-}$, the difference between the measured time-of-flight and the expected time-of-flight for a given run was plotted and fitted to a Gaussian. This was done for every paddle and every run. We define the resolution of that paddle to be the standard deviation of the fit. Most paddles were fine but a few paddles that had not been previously knocked out had drifts on either the resolution or the mean $\Delta$ TOF and were not properly calibrated. Table~\ref{tab:tofko.additional} shows which paddles should ideally be knocked out due to this. However, the track dependent efficiency correction was derived without these paddles being knocked out. Consequently, these paddles should not be knocked out if using the track dependent efficiency correction. If one would like to use these additional time-of-flight knockouts, then one would need to re-derive the track dependent efficiency corrections. Figure~\ref{plot:example.goodpaddle} shows an example of a good paddle's resolution and mean $\Delta$ TOF while figure~\ref{plot:example.badpaddle} shows and example of a bad paddle. In addition, a few paddles in sector 5 demonstrated a shift in resolution of about 100 ps for about 1.5\% of the runs. Figure~\ref{plot:example.badsector5} Ideally, these should be recalibrated and recooked, but this solution is unrealistic. The TOF resolution for every paddle by run is stored in the g12 wiki.
+
+\input{tables/tof_badpaddles_additionalko}
 
 
 \begin{figure}\begin{center}
-      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/goodexample.pdf}
+      \includegraphics[width=0.6\columnwidth]{figures/calib/tof/goodexample.pdf}
    \caption{\label{plot:example.goodpaddle}TOF resolution as a function of run number for a good paddle}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
-      \includegraphics[width=0.95\columnwidth]{figures/calib/tof/badexample.pdf}
+      \includegraphics[width=0.6\columnwidth]{figures/calib/tof/badexample.pdf}
    \caption{\label{plot:example.badpaddle}TOF resolution as a function of run number for a bad paddle}
+\end{center}\end{figure}
+
+\begin{figure}\begin{center}
+ 	\includegraphics[width=0.6\columnwidth]{figures/calib/tof/badsector5.pdf}
+   \caption{\label{plot:example.badsector5}TOF resolution as a function of run number for a bad paddle}
 \end{center}\end{figure}
 
 
@@ -339,9 +346,9 @@ trigger. It was discovered by the g13 group that some of the counters are
 inefficient in the trigger but look fine in TDC. What has been done to address
 this trigger inefficiency?}
 
-Being worked on by Rafael. We should be able to show that the resolutions are stable. However, we do not plan to knock out additional paddles, because the track dependent inefficiency correction absorbed this effect. If we were to do a new knockout scheme, everything would have to be changed again and there is nothing concrete we could gain from it.
+%Being worked on by Rafael. We should be able to show that the resolutions are stable. However, we do not plan to knock out additional paddles, because the track dependent inefficiency correction absorbed this effect. If we were to do a new knockout scheme, everything would have to be changed again and there is nothing concrete we could gain from it.
 
-
+See previous answer.
 
 
 \item \textbf{When you compare cross sections to previous measurements please 
@@ -375,44 +382,30 @@ the overall sign of the helicity assignment, however there still may be a
 polarization bias, which is not determinable from this comparison, due to the
 acceptance effect on the extracted Icirc.}
 
-Being worked on by Rafael.
 
-Statistical errors for the polarization of the beam is shown on table~\ref{moltable}. The total systematic error is estimated to be 5\%.
 
-\begin{table}[htpb]
-\begin{center}
- \includegraphics[width=0.3\textwidth]{figures/calib/pol/moltable.eps}
-  \caption{The degree of longitudinal electron polarization ($P_e)$ for each M{\o}ller run. The uncertainties shown are statistical uncertainties. }
-  \label{moltable}
-  \end{center}
-\end{table}
+Statistical errors for the polarization of the beam is shown on table 20 in the note. The total systematic error is estimated to be 5\%.
 
-The following method takes care of these issues and returns the helicity for a given event:
-\begin{verbatim}
-int GetHelicity(clasHEVT_t *HEVT)
-{
-     int helicity = 0;
-     int readout = HEVT->hevt[0].trgprs;
-     if(readout > 0) helicity = -1;
-     if(readout < 0) helicity = 1;
-     return helicity;
-}
-\end{verbatim}
+There is a method, to be stored in \begin{verbatim} /work/clas/clasg12/clasg12/clas6-trunk/include/gethelicity.h \end{verbatim}, 
+that takes care of the issue on how to obtain the helicity and plainly returns it.
+
 
 %FIU and FSU independently measured the beam-helicity asymmetry and were in good agreement with each other. The pull distribution between FIU and FSU is shown in figure~\ref{fig:pol:g12compare} and the pull distribution between FIU and g1c's results are shown in figure~\ref{fig:pol:g12g1ccompare}. Both FIU and FSU use approximately 15\% of the entire dataset (due to the independence of the two measurements, their selection of the data is most likely not the same). Figure~\ref{fig:pol:g12g1ccompare} shows good agreement between g12 and g1c's beam-helicity measurement.
 
-The pull distribution between the g12 (only using 15\% of the statistics) and g1c results does not show major shift between the two experiments. Furthermore, the two independent analyses (FIU and FSU) are self consistent. And the 0.01 shift between the g12 and g1c results are consistent with an expected 5\% overall polarization uncertainty measurement. It is important to point out that these asymmetry measurements are performed at different angular bins, while the two experiments, having different set up and acceptance, does not have exactly the same angular distributions. So the current comparison is only sufficient to address the overall uncertainty or shift. The exact bin-by-bin comparison would be addressed in a more systematic manner once all g12 statistics are used.
+Eq. 11 had a typo and was corrected. 
+
+We investigated the systematic uncertainty of the asymmetry measurements by comparing the g12 two pion beam helicity results and g1c results, as well as two independent g12 analyses (FIU by Rafael and FSU by Zulkaida. Fig.~\ref{fig:pol:g12compare}). The pull distribution between the g12 (only using 15\% of the statistics)  and g1c results (Fig.~\ref{fig:pol:g12g1ccompare}) does not show major shift between the two experiments. Furthermore, the two independent analyses (FIU and FSU) are self consistent. And the 0.01 shift between the g12 and g1c results are consistent with an expected 5\% overall polarization uncertainty measurement. It is important to point out that these asymmetry measurements are performed at different angular bins, while the two experiments, having different set up and acceptance, does not have exactly the same angular distributions. So the current comparison is only sufficient to address the overall uncertainty or shift. The exact bin-by-bin comparison would be addressed in a more systematic manner once all g12 statistics are used.
 
 \begin{figure}[htpb]
 \begin{center}
-\includegraphics[width=0.4\columnwidth]{{figures/calib/pol/g12compare}.eps}
+\includegraphics[width=0.6\columnwidth]{{figures/calib/pol/g12compare}.eps}
 \caption{\label{fig:pol:g12compare} Pull distribution between FIU and FSU $I^{\odot}$ }
 \end{center}
 \end{figure}
 
 \begin{figure}[htpb]
 \begin{center}
-\includegraphics[width=0.4\columnwidth]{{figures/calib/pol/g12g1ccompare}.eps}
+\includegraphics[width=0.6\columnwidth]{{figures/calib/pol/g12g1ccompare}.eps}
 \caption{\label{fig:pol:g12g1ccompare} Pull distribution between g12 (FIU) and g1c $I^{\odot}$ }
 \end{center}
 \end{figure}

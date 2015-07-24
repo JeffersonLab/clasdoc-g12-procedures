@@ -138,6 +138,7 @@ So far, the selection of bad paddles is based only the raw data, which is only g
 %Figure~\ref{plot:example.tofresVrun} shows an example of this. The TOF resolution for every paddle as a function of run number is stored in the g12 wiki page. 
 A few paddles that had not been previously knocked out had drifts on either the resolution or the mean $\Delta$ TOF and were not properly calibrated. Table~\ref{tab:tofko.additional} shows which paddles should ideally be knocked out due to this. However, the track dependent efficiency correction was derived without these paddles being knocked out. Consequently, these paddles should not be knocked out if using the track dependent efficiency correction. If one would like to use these additional time-of-flight knockouts, then one would need to re-derive the track dependent efficiency corrections. Figure~\ref{plot:example.goodpaddle} shows an example of a good paddle's resolution and mean $\Delta$ TOF while figure~\ref{plot:example.badpaddle} shows and example of a bad paddle. The TOF resolution for every paddle by run is stored in the g12 wiki.
 
+\input{tables/tof_badpaddles_additionalko}
 
 \begin{figure}\begin{center}
       \includegraphics[width=0.95\columnwidth]{figures/calib/tof/goodexample.pdf}
