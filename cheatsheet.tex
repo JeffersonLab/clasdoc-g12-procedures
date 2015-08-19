@@ -119,7 +119,7 @@
 \input{variables}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\pagenumbering{gobble}
 
 \begin{document}
 
@@ -132,7 +132,8 @@
     %\Alph       A, B ...
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
-\pagestyle{headings}
+\pagestyle{empty}
+\thispagestyle{empty}
 %\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 
 \twocolumn[
@@ -141,7 +142,7 @@
     \begin{abstract}
 Use of this cheat sheet assumes you have read and understood every word in the official \emph{g12 Analysis Procedures, Statistics and Systematics} CLAS note. The authors are not responsible for lost time due to blindly following the steps described herein.
 
-\vspace{0.25in}
+\vspace{0.2in}
 
     \end{abstract}
   \end{@twocolumnfalse}
@@ -199,7 +200,7 @@ For lepton analyses, use the option \verb|-R10|.
 \subsection{Analysis of Simulation}
 
 \begin{enumerate}
-    \item Topology dependent event slection 
+    \item Topology dependent event slection
     \item Standard \prog{eloss} correction
     \item g12 TOF knock-out
     \item g12 Fiducial cuts
@@ -213,7 +214,7 @@ For lepton analyses, use the option \verb|-R10|.
 \section{Analysis of Data}
 
 \begin{enumerate}
-    \item Topology dependent event slection
+    \item Topology dependent event selection. Analyze only complete runs, refer to the good-run list and sorting of bos event in the CLAS note.
     \item Standard \prog{eloss}
     \item g12 Beam energy corrections
     \item g12 Momentum corrections
@@ -229,10 +230,15 @@ For lepton analyses, use the option \verb|-R10|.
 
 \subsection{Absolute Normalization Corrections}
 
+Use \prog{g12-gflux-all} found in \verb+/home/clasg12/local/scripts+ to generate flux for ``good'' scalar intervals of the runs listed in the file \textit{filelist.txt}:
+\begin{verbatim}
+    g12-gflux-all filelist.txt good > flux.txt
+\end{verbatim}
+
 \begin{enumerate}
     \item Photon multiplicity correction (necessary if the \verb|-A| option in \prog{gpp} is not used)
-    \item Track-dependent efficiency map. The map was derived without using start counter timing information. It addresses inefficiency of other detector elements that were not completely modelled in simulation.
-    \item If analyses require start counter timing in the event selection, the efficiency of the timing cut as well as the start counter efficiency must be applied.
+    \item Track-dependent efficiency map. The map was derived without using the start counter and addresses inaccurate simulation of other detector elements
+    \item If analyses require start counter timing selection, efficiency of the timing cut and detector efficiency must be applied
 \end{enumerate}
 
 \end{document}
