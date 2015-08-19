@@ -1,0 +1,237 @@
+\def\thedraft{2.1}
+
+\title{\desg{g12} Analysis Procedures Cheat Sheet}
+\def\brieftitle{\desg{g12} Cheat Sheet}
+\date{\today}
+
+\documentclass[10pt,twocolumn,oneside,letterpaper]{article}
+
+% ADD OPTIONS FOR FINAL DRAFT:     12pt, final
+
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+\setmainfont[Ligatures=TeX]{Times New Roman}
+
+%%% XITS Math Font
+\setmathfont
+[    Extension = .otf,
+      BoldFont = *bold,
+]{xits-math}
+
+%%% STIX Math Font
+%\setmathfont{STIX Math}
+
+
+%%% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{calc,bm,textcomp,latexsym,footmisc}
+\usepackage{framed,url,verbatim}
+\usepackage{longtable,multirow}
+\usepackage[hang,small,bf]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[margin=0.7in,top=1in,bottom=1in]{geometry}
+\usepackage[export]{adjustbox}
+\usepackage{fancyvrb}
+% placeins package adds \FloatBarrier command to flush figures
+% section option puts \FloatBarrier before every section
+\usepackage[section]{placeins}
+
+\usepackage[colorlinks]{hyperref}
+\definecolor{DarkBlue}{rgb}{0,0.1,0.4}
+\hypersetup{
+    bookmarksnumbered,
+    bookmarksopen=false,
+    bookmarksopenlevel=\maxdepth,
+    linkcolor=blue,
+    urlcolor=DarkBlue,
+    citecolor=green
+}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty}
+
+%%% allows the use of \index{word!subword!subsubword}
+%%%   or \glossary{word} commands in text
+%%%   \index{cheese|see{crackers}} for crossreference
+%%%   \index{Kraft@\textit{Kraft}} for changing font in index
+%\usepackage{makeidx}
+    %\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% make titles ragged right and leave the text justified.
+\usepackage{sectsty}
+    \chapterfont{\raggedright}
+    \sectionfont{\raggedright}
+    \subsectionfont{\raggedright}
+    \subsubsectionfont{\raggedright}
+
+\usepackage{setspace} % allows \<double,onehalf,single>spacing
+   \singlespacing
+%   \onehalfspacing
+%   \doublespacing
+
+%%% line spacing adjustment for the align environment
+%%% use this when doublespacing:
+%\setlength{\jot}{-0.3em}
+
+\setlength{\footskip}{0.3in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% headers. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+\fancypagestyle{headings}{
+    \renewcommand{\headheight}{30pt}
+    \renewcommand{\headrulewidth}{0pt}
+    %%% draft headers
+    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
+    \fancyhead[R]{Typeset on \today}
+    %%% final headers
+    %\fancyhead[L]{\brieftitle}
+    %\fancyhead[R]{\nouppercase{\leftmark}}
+}
+
+%%% draft header for plain and empty pages
+\fancypagestyle{plain}{
+    \renewcommand{\headheight}{30pt}
+    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
+    \fancyhead[R]{Typeset on \today}
+    \renewcommand{\headrulewidth}{0pt}
+}
+\fancypagestyle{empty}{
+    \renewcommand{\headheight}{30pt}
+    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
+    \fancyhead[R]{Typeset on \today}
+    \renewcommand{\headrulewidth}{0pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%%% define the footnote symbol. Can be one of these:
+    %\fnsymbol   *, + ...
+    %\arabic     1, 2 ...
+    %\roman      i, ii ...
+    %\Roman      I, II ...
+    %\alph       a, b ...
+    %\Alph       A, B ...
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\pagestyle{headings}
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \maketitle
+    \begin{abstract}
+Use of this cheat sheet assumes you have read and understood every word in the official \emph{g12 Analysis Procedures, Statistics and Systematics} CLAS note. The authors are not responsible for lost time due to blindly following the steps described herein.
+
+\vspace{0.25in}
+
+    \end{abstract}
+  \end{@twocolumnfalse}
+  ]
+
+\section{environment}
+
+\small
+
+For all analyses:
+\begin{verbatim}
+    setenv CLAS_PARMS /group/clas/parms
+\end{verbatim}
+For hadron analyses, use run 56855 and the g12 run index:
+\begin{verbatim}
+    setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12
+\end{verbatim}
+For lepton analyses, use run 10 and this run index:
+\begin{verbatim}
+    setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12_mk
+\end{verbatim}
+
+\section{simulation}
+
+\subsection{Digitization}
+
+\begin{verbatim}
+    gsim_bat -ffread /home/clasg12/ffread.g12 \
+    -kine 1 -mcin events.part \
+    -bosout events.gsim -trig 2000000
+\end{verbatim}
+For lepton analyses, use this ffread file:
+\begin{verbatim}
+    /home/clasg12/lepton.ffread.g12
+\end{verbatim}
+
+\subsection{Smearing}
+
+\begin{verbatim}
+    gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 \
+    -P0x7f -oevents.gpp \
+    -A/home/clasg12/local/etc/clas6/gpp_tagger_profile.bos
+\end{verbatim}
+
+\subsection{Reconstruction}
+
+\begin{verbatim}
+    a1c -T4 -ct1930 -cm0 -cp0 -X0 -d1 -F \
+    -P0x1bff -z0,0,-90 -Aprlink_tg-90pm30.bos \
+    -oevents.a1c events.gpp
+\end{verbatim}
+
+\subsection{Analysis of Simulation}
+
+\begin{enumerate}
+    \item Run \prog{eloss}
+    \item TOF knock-out
+    \item Fiducial cuts
+    \item Trigger must be modeled
+    \item Notice:
+    \begin{enumerate}
+        \item no beam corrections
+        \item no momentum corrections
+    \end{enumerate}
+\end{enumerate}
+
+\section{Analysis of Data}
+
+\begin{enumerate}
+    \item Find skim(s) associated with your topology
+    \item Set particle ID for each event
+    \item Run \prog{eloss}
+    \item Beam energy corrections
+    \item Momentum corrections
+    \item TOF knock-out
+    \item Fiducial cuts
+    \item Notice for leptons:
+    \begin{enumerate}
+        \item EC/CC particle identification cuts
+        \item EC knock-out
+        \item EC-specific fiducial cuts
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Absolute Normalization Corrections}
+
+\begin{enumerate}
+    \item Photon multiplicity correction (only as an alternative to the \verb|-A| option in \prog{gpp})
+    \item Single track efficiency map
+    \item Sigma-based timing cut on the any other detectors which are not simulated/smeared properly. For example: start counter timing cut. This will be result in a different cut for simulation and data.
+\end{enumerate}
+
+\end{document}

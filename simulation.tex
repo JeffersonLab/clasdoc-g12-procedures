@@ -157,11 +157,11 @@ STOP
 \end{verbatim}
 The tracking and digitization done by \texttt{gsim} is ideal and there is no smearing done. To get the simulated data to mimic the detector resolution the ``gsim post-processor'' (\texttt{gpp}) is used. For \desg{g12}, and following the above example, one should use this command for protons, pions and kaons:
 \begin{verbatim}
-gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R56855 -P0x7f -oevents.gpp events.gsim
+gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 -P0x7f -oevents.gpp events.gsim
 \end{verbatim}
 and for electrons and positrons
 \begin{verbatim}
-gpp -Y -s -S -a2.73 -b1.7 -c1.93.-f1 -R10 -P0x7f -oevents.gpp events.gsim
+gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R10 -P0x7f -oevents.gpp events.gsim
 \end{verbatim}
 The values passed to the gpp command line options, -a, -b, -c, helps match the tracking resolution of the simulated data to that of the real events in the regions 1,2 and 3 of the CLAS Drift Chambers. They accomplish this by smearing the DOCA values and hence gpp is able to match the DC residuals for the simulated CLAS tracks to that of the real CLAS tracks on a region-by-region basis. The gpp option -f smears the Time-of-Flight tdc values and during analysis the default gpp smearing for TOF was found to be adequate. The smearing should be run with a good g12 run number; run 56855 has all the necessary constants in the database to get the tagger timing smearing done correctly. Also, interested parties can add accidentals to the TAGR bank by using the -A option like so:
 \label{cmd:gppAoption}\begin{verbatim}
