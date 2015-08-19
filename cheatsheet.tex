@@ -155,11 +155,11 @@ For all analyses:
 \begin{verbatim}
     setenv CLAS_PARMS /group/clas/parms
 \end{verbatim}
-For hadron analyses, use run 56855 and the g12 run index:
+For hadron analyses, use the g12 run index (and run 56855 for MC):
 \begin{verbatim}
     setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12
 \end{verbatim}
-For lepton analyses, use run 10 and this run index:
+For lepton analyses, use this run index (and run 10 for MC):
 \begin{verbatim}
  setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12_mk
 \end{verbatim}
@@ -199,10 +199,10 @@ For lepton analyses, use the option \verb|-R10|.
 \subsection{Analysis of Simulation}
 
 \begin{enumerate}
-    \item Run \prog{eloss}
-    \item TOF knock-out
-    \item Fiducial cuts
-    \item Trigger must be modeled
+    \item Topology dependent event slection 
+    \item Standard \prog{eloss} correction
+    \item g12 TOF knock-out
+    \item g12 Fiducial cuts
     \item Notice:
     \begin{enumerate}
         \item no beam corrections
@@ -213,25 +213,24 @@ For lepton analyses, use the option \verb|-R10|.
 \section{Analysis of Data}
 
 \begin{enumerate}
-    \item Find skim(s) associated with your topology
-    \item Set particle ID for each event
-    \item Run \prog{eloss}
-    \item Beam energy corrections
-    \item Momentum corrections
-    \item TOF knock-out
-    \item Fiducial cuts
+    \item Topology dependent event slection
+    \item Standard \prog{eloss}
+    \item g12 Beam energy corrections
+    \item g12 Momentum corrections
+    \item g12 TOF knock-out
+    \item g12 Fiducial cuts
     \item Notice for leptons:
     \begin{enumerate}
-        \item EC/CC particle identification cuts
-        \item EC knock-out
-        \item EC-specific fiducial cuts
+        \item g12 EC/CC particle identification cuts
+        \item g12 EC knock-out
+        \item g12 EC-specific fiducial cuts
     \end{enumerate}
 \end{enumerate}
 
 \subsection{Absolute Normalization Corrections}
 
 \begin{enumerate}
-    \item Photon multiplicity correction (only as an alternative to the \verb|-A| option in \prog{gpp})
+    \item Photon multiplicity correction (necessary if the \verb|-A| option in \prog{gpp} is not used)
     \item Track-dependent efficiency map. The map was derived without using start counter timing information. It addresses inefficiency of other detector elements that were not completely modelled in simulation.
     \item If analyses require start counter timing in the event selection, the efficiency of the timing cut as well as the start counter efficiency must be applied.
 \end{enumerate}
