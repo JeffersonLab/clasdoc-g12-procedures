@@ -230,8 +230,8 @@ For lepton analyses, use this ffread file:
 
 \begin{enumerate}
     \item Photon multiplicity correction (only as an alternative to the \verb|-A| option in \prog{gpp})
-    \item Single track efficiency map
-    \item Sigma-based timing cut on the any other detectors which are not simulated/smeared properly. For example: start counter timing cut. This will be result in a different cut for simulation and data.
+    \item Track-dependent efficiency map. The map was derived without using start counter timing information. It addresses inefficiency of other detector elements that were not completely modelled in simulation.
+    \item If analyses require start counter timing in the event selection, the efficiency of the timing cut as well as the start counter efficiency must be applied.
 \end{enumerate}
 
 \end{document}
