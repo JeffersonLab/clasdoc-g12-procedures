@@ -161,7 +161,7 @@ For hadron analyses, use run 56855 and the g12 run index:
 \end{verbatim}
 For lepton analyses, use run 10 and this run index:
 \begin{verbatim}
-    setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12_mk
+ setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12_mk
 \end{verbatim}
 
 \section{simulation}
@@ -183,7 +183,7 @@ For lepton analyses, use this ffread file:
 \begin{verbatim}
     gpp -Y -s -S -a2.73 -b1.7 -c1.93 -f1 -R56855 \
     -P0x7f -oevents.gpp \
-    -A/home/clasg12/local/etc/clas6/gpp_tagger_profile.bos \
+    -A/home/clasg12/gpp_tagger_profile.bos \
     events.gsim
 \end{verbatim}
 For lepton analyses, use the option \verb|-R10|.
