@@ -22,7 +22,8 @@ The sub-analysis we performed required exclusive $p \pi^+ \pi^-$ events in the f
 I_\odot = \frac{1}{P_{\gamma}} \frac{N^+ - N^-}{N^+ + N^-},
 \end{equation}
 where $N^\pm$ indicates the number of events with positive (negative) photon helicity.  Figs.~\ref{myIo}-\ref{Io} show the $I_{\odot}(\phi^{hel}_{\pi^+})$ for g12 and in the analysis of \cite{Io}.
-The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. \begin{v2}The following method, stored in \textit{to be stored}, takes care of these issues and returns the helicity for a given event:
+The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. \begin{v2}The following method, stored in\begin{verbatim} /work/clas/clasg12/clasg12/clas6-trunk/include/gethelicity.h \end{verbatim} takes care of these issues and returns the helicity for a given event:
+
 \begin{verbatim}
 int GetHelicity(clasHEVT_t *HEVT)
 {
