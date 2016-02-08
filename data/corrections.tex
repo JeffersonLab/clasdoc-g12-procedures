@@ -1,8 +1,8 @@
 \subsection{\label{sec:corrections}\desg{g12}-Specific Corrections}
+The event reconstruction of a particle track in CLAS starts in region 1 of the DC after the track has gone through the target and start counter. To reconstruct the track back to the event vertex, additional energy loss from the target and start counter are included. The standard CLAS ELOSS package provides the required functionality as detailed in \begin{v2}Ref.~\cite{clas.note.eloss}.\end{v2} ELOSS corrects for the energy lost as charged tracks go from the event vertex through the beam pipe, target, and start counter using the Bethe-Bloch equation \cite{pdg} to relate the material characteristics and path length to energy loss. These corrections are standard. In addition, g12 specific corrections have also been derived, including momentum correction and run-dependent beam energy correction. We performed several iteration to obtain the final corrections to remove the correlations between them.Overall, the impact of momentum corrections have been found to be small, consistent with all previous CLAS results. The beam energy corrections are necessary, after applying the energy loss and momentum correction, to align the masses of all known narrow states with the PDG values. With the final g12 correction procedures, these goals have been achieved. The details of these procedures are explained below:
 
 \subsubsection{\label{sec:corrections.pcor}Final-State Particle Momentum Corrections}
 
-The event reconstruction of a particle track in CLAS starts in region 1 of the DC after the track has gone through the target and start counter. To reconstruct the track back to the event vertex, additional energy loss from the target and start counter are included. The standard CLAS ELOSS package provides the required functionality as detailed in \begin{v2}Ref.~\cite{clas.note.eloss}.\end{v2} ELOSS corrects for the energy lost as charged tracks go from the event vertex through the beam pipe, target, and start counter using the Bethe-Bloch equation \cite{pdg} to relate the material characteristics and path length to energy loss.
 
 The momenta of the tracks as measured by the Drift-Chamber (\texttt{DC}) have a systematic shift within each sector as a function of azimuthal-angle $\phi$ of one of the tracks. This can be seen in the ``transverse momentum balance'' plots shown in Fig.~\ref{fig:pbal.before}. The transverse momentum balance for a given particle is defined as the sum of the momentum of the other particles projected onto the line that is perpendicular to the beam having the same $\phi$ angle as the given particle minus its momentum transverse to the beam.
 
@@ -83,9 +83,9 @@ A simultaneous fit was done by adding a correction to the momenta of each partic
 
 \subsubsection{Photon Tagger Calibration and Beam Energy Corrections}
 
-The \desg{g12} experiment had a complicated trigger which presented difficulties that were ironed out as described in this section. The problem was first noticed by \desg{g12} participants at the analysis level in which missing particle masses were systematically low. It was realized while investigating the issue that the low missing particle mass was dependent on the run number and varied in mass as much as 10~MeV. There was also features in the run dependent missing mass that showed a constant low mass (run$<$56550) followed by a jump in mass which remained constant (56500$<$run$<$56920) until another jump in mass which seemed to produce a mass closer the \abbr{PDG} mass (run$>$56920). To analyze and correct for the cause of the problem, two topologies were chosen to isolate the missing particles, proton and neutron. The first topology;
+The \desg{g12} experiment had a complicated trigger which presented difficulties that were ironed out as described in this section. The problem was first noticed by \desg{g12} participants at the analysis level in which missing particle masses were systematically low. It was realized while investigating the issue that the low missing particle mass was dependent on the run number and varied in mass as much as 10~MeV. There were also features in the run dependent missing mass that showed a constant low mass (run$<$56550) followed by a jump in mass which remained constant (56500$<$run$<$56920) until another jump in mass which seemed to produce a mass closer the \abbr{PDG} mass (run$>$56920). To analyze and correct for the cause of the problem, two topologies were chosen to isolate the missing particles, proton and neutron. The first topology;
 \begin{equation}
-    \text{γ p$\rightarrow$π$^+$ π$^-$ [p]}
+    \text{γ p$\rightarrow$π$^+$ π$^-$ p}
     \label{eq:beam.cortopology}
 \end{equation}
 was chosen to be the correction topology, while the second topology;
@@ -93,18 +93,13 @@ was chosen to be the correction topology, while the second topology;
     \text{γ p$\rightarrow$π$^+$ π$^+$ π$^-$ [n]}
     \label{eq:beam.checktopology}
 \end{align}
-was chosen to verify the corrections obtained from eq.~\ref{eq:beam.cortopology}. The reasoning for choosing topology from eq.~\ref{eq:beam.cortopology} as the correction topology is because all three particles can be detected, meaning inspecting the missing mass of π$^+$π$^-$, $M_x(\text{π$^+$π$^-$})$, under the conditions of exclusivity should reveal the detected particle proton. This can be solved as follows using 4-vector notation;
-\begin{align}
-    (P_\text{γ} + P_\mathrm{target} - (P_\text{π$^+$} + P_\text{π$^-$}))^2 = P_\text{p} = m_\text{p}^2 \,
-\end{align}
-where $P_\text{γ}$, $P_\mathrm{target}$,$P_\text{π$^\pm$}$ and $P_\text{p}$ are the 4-vectors of the photon beam, target, π$^\pm$ and proton respectively and $m_\text{p}$ is the mass of the proton.
-The skim consisted of the data for the correction was of one \abbr{CLAS} \abbr{PID} π$^+$, one \abbr{CLAS} \abbr{PID} π$^-$, one \abbr{CLAS} \abbr{PID} proton and nothing else. Exclusive cuts were then placed by requiring the missing energy, $M_E(\text{pπ$^+$π$^-$}) < 0.025$~GeV and the missing mass squared of $M_x^2(\text{pπ$^+$π$^-$}) < 0.015$~GeV$^2$. These cuts assure all events chosen exclude the topology;
+was chosen to verify the corrections obtained from eq.~\ref{eq:beam.cortopology}. The skim consisted of the data for the correction was of one \abbr{CLAS} \abbr{PID} π$^+$, one \abbr{CLAS} \abbr{PID} π$^-$, one \abbr{CLAS} \abbr{PID} proton and nothing else. Exclusive cuts were then placed by requiring the missing energy, $M_E(\text{pπ$^+$π$^-$}) < 0.025$~GeV and the missing mass squared of $M_x^2(\text{pπ$^+$π$^-$}) < 0.015$~GeV$^2$. These cuts assure all events chosen exclude the topology;
 \begin{align}
     \text{γ p}\rightarrow\text{p π$^+$ π$^-$ [π$^0$]} \nonumber \,
 \end{align}
 since the mass squared of π$^0 = 0.0182$~GeV$^2$.
 
-The first step chosen was to verify whether the ``energy-loss'' correction was causing the discrepancy, this can be seen in Figs.~\ref{fig:beamcor.p_mass},~\ref{fig:beamcor.n_mass}. It was concluded that the ``energy-loss'' correction was not the culprit of the problem. From Fig.~\ref{fig:beamcor.p_mass}, two runs were chosen, 56515 and 57130, in which the difference in the missing mass was $\approx$10~MeV. Inspecting the invariant mass, $M$(π$^+$π$^-$), Fig~\ref{fig:beamcor.k_mass}, for runs 56515 and 57130 revealed only a mass deviation of $\approx$1.4~MeV in which disclosed that the problem with the \desg{g12} data stream to be solely in the photon beam energy.
+The first step chosen was to verify whether the ``energy-loss'' correction was causing the discrepancy, this can be seen in Figs.~\ref{fig:beamcor.p_mass},~\ref{fig:beamcor.n_mass}. It was concluded that the ``energy-loss'' correction was not the culprit of the problem. From Fig.~\ref{fig:beamcor.p_mass}, two runs were chosen, 56515 and 57130, in which the difference in the missing mass was $\approx$10~MeV. Inspecting the invariant mass, $M$(π$^+$π$^-$), Fig~\ref{fig:beamcor.k_mass}, for runs 56515 and 57130 revealed only a mass deviation of approximately1.4~MeV, which suggested that the problem with the \desg{g12} data stream is most likely in the photon beam energy.
 
 
 \begin{figure}\begin{center}
@@ -200,7 +195,7 @@ Figures~\ref{fig:proton.fix} and \ref{fig:neutron.fix} illustrate the missing ma
 
 \begin{figure}\begin{center}
 \includegraphics[width=0.6\textwidth]{figures/calib/tag/ecor/FixedmisssingmassneutronII.pdf}
-\caption[Neutron Mass for Run 56515 After Beam Correction]{\label{fig:neutron.fix} Plot of neutron mass for runs 56515 after beam correction was applied  \abbr{PDG} mass for the neutron is 0.939565 GeV/c. Image source:~\cite{clas.thesis.kunkel}}
+\caption[Neutron Mass for Run 56515 After Beam Correction]{\label{fig:neutron.fix} Plot of neutron mass for runs 56515 after beam correction was applied  \abbr{PDG} mass for the neutron is 0.939565 GeV/c. In the plot, the "Factor" is the fitting parameter for the neutron mass. Image source:~\cite{clas.thesis.kunkel}}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
