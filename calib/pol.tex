@@ -60,8 +60,8 @@ int GetHelicity(clasHEVT_t *HEVT)
 {
      int helicity = 0;
      int readout = HEVT->hevt[0].trgprs;
-     if(readout > 0) helicity = -1;
-     if(readout < 0) helicity = 1;
+     if(readout > 0) helicity = 1;
+     if(readout < 0) helicity = -1;
      return helicity;
 }
 \end{verbatim}
