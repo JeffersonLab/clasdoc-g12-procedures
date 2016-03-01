@@ -27,12 +27,12 @@ See the genr8 documentation for how to write the input file, or you can see this
 
 Gsim requires a bos file with a PART bank containing the MC event. Note PART bank 0 is reserved for MC events whereas PART banks 1 and 2 are used for containing the reconstructed event. The best way to convert GAMP to PART banks is by using gamp2part -- the command, for protons pions and kaons, following the example above is:
 \begin{verbatim}
-gamp2part -r56855 -oevents.part -T -S-0.321,0.378,-0.254,0.407 \
+gamp2part -r56855 -oevents.part -T -S-0.173,-0.0658,0.377,0.390 \
   -z-110,-70 events.gamp
 \end{verbatim}
 and for electrons and positrons
 \begin{verbatim}
-gamp2part -r10 -oevents.part -T -S-0.321,0.378,-0.254,0.407 \
+gamp2part -r10 -oevents.part -T -S-0.173,-0.0658,0.377,0.390 \
   -z-110,-70 events.gamp
 \end{verbatim}
 where the option -r10 is specific to RUN 10 in:
