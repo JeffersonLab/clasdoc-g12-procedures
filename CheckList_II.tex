@@ -1,0 +1,76 @@
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+\usepackage{longtable}
+
+\usepackage{amssymb}[2002/01/22] %% for the Box
+\usepackage{hyperref}
+
+
+\newcounter{qnumber}
+\setcounter{qnumber}{0}
+
+\newcounter{hcounter}
+\setcounter{hcounter}{0}
+
+
+\newcommand{\yesno}{\textsf{N/A}\hskip11pt\textsf{Yes}\hskip11pt\textsf{No}\hskip11pt{\Large ~$\Box$}~~~~ {\Large ~$\Box$}~~~~{\Large $\Box$}}
+
+
+\newcommand{\question}[1]{
+
+		\textsf{#1} &{\small\yesno} \\ \hline%
+}
+
+
+\newcommand{\heading}[1]{%
+	\multicolumn{2}{l|}{\bf\textsf{#1}}\\ \hline %
+}
+\newdimen\longline
+\longline=\textwidth\advance\longline-2.25cm
+
+\title{G12 Analysis Checklist}
+\date{\vspace{-10ex}}
+\begin{document}
+	\maketitle
+	The following procedures are common for most g12 analyses and have been approved by the g12 procedure review committee in the g12 analysis procedures manuscript~\cite{g12note}.
+	By checking the ''yes`` boxes below, I hereby confirm that I understood and applied the procedures in accordance with the g12 analysis note. I also understand that if a procedure in the analysis is not done in accordance with the g12 analysis procedures, the box ''no`` should be checked and a separate analysis note on the procedure is required. If a procedure in the g12 analysis note is not applicable, to the analysis, the box ''N/A`` should be checked. 
+	
+	\begin{longtable}{|p{6.61cm}|p{3.1cm}|}
+		\heading{Procedure}
+        \question{Used PART bank reconstruction for the analysis. EVNT was NOT used}
+       \question{Momentum corrections as described in the g12 note}
+		\question{Beam energy correction as described in the g12 note}
+		\question{Inclusive “Good” run list as described in table 7. Individual analysis may use a subset of it}
+		\question{Target density and its uncertainty as described in the g12 note}
+		\question{Photon flux calculation procedure as described in the g12 note}
+		\question{Lower limit for the systematic uncertainty of normalized yield is 5.7\%}
+		\question{Photon polarization calculation procedure as described in the g12 note}
+		\question{Systematic uncertainty of the photon polarization as described in the g12 note}
+		\question{gsim parameters}
+		\question{gpp smearing parameters}
+		\question{DC efficiency map}
+		\question{EC knockout}
+		\question{Minimal TOF knockout}
+		\question{“Lepton ID” is used}
+		%% the end portion of the environment
+		%% add the remarks columns and close the longtable
+		\hline%
+		\multicolumn{2}{|l|}{\bf {\textsf{AUTHOR REMARKS}} (click below)}\\
+	\end{longtable}
+	\vspace{-0.75cm}
+	\begin{Form}
+		\begin{center}
+		\centering
+			\TextField[name=multilinetextbox, multiline=true, width=\longline,height=4in]{}
+		\end{center}
+	\end{Form}
+		\vspace{0.75cm}
+	
+	\begin{thebibliography}{9}
+		\bibitem{g12note} 
+		g12 working group
+		\textit{g12 Analysis Procedures, Statistics and Systematics}.
+		2016
+	\end{thebibliography}
+	
+	
+\end{document}

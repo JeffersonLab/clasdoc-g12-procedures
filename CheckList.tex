@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 
 \usepackage{wasysym}     
-
+\usepackage{enumitem}
 \setlength{\marginparwidth}{1.2in}
 \let\oldmarginpar\marginpar
 \renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft #1]%
@@ -16,6 +16,7 @@
   \end{list}
 }   
 \title{G12 Analysis Checklist}
+\date{\vspace{-10ex}}
 \begin{document}
 \maketitle
 By checking the boxes below, I hereby confirm that I understood and applied the procedures in accordance with the g12 analysis note. I also understand that if a procedure in the analysis is not done in accordance with the g12 analysis procedures, the box will remain unchecked and a separate analysis procedure is required to be described in an individual analysis note.
@@ -28,21 +29,24 @@ By checking the boxes below, I hereby confirm that I understood and applied the 
 \item Photon flux calculation procedure as described in the g12 note
 \item Lower limit for the systematic uncertainty of normalized yield is 5.7\%
 \item Analysis uses polarization
-\begin{itemize}
+\begin{itemize}[label={}] 
 \item Photon polarization calculation procedure as described in the g12 note
 \end{itemize}
 \item Systematic uncertainty of the photon polarization as described in the g12 note.\\ 
 Processing of MC data
-\begin{itemize}
+\begin{itemize}[label={}]
 \item gsim parameters
 \item gpp smearing parameters
 \item DC efficiency map
 \end{itemize}
 Analysis uses Electro-magnetic Calorimeter information
-\begin{itemize}
+\begin{itemize}[label={}]
 \item EC knockout
 \end{itemize}
 \item Minimal TOF knockout
-\item “Lepton ID” is approved as “Di-lepton ID”. For single lepton the cuts should be tighter.
+\item “Lepton ID” is used
+\begin{itemize}[label={}]
+	\item This is a “Di-lepton” analysis
+\end{itemize}
 \end{checklist}
 \end{document}
