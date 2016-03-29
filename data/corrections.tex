@@ -99,7 +99,7 @@ was chosen to verify the corrections obtained from eq.~\ref{eq:beam.cortopology}
 \end{align}
 since the mass squared of π$^0 = 0.0182$~GeV$^2$.
 
-The first step chosen was to verify whether the ``energy-loss'' correction was causing the discrepancy, this can be seen in Figs.~\ref{fig:beamcor.p_mass},~\ref{fig:beamcor.n_mass}. It was concluded that the ``energy-loss'' correction was not the culprit of the problem. From Fig.~\ref{fig:beamcor.p_mass}, two runs were chosen, 56515 and 57130, in which the difference in the missing mass was $\approx$10~MeV. Inspecting the invariant mass, $M$(π$^+$π$^-$), Fig~\ref{fig:beamcor.k_mass}, for runs 56515 and 57130 revealed only a mass deviation of approximately1.4~MeV, which suggested that the problem with the \desg{g12} data stream is most likely in the photon beam energy.
+The first step chosen was to verify whether the ``energy-loss'' correction was causing the discrepancy, this can be seen in Figs.~\ref{fig:beamcor.p_mass},~\ref{fig:beamcor.n_mass}. It was concluded that the ``energy-loss'' correction was not the culprit of the problem. From Fig.~\ref{fig:beamcor.p_mass}, two runs were chosen, 56515 and 57130, in which the difference in the missing mass was $\approx$10~MeV. Inspecting the invariant mass, $M$(π$^+$π$^-$), Fig~\ref{fig:beamcor.k_mass}, for runs 56515 and 57130 revealed only a mass deviation of approximately 1.4~MeV, which suggested that the problem with the \desg{g12} data stream is most likely in the photon beam energy.
 
 
 \begin{figure}\begin{center}
@@ -219,6 +219,44 @@ In the analysis program, the user needs to have the run number of the event and 
 \begin{verbatim}
 corrected_beam_energy(int run, double uncorrected_beam_energy)
 \end{verbatim}
+The final and standard g12 photon-energy corrections were re-derived after the momentum correction and e-loss corrections were applied.
+Here are some plots (Figs.~\ref{Test,TestII,TestIII,TestIV}) depicting the stability of the \Ks mass throughout the \pip and \pim momenta.
 
+\begin{figure}\begin{center}
+		\includegraphics[width=0.6\textwidth]{MK_Response/MassvspIP.jpg}
+		\caption[\Ks mass vs. \pip momentum.]{\label{fig:convprob_I} \Ks mass vs. \pip momentum.}
+	\end{center}\end{figure}
 
+\begin{figure}\begin{center}
+		\includegraphics[width=0.6\textwidth]{MK_Response/Massvspim.jpg}
+		\caption[\Ks mass vs. \pim momentum.]{\label{fig:convprob_II} \Ks mass vs. \pim momentum.}
+	\end{center}\end{figure}
+	Here are some plots (Figs.~\ref{fig:convprob_I,fig:convprob_II}) depicting the stability of the \Ks mass throughout the \pip and \pim the \pip and \pim polar angle $\theta$ and azimuthal angle $\phi$.
+	
+	\begin{figure}[h]
+		\centering
+			\includegraphics[page=1,width=.45\textwidth,rotate=-90]{MK_Response/PLOTS_FOR_56669/K0_OnePhi_C2.pdf} 
+		\caption{(Left)\pip mod($\phi$) vs. $\theta$ with the centroid of the \Ks mass labeled. (Right)\pip mod($\phi$) vs. $\theta$ with the number of entries for the centroid of the \Ks mass labeled.}
+		\label{fig:Test}
+	\end{figure}
+		\begin{figure}[h]
+			\centering
+				\includegraphics[page=2,width=.45\textwidth,rotate=-90]{MK_Response/PLOTS_FOR_56669/K0_OnePhi_C2.pdf} 
+		\caption{(Left)\pim mod($\phi$) vs. $\theta$ with the centroid of the \Ks mass labeled. (Right)\pim mod($\phi$) vs. $\theta$ with the number of entries for the centroid of the \Ks mass labeled.}
+			\label{fig:TestII}
+		\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[page=3,width=.45\textwidth,rotate=-90]{MK_Response/PLOTS_FOR_56669/K0_OnePhi_C2.pdf} 
+		\caption{(Left)\pip mod($\phi$) vs. $\theta$ with the mass difference from PDG value of the \Ks mass labeled. (Right)\pip mod($\phi$) vs. $\theta$ with the number of entries for the mass difference of the \Ks mass labeled.}
+		\label{fig:TestIII}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[page=4,width=.45\textwidth,rotate=-90]{MK_Response/PLOTS_FOR_56669/K0_OnePhi_C2.pdf} 
+		\caption{(Left)\pim mod($\phi$) vs. $\theta$ with the mass difference from PDG value of the \Ks mass labeled. (Right)\pim mod($\phi$) vs. $\theta$ with the number of entries for the mass difference of the \Ks mass labeled.}
+		\label{fig:TestIV}
+	\end{figure}
+ 	 For some bins of $\theta$ and $\phi$ the \Ks mass difference (from PDG value) are more than 1 MeV, this is due to the number of entries and the fit performed for that bin. It should be noted that for all plots involving the $K_0$ mass distribution, a distance of closest approach cut was placed on the \pippim. 
+ 	 	 
 \FloatBarrier
