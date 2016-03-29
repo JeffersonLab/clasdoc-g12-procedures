@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+
+\usepackage{wasysym}     
+\usepackage{enumitem}
+\setlength{\marginparwidth}{1.2in}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft #1]%
+{\raggedright #1}}    
+
+\newenvironment{checklist}{%
+  \begin{list}{}{}% whatever you want the list to be
+  \let\olditem\item
+  \renewcommand\item{\olditem -- \marginpar{$\Box$} }
+  \newcommand\checkeditem{\olditem -- \marginpar{$\CheckedBox$} }
+}{%
+  \end{list}
+}   
+\title{G12 Analysis Checklist}
+\date{\vspace{-10ex}}
+\begin{document}
+\maketitle
+By checking the boxes below, I hereby confirm that I understood and applied the procedures in accordance with the g12 analysis note. I also understand that if a procedure in the analysis is not done in accordance with the g12 analysis procedures, the box will remain unchecked and a separate analysis procedure is required to be described in an individual analysis note.
+\begin{checklist}
+\item Used PART bank reconstruction for the analysis. EVNT was NOT used.
+\item Momentum corrections as described in the g12 note.
+\item Beam energy correction as described in the g12 note
+\item Inclusive “Good” run list as described in table 7. Individual analysis may use a subset of it.
+\item Target density and its uncertainty as described in the g12 note
+\item Photon flux calculation procedure as described in the g12 note
+\item Lower limit for the systematic uncertainty of normalized yield is 5.7\%
+\item Analysis uses polarization
+\begin{itemize}[label={}] 
+\item Photon polarization calculation procedure as described in the g12 note
+\end{itemize}
+\item Systematic uncertainty of the photon polarization as described in the g12 note.\\ 
+Processing of MC data
+\begin{itemize}[label={}]
+\item gsim parameters
+\item gpp smearing parameters
+\item DC efficiency map
+\end{itemize}
+Analysis uses Electro-magnetic Calorimeter information
+\begin{itemize}[label={}]
+\item EC knockout
+\end{itemize}
+\item Minimal TOF knockout
+\item “Lepton ID” is used
+\begin{itemize}[label={}]
+	\item This is a “Di-lepton” analysis
+\end{itemize}
+\end{checklist}
+\end{document}
