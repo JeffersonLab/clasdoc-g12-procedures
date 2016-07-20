@@ -252,31 +252,31 @@ The inefficiencies for the other 5 sectors are shown in Figs.~\ref{fig:EC_no_I} 
 
 To perform the procedure to knock-out bad \abbr{EC} paddles, use the header file:
 \begin{verbatim}
-clas/users/mkunkel/clas/g12_corrections/g12_ECxyz_2uvw.hpp
+g12_corrections.hpp
 \end{verbatim}
 found in the SVN repository here:
 \begin{verbatim}
-https://jlabsvn.jlab.org/svnroot
+svn co https://jlabsvn.jlab.org/svnroot/clas/trunk/pcor/g12pcor/All_Corrections
+\end{verbatim}
+where line number 32 in the script 
+\begin{verbatim}
+g12_corrections.hpp
+\end{verbatim}
+needs to be modified to the local copy directory, i.e.
+\begin{verbatim}
+TString correction_dir="YOUR_DIRECTORYAll_Corrections/";
 \end{verbatim}
 to convert the \abbr{EC} coordinates x, y, and z into u, v, and w \abbr{EC} coordinates. In the analysis program, the user needs to have the \abbr{EC} x, y and z coordinates, per particle, given by the \abbr{TDPL} bank for charged particles. For neutral particles the \abbr{EC} x, y and z coordinates are given by the \abbr{ECHB} bank. In the structure of \emph{clasEvent.cc} there exists functions \emph{ECpos()} and \emph{ ecPosition()} that return the \abbr{EC} x, y, and z coordinates for charged track and neutral tracks respectively. To use:
 \begin{verbatim}
-TVector3 partUVW = g12_ECxyz_2uvw(partECx, partECy, partECz);
+TVector3 partUVW = clas::g12::g12_ECxyz_2uvw(partECx, partECy, partECz);
 
 double part_u = partUVW.X();
 double part_v = partUVW.Y();
 double part_w = partUVW.Z();
 \end{verbatim}
-After the \abbr{EC} u, v, and w coordinates have been calculated, use the header file:
-\begin{verbatim}
-clas/users/mkunkel/clas/g12_corrections/g12_EC_knockout.hpp
-\end{verbatim}
-found in the SVN repository here:
-\begin{verbatim}
-https://jlabsvn.jlab.org/svnroot
-\end{verbatim}
 In the analysis program, the user needs to have the \abbr{EC} inner energy deposit, \abbr{EC} outer energy deposit, u, v, w, and particle sector to perform the \abbr{EC} bad paddle knock-out. To use:
 \begin{verbatim}
-g12_ec_knockout(partECin, partECout, part_u, part_v, part_w, part_sec);
+clas::g12::pass_g12_ec_knockout(partECin, partECout, part_u, part_v, part_w, part_sec);
 \end{verbatim}
 which will return false if particle was knocked out, true if passed was not knocked out.
 
