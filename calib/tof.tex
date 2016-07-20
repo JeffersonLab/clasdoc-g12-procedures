@@ -153,14 +153,37 @@ A few paddles that had not been previously knocked out had drifts on either the 
    \caption{\label{plot:example.badpaddle}TOF resolution as a function of run number for a bad paddle}
 \end{center}\end{figure}
 
+To perform the procedure to knock-out bad \abbr{TOF} paddles, use the header file:
+\begin{verbatim}
+g12_corrections.hpp
+\end{verbatim}
+found in the SVN repository here:
+\begin{verbatim}
+svn co https://jlabsvn.jlab.org/svnroot/clas/trunk/pcor/g12pcor/All_Corrections
+\end{verbatim}
+where line number 32 in the script 
+\begin{verbatim}
+g12_corrections.hpp
+\end{verbatim}
+needs to be modified to the local copy directory, i.e.
+\begin{verbatim}
+TString correction_dir="YOUR_DIRECTORYAll_Corrections/";
+\end{verbatim}
+To use:
+\begin{verbatim}
+clas::g12::pass_g12_TOFKO(int sector, int scid, bool all_ko = 0);
+\end{verbatim}
+Where ''all\_ko`` defaults to false and will only knock out paddles based on bad occupancy. If true, it will knock out paddles with significant drifts on their resolutions.
 
-To summarize, the final, combined TOF paddle knock out is listed in the table below:
+
+
+To summarize, the final, combined TOF paddle knock out is listed in the table~\ref{tab:tofko_recommended}.
 
 \begin{table}
 \begin{center}
 \begin{singlespacing}
-
-\caption{\label{tab:tofko_recommended} Recommended list of paddles to knockout.}
+\caption[Recommended list of paddles to knockout.]{\label{tab:tofko_recommended}Recommended list of paddles to knockout.}
+%\caption{\label{tab:tofko_recommended} Recommended list of paddles to knockout.}
 
 \begin{tabular}{lc}
 

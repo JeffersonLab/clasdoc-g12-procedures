@@ -10,18 +10,24 @@ The procedure used is described in the \desg{CLAS} note for the momentum correct
 
 The final \desg{g12} momentum corrections are in the clas6 trunk:
 \begin{verbatim}
-svn co https://jlabsvn.jlab.org/svnroot/clas/trunk/pcor/g12pcor
+svn co https://jlabsvn.jlab.org/svnroot/clas/trunk/pcor/g12pcor/All_Corrections
 \end{verbatim}
-
+where line number 32 in the script 
+\begin{verbatim}
+g12_corrections.hpp
+\end{verbatim}
+needs to be modified to the local copy directory, i.e.
+\begin{verbatim}
+    TString correction_dir="YOUR_DIRECTORYAll_Corrections/";
+\end{verbatim}
 
 The code to use the momentum corrections should look something like this:
 \begin{verbatim}
-#include "g12_pcor.hpp"
-
-string parms_dir = "/group/clas/parms";
+#include "g12_corrections.hpp"
 
 /// load up momentum correction parameters
-clas6::g12::MomentumCorrection Pcor(parms_dir);
+  clas::g12::MomentumCorrection pcor;
+
 
 ///begin loop over charged particles
 {
@@ -29,7 +35,7 @@ clas6::g12::MomentumCorrection Pcor(parms_dir);
 }
 \end{verbatim}
 
-Where geant3 pid is the particle ID (according to geant3) for \π[+], \π[-], p, \K[+] or \K[-].
+Where geant3 pid is the particle ID (according to geant3) for \π[+], \π[-], p, \K[+] or \K[-]. For electron/positrons \π[-], \π[+] pid is used.
 
 \begin{figure}\begin{center}
 \begin{subfigure}{0.4\columnwidth}
@@ -212,12 +218,16 @@ Figures~\ref{fig:proton.fix} and \ref{fig:neutron.fix} illustrate the missing ma
 
 To correct for run by run shifts in the beam energy, use the header file in:
 \begin{verbatim}
-https://jlabsvn.jlab.org/svnroot/clas/trunk/analysis/g12/g12_ecor.hpp
+g12_corrections.hpp
 \end{verbatim}
 
 In the analysis program, the user needs to have the run number of the event and the uncorrected beam energy, then use:
 \begin{verbatim}
-corrected_beam_energy(int run, double uncorrected_beam_energy)
+	Int_t run_input;
+    if(run == 56400){run_input = 56401;}
+    else if(run == 57314){run_input = 57315;}
+    else{run_input = run;}
+    egam_chosen_corrected = clas::g12::corrected_beam_energy(run_input, egam_chosen);
 \end{verbatim}
 The final and standard g12 photon-energy corrections were re-derived after the momentum correction and e-loss corrections were applied.
 Here are some plots (Figs.~\ref{Test,TestII,TestIII,TestIV}) depicting the stability of the \Ks mass throughout the \pip and \pim momenta.
