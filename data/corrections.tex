@@ -31,7 +31,7 @@ The code to use the momentum corrections should look something like this:
 
 ///begin loop over charged particles
 {
-    float newp = Pcor.pcor(oldp, phi, geant3_pid);
+    float newp = oldp + Pcor.pcor(phiInRad, geant3_pid);
 }
 \end{verbatim}
 
