@@ -68,23 +68,23 @@ which contains the following subdirectories or ``categories'' used for event-sor
     \item[7-4ctrk] Redundant set of all four-charged track events.
     \item[8-ppbar] Redundant set of all proton, anti-proton events according to the PART bank.
 \end{description}
-Note that the first five of these categories are \emph{mutually exclusive and complete} while the last three are completely redundant and are provided for convenience. \begin{v2}Non-physics events are included in the fifth (``other'') skim. If one wishes to synchronize these events with their data, they have some options. Perhaps the easiest is to process the raw data which is completely ordered. Timestamps could be used instead, provided they exist in the non-physics skim.\end{v2}
+Note that the first five of these categories are \emph{mutually exclusive and complete} while the last three are completely redundant and are provided for convenience. Non-physics events are included in the fifth (``other'') skim. If one wishes to synchronize these events with their data, they have some options. Perhaps the easiest is to process the raw data which is completely ordered. Timestamps could be used instead, provided they exist in the non-physics skim.
 
 \paragraph{This bears repeating since it is a non-standard sorting of the cooked data:} The five categories numbered 1 through 5 listed above consist of one and only one of \emph{every} event recorded by the data acquisition during the g12 run period for the set of run which were deemed ``good.'' A specific single event will only be found in one of the first five categories. If you want to run on events that are described by category number 4 for example, you will have to include the data in categories 1 through 3 since these will also satisfy category 4 by design and by definition.
 
-\begin{v2}
+
 The total size of the reconstructed data is 211~TiB consisting of 26.2 billion triggers. The secondary skims (6--8) total 31~TiB. The breakdown of the size of the skims is shown in Table~\ref{tab:skimsize}.
 
 \input{tables/skimsize} % tab:skimsize
-\end{v2}
+
 
 Typical analyses with \desg{g12} will start with the particles as identified in the \abbr{PART} bank as default in the \prog{ClasEvent} analysis suite. This provides the basic four-momenta of the tracks and their identification which is based on mass calculated from the time-of-flight. The photon associated with the event is then taken from the \abbr{TAGR} bank and the one closest in-time with the tracks is usually taken.
 
 For a deeper analysis, one can get information for specific hits in a given subsystem by following the pointers in the \abbr{PART} and \abbr{TBID} bank to the \abbr{TBTR}, \abbr{SCRC}, \abbr{ECHB} or other similar banks. Most of the relevant banks needed for this type of investigation are included in the cooked data though several raw banks were dropped to save space. To recover the missing banks one would have to go back to the raw data and recook using the \prog{a1c} program though we anticipate this will be a rare event.
 
-\begin{v2}
+
 The following banks were written out to tape in the pass1 reconstructed data: \abbr{CC CC01 CCPB CCRC CL01 DCPB DSTC EC EC1 EC1R ECHB ECPB ECPC ECPI ECS EPIC EVNT FBPM HBER HBID HBTR HEAD HEVT HLS LCPB MVRT PART RGLK S1ST SC SC1 SCPB SCR SCRC SCS ST1 STN0 STN1 STPB STR STSN SYNC TAGE TAGI TAGR TBER TBID TBTR TDPL TGBI TGPB TGS TRGS TRKS TRL1}. Note that the SEB-related banks (\abbr{EVNT} etc.) were written out. These may be used for any analysis though care should be taken not to mix these with the \abbr{PART}-related series of banks except where there is an apparent redundancy.
-\end{v2}
+
 
 \input{data/corrections}
 

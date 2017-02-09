@@ -103,7 +103,7 @@ The ω yield normalized to the flux as a function of beam current has also been 
 
 \subsection{\label{sec:flux.runbyrun}Run-by-run Stability and Systematic Uncertainty of Flux}
 
-Fig.~\ref{gfluxbyrun} shows the stability of the flux corrections for runs after run 56519. These runs all use the same trigger and have a cut on $E_{\gamma}$ > 4.4 GeV. \begin{v2}These data were projected onto the $y$-axis and fit to a Gaussian and the resulting error on the mean indicates a systematic uncertainty of 0.5\%, though the width of the fit indicates a statistical uncertainty of approximately 10\%.\end{v2}
+Fig.~\ref{gfluxbyrun} shows the stability of the flux corrections for runs after run 56519. These runs all use the same trigger and have a cut on $E_{\gamma}$ > 4.4 GeV. These data were projected onto the $y$-axis and fit to a Gaussian and the resulting error on the mean indicates a systematic uncertainty of 0.5\%, though the width of the fit indicates a statistical uncertainty of approximately 10\%.
 
 \begin{figure}[htpb]
 \begin{center}
@@ -121,7 +121,7 @@ Fig.~\ref{gfluxbyrun} shows the stability of the flux corrections for runs after
   \end{center}
 \end{figure}
 
-\begin{v2}
+
 The algorithm for summing the flux in each energy bin in \prog{g12-gflux} is rather crude. It locks each energy bin to the center-point energy of the 767 tagger (logical) paddles. If finer control over the binning is required, one may use the \prog{g12-gflux-all} program to return the flux in each individual logical energy bin of the tagger.
 
 There are two regions in the tagger that should be cut out of any analysis - in data, simulation and flux. The photon energy ranges affected are:
@@ -130,7 +130,7 @@ There are two regions in the tagger that should be cut out of any analysis - in 
     E_\text{γ} &\in [3.475,3.575].
 \end{eqnarray}
 The first is due to a bad paddle readout (possibly a dead PMT), and the second is due to missing flux information.
-\end{v2}
+
 The width of the normalized yields distributions for given intensity in fact is consistent with the expected statistical widths. In Fig.~\ref{gfluxbyrun_pull}, one can see that the widths are 6.2E-10 (60nA) and 4.7E-10(65nA). The expected statistical width (shown in Fig.~\ref{gfluxbyrun_uncertain}) are actually 4.9E-10 (60nA, RMS: 2.6E-10) and 4.8E-10(65nA, RMS: 2.9E-10). These are consistent with each other and we should stick to the currently quoted lower bound of the systematic uncertainty for the g12 normalization of 5.7\%. 
 \begin{figure}[htpb]
 	\begin{center}

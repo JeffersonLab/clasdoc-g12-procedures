@@ -3,7 +3,7 @@ The electron beam produced with a polarized laser incident on gallium arsenide a
 \begin{equation}
 P_\odot(E_\gamma) = \frac{x(4-x)}{4 - 4x + 3x^2}P_{elec}
 \end{equation}
-where $x = E_\gamma /E_{elec}$ is the ratio of photon energy, $E_\gamma$, to beam energy, $E_{elec}$. The g12 experiment ran with a constant electron energy of $E_{elec} = 5.715$ GeV.  (The actual electron beam energy was corrected on a run-by-run basis, see later section) The polarization of the electron beam was measured regularly using the a M{\o}ller polarimeter.  The polarimeter measures electron polarization by making use of the helicity dependent nature of M{\o}ller scattering~\cite{Mecking,Carman}. The M{\o}ller measurements, summarized in Table~\ref{moltable}, were performed regularly (every few days) during g12 and whenever we were notified of any beam changes. During the g12 running period, Hall B did not have the priority. As a result, the polarization of the beam was delivered as a byproduct as other Halls requirement, and fluctuates. However, the majority of the g12 runs has beam polarization close to 70\% \begin{v2}with a total uncertainty estimated to be 5\%. \end{v2} The run-integrated and flux -weighted value of the polarization of a particular range of photon energies can be easily obtained by using the maximum-Olsen formula.
+where $x = E_\gamma /E_{elec}$ is the ratio of photon energy, $E_\gamma$, to beam energy, $E_{elec}$. The g12 experiment ran with a constant electron energy of $E_{elec} = 5.715$ GeV.  (The actual electron beam energy was corrected on a run-by-run basis, see later section) The polarization of the electron beam was measured regularly using the a M{\o}ller polarimeter.  The polarimeter measures electron polarization by making use of the helicity dependent nature of M{\o}ller scattering~\cite{Mecking,Carman}. The M{\o}ller measurements, summarized in Table~\ref{moltable}, were performed regularly (every few days) during g12 and whenever we were notified of any beam changes. During the g12 running period, Hall B did not have the priority. As a result, the polarization of the beam was delivered as a byproduct as other Halls requirement, and fluctuates. However, the majority of the g12 runs has beam polarization close to 70\% with a total uncertainty estimated to be 5\%.  The run-integrated and flux -weighted value of the polarization of a particular range of photon energies can be easily obtained by using the maximum-Olsen formula.
 
 \begin{table}
 \begin{center}
@@ -53,7 +53,7 @@ The sub-analysis we performed required exclusive $p \pi^+ \pi^-$ events in the f
 I_\odot = \frac{1}{P_{\gamma}} \frac{N^+ - N^-}{N^+ + N^-},
 \end{equation}
 where $N^\pm$ indicates the number of events with positive (negative) photon helicity.  Figs.~\ref{myIo}-\ref{Io} show the $I_{\odot}(\phi^{hel}_{\pi^+})$ for g12 and in the analysis of \cite{Io}.
-The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. \begin{v2}The following method, stored in\begin{verbatim} /work/clas/clasg12/clasg12/clas6-trunk/include/gethelicity.h \end{verbatim} takes care of these issues and returns the helicity for a given event:
+The lab-frame electron helicity readout was taken from the HEVT bank (HEVT$\to$hevt[0].TGRPRS). The results of our $I_{\odot}(\phi^{hel}_{\pi^+})$ analysis and the previously published results showed a positive (negative) HEVT readout indicates positive (negative) photon helicity. The following method, stored in\begin{verbatim} /work/clas/clasg12/clasg12/clas6-trunk/include/gethelicity.h \end{verbatim} takes care of these issues and returns the helicity for a given event:
 
 \begin{verbatim}
 int GetHelicity(clasHEVT_t *HEVT)
@@ -65,10 +65,10 @@ int GetHelicity(clasHEVT_t *HEVT)
      return helicity;
 }
 \end{verbatim}
-\end{v2}
-The reproduction of beam-helicity asymmetry for double charged pion production also served as a way to test the accuracy of the calculated photon polarization magnitude: both results' wave amplitudes were in good agreement. \begin{v2}
+
+The reproduction of beam-helicity asymmetry for double charged pion production also served as a way to test the accuracy of the calculated photon polarization magnitude: both results' wave amplitudes were in good agreement. 
 FIU and FSU independently measured the beam-helicity asymmetry and were in good agreement with each other. The pull distribution between FIU and FSU is shown in figure~\ref{fig:pol:g12compare} and the pull distribution between FIU and g1c's results are shown in figure~\ref{fig:pol:g12g1ccompare}. Both FIU and FSU use approximately 15\% of the entire dataset (due to the independence of the two measurements, their selection of the data is most likely not the same). Figure~\ref{fig:pol:g12g1ccompare} shows good agreement between g12 and g1c's beam-helicity measurement.
-\end{v2}
+
 
 \begin{figure}[htpb]
 \begin{center}
