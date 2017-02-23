@@ -3,6 +3,7 @@
 \begin{document}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
+
 \pagestyle{headings}
 
 \pdfbookmark[1]{Title}{title}
@@ -21,5 +22,11 @@
 \input{systematics}
 
 \input{bibliography}
-
+\clearpage
+\begin{appendices}
+\clearpage
+\phantomsection
+\includepdf[pages=1-,pagecommand={\section{\desg{g12} Analysis Procedures Cheat Sheet}}]{cheatsheet.pdf}%,\thispagestyle{fancy}
+\includepdf[pages={1-2},pagecommand={\section{\desg{g12} Analysis Checklist}}]{CheckList_II.pdf}%,\thispagestyle{fancy}
+\end{appendices}
 \end{document}
