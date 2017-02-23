@@ -1,8 +1,6 @@
-\def\thedraft{2.1}
-
 \title{\desg{g12} Analysis Procedures Cheat Sheet}
 \def\brieftitle{\desg{g12} Cheat Sheet}
-\date{\today}
+\date{}
 
 \documentclass[10pt,twocolumn,oneside,letterpaper]{article}
 
@@ -90,30 +88,16 @@
 %%% headers. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 
-\fancypagestyle{headings}{
-    \renewcommand{\headheight}{30pt}
-    \renewcommand{\headrulewidth}{0pt}
-    %%% draft headers
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
-    \fancyhead[R]{Typeset on \today}
-    %%% final headers
-    %\fancyhead[L]{\brieftitle}
-    %\fancyhead[R]{\nouppercase{\leftmark}}
-}
+
 
 %%% draft header for plain and empty pages
-\fancypagestyle{plain}{
-    \renewcommand{\headheight}{30pt}
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
-    \fancyhead[R]{Typeset on \today}
-    \renewcommand{\headrulewidth}{0pt}
-}
-\fancypagestyle{empty}{
-    \renewcommand{\headheight}{30pt}
-    \fancyhead[L]{\brieftitle \quad \bf{DRAFT \thedraft}}
-    \fancyhead[R]{Typeset on \today}
-    \renewcommand{\headrulewidth}{0pt}
-}
+%\fancypagestyle{plain}{
+%    \renewcommand{\headheight}{30pt}
+%    \fancyhead[L]{\brieftitle}
+%    \fancyhead[R]{}
+%    \renewcommand{\headrulewidth}{0pt}
+%}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{variables}
@@ -122,25 +106,17 @@
 \pagenumbering{gobble}
 
 \begin{document}
-
-%%% define the footnote symbol. Can be one of these:
-    %\fnsymbol   *, + ...
-    %\arabic     1, 2 ...
-    %\roman      i, ii ...
-    %\Roman      I, II ...
-    %\alph       a, b ...
-    %\Alph       A, B ...
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
-\pagestyle{empty}
-\thispagestyle{empty}
-%\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+%\pagestyle{empty}
+%\thispagestyle{empty}
 
 \twocolumn[
   \begin{@twocolumnfalse}
-    \maketitle
+  	\vspace*{1.5cm}
+   % \maketitle
     \begin{abstract}
-Use of this cheat sheet assumes you have read and understood every word in the official \emph{g12 Analysis Procedures, Statistics and Systematics} CLAS note. The authors are not responsible for lost time due to blindly following the steps described herein.
+Use of this cheat sheet assumes you have read and understood every word in the official \emph{g12 Analysis Procedures, Statistics and Systematics} CLAS-NOTE 2017 - 002. The authors are not responsible for lost time due to blindly following the steps described herein.
 
 \vspace{0.2in}
 
@@ -148,7 +124,7 @@ Use of this cheat sheet assumes you have read and understood every word in the o
   \end{@twocolumnfalse}
   ]
 
-\section{environment}
+\section{Environment}
 
 \small
 
@@ -165,7 +141,7 @@ For lepton analyses, use this run index (and run 10 for MC):
  setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexg12_mk
 \end{verbatim}
 
-\section{simulation}
+\section{Simulation}
 
 \subsection{Digitization}
 
